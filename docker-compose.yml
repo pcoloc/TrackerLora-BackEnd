@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  backend:
+    build: ./backend
+    container_name: trackerlora_back
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+    networks:
+      - trackerlora
