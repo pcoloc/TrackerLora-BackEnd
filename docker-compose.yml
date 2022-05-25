@@ -8,4 +8,4 @@ services:
       - "8081:8081"
     restart: unless-stopped
     networks:
-      - trackerlora
+      - trackerlora_trackerlora
