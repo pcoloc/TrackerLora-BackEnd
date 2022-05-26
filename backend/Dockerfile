@@ -16,5 +16,5 @@ FROM --platform=linux/amd64 openjdk:17-alpine
 # set deployment directory
 WORKDIR /home/root/app
 # copy over the built artifact from the maven image
-COPY --from=build /opt/demo/target/demo-0.0.1-SNAPSHOT.jar /home/root/app
-ENTRYPOINT ["java","-jar","demo-0.0.1-SNAPSHOT.jar"]
+COPY --from=build /opt/demo/target/backend-0.0.1-SNAPSHOT.jar /home/root/app
+ENTRYPOINT ["java","-jar","backend-0.0.1-SNAPSHOT.jar"]
