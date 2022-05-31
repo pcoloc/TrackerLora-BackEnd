@@ -13,14 +13,12 @@ import java.util.List;
 @RepositoryRestResource
 public interface UserRepository extends CrudRepository<User, Long>{
      /**
-  @Query("select u from User u where u.name")
-  User findByName(String name);
+  @Query("select u from user u where u.name")
+  user findByName(String name);
   */
-  List<User> findByName(@Param("name") String name);
+  List<User> findByFirstName(@Param("firstName") String firstName);
+  List<User> findAll();
+  User findUserByUsername(@Param("username") String username);
+  void deleteByUuid(String uuid);
 
-    List<User> findAll();
-
-   void deleteById(Long id);
-
-   User save(User user);
 }

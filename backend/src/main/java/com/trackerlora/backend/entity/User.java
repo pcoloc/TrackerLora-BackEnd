@@ -1,6 +1,9 @@
 package com.trackerlora.backend.entity;
 
 
+import java.util.UUID;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,43 +12,61 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    private String uuid;
 
-    @NotBlank(message = "Name is mandatory")
-    private String name;
+    @NotBlank(message = "FirstName is mandatory")
+    private String firstName;
+
+    @NotBlank(message = "LastName is mandatory")
+    private String lastName;
 
     @NotBlank(message = "Email is mandatory")
     @Email
     private String email;
 
+    @NotBlank(message = "Password is mandatory")
+    private String password;
+
+    @NotBlank(message = "Username is mandatory")
+    private String username;
+
+    @NotBlank(message = "Role is mandatory")
+    private String role;
+
     public User() {
 
     }
-    public User(String name, String email) {
-        this.name = name;
-        this.email = email;
+    public String getUuid() {
+        return uuid;
     }
 
-    public long getId() {
-        return id;
+    public void setId(String uuid) {
+        this.uuid = uuid;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getName() {
-        return name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -56,9 +77,35 @@ public class User {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+
+
     @Override
     public String toString() {
-        return "User [id=" + id + ", name=" + name + ", email=" + email + "]";
+        return "User [uuid=" + uuid + ", firstName=" + firstName + ", email=" + email + "]";
     }
 
 }
