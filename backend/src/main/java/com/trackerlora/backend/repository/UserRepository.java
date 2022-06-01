@@ -11,14 +11,17 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RepositoryRestResource
-public interface UserRepository extends CrudRepository<User, Long>{
+public interface UserRepository extends CrudRepository<User, String>{
      /**
   @Query("select u from user u where u.name")
   user findByName(String name);
   */
   List<User> findByFirstName(@Param("firstName") String firstName);
   List<User> findAll();
-  User findUserByUsername(@Param("username") String username);
-  void deleteByUuid(String uuid);
+  User findUserByUsername(@Param("userName") String userName);
+
+  User findUserByUuid(@Param("uuid") String uuid);
+
+    void deleteByUuid(String uuid);
 
 }

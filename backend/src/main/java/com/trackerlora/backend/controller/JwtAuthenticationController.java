@@ -83,17 +83,20 @@ public class JwtAuthenticationController {
                                       @RequestParam("last_name") String lastName,
                                       @RequestParam("user_name") String userName, @RequestParam("email") String email
             , @RequestParam("password") String password) {
+                logger.info(userName);
         Map<String, Object> responseMap = new HashMap<>();
         User user = new User();
         user.setFirstName(firstName);
+        logger.info(user.getFirstName());
         user.setLastName(lastName);
         user.setEmail(email);
         user.setPassword(new BCryptPasswordEncoder().encode(password));
         user.setRole("USER");
         user.setUsername(userName);
+        userRepository.save(user);
         UserDetails userDetails = userDetailsService.loadUserByUsername(userName);
         String token = jwtTokenUtil.generateToken(userDetails);
-        userRepository.save(user);
+        //userRepository.save(user);
         responseMap.put("error", false);
         responseMap.put("username", userName);
         responseMap.put("message", "Account created successfully");
