@@ -1,6 +1,6 @@
 package com.trackerlora.backend.config;
 
-import com.trackerlora.backend.config.JwtRequestFilter;
+//import com.trackerlora.backend.config.JwtRequestFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
