@@ -26,7 +26,7 @@ public class UserController {
     private UserRepository repository;
 
     @GetMapping()
-    public Map<String, Object> getUserName() {
+    public Map<String, Object> getUsername() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userMap = new HashMap<>();
         userMap.put("username", authentication.getName());
