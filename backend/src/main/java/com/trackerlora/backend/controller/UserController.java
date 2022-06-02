@@ -21,14 +21,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com", allowedHeaders = " ")
 public class UserController {
 
     @Autowired
     private UserRepository repository;
 
     @GetMapping()
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @CrossOrigin(origins = " ", allowedHeaders = " ")
     public Map<String, Object> getUsername() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userMap = new HashMap<>();
@@ -38,19 +38,19 @@ public class UserController {
     }
 
     @PostMapping()
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @CrossOrigin(origins = " ", allowedHeaders = " ")
     public User createUser(@RequestBody User user) {
         return repository.save(user);
     }
 
     @PutMapping()
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @CrossOrigin(origins = " ", allowedHeaders = " ")
     public User updateUser(@PathVariable int uuid, @RequestBody User user) {
         return repository.save(user);
     }
 
     @DeleteMapping()
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @CrossOrigin(origins = " ", allowedHeaders = " ")
     public void deleteUser(@PathVariable("uuid") String uuid) {
         repository.deleteByUuid(uuid);
     }
