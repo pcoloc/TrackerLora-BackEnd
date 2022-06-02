@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/relation")
-@CrossOrigin(origins = " ", allowedHeaders = " ")
+@CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com", allowedHeaders = "*")
 public class RelationController {
 
     @Autowired

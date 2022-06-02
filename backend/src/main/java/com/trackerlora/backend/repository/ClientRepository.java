@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 @RepositoryRestResource
-@CrossOrigin(origins = " ", allowedHeaders = " ")
+@CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com", allowedHeaders = "*")
 public interface ClientRepository extends CrudRepository<Client, String> {
 
         Client findByUuid(@Param("uuid") String uuid);

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @RepositoryRestResource
-@CrossOrigin(origins = " ", allowedHeaders = " ")
+@CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com", allowedHeaders = "*")
 public interface RelationRepository extends CrudRepository<Relation, String> {
 
         List<Relation> findAll();

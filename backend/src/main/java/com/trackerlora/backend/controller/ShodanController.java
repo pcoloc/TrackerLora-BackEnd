@@ -21,14 +21,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/shodan")
-@CrossOrigin(origins = " ", allowedHeaders = " ")
+@CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com", allowedHeaders = "*")
 public class ShodanController {
 
         @Autowired
         private ShodanRepository repository;
 
         @GetMapping()
-        @CrossOrigin(origins = " ", allowedHeaders = " ")
+        @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com", allowedHeaders = "*")
         public Map<String, Object> getUsername() {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             Map<String, Object> userMap = new HashMap<>();
@@ -38,19 +38,19 @@ public class ShodanController {
         }
 
         @PostMapping()
-        @CrossOrigin(origins = " ", allowedHeaders = " ")
+        @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com", allowedHeaders = "*")
         public Shodan createShodan(@RequestBody Shodan shodan) {
             return repository.save(shodan);
         }
 
         @PutMapping()
-        @CrossOrigin(origins = " ", allowedHeaders = " ")
+        @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com", allowedHeaders = "*")
         public Shodan updateShodan(@PathVariable int uuid, @RequestBody Shodan shodan) {
             return repository.save(shodan);
         }
 
         @DeleteMapping()
-        @CrossOrigin(origins = " ", allowedHeaders = " ")
+        @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com", allowedHeaders = "*")
         public void deleteShodan(@PathVariable("uuid") String uuid) {
             repository.deleteByUuid(uuid);
         }
