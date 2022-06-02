@@ -18,7 +18,7 @@ public class BackendApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/greeting-javaconfig").allowedOrigins("https://trackerlora.lopezcarrillo.com");
+				registry.addMapping("/**").allowedOrigins("https://trackerlora.lopezcarrillo.com");
 			}
 		};
 	}
