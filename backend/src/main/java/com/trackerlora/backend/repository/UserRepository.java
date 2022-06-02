@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RepositoryRestResource
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public interface UserRepository extends CrudRepository<User, String>{
      /**
   @Query("select u from user u where u.name")
@@ -22,6 +22,7 @@ public interface UserRepository extends CrudRepository<User, String>{
 
   User findUserByUuid(@Param("uuid") String uuid);
 
-    void deleteByUuid(String uuid);
+
+  void deleteByUuid(String uuid);
 
 }

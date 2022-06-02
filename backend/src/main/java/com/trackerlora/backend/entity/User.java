@@ -105,4 +105,7 @@ public class User {
         return "User [uuid=" + uuid + ", firstName=" + firstName + ", email=" + email + "]";
     }
 
+
+
+
 }

@@ -9,9 +9,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 
 @Entity
-@Table(name = "apis")
-public class Api {
-
+@Table(name = "shodan")
+public class Shodan {
     @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
@@ -19,15 +18,11 @@ public class Api {
 
     private String name;
 
-    private String description;
-
     private String apiKey;
 
     private String ownerUuid;
 
     private boolean isActive;
-
-    private String clientUuid;
 
     public String getUuid() {
         return uuid;
@@ -43,14 +38,6 @@ public class Api {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getApiKey() {
@@ -77,39 +64,50 @@ public class Api {
         this.isActive = isActive;
     }
 
-    public String getClientUuid() {
-        return clientUuid;
+    public Shodan() {
     }
 
-    public void setClientUuid(String clientUuid) {
-        this.clientUuid = clientUuid;
-    }
-
-    public Api() {
-    }
-
-    public Api(String uuid, String name, String description, String apiKey, String ownerUuid, boolean isActive, String clientUuid) {
+    public Shodan(String uuid, String name, String apiKey, String ownerUuid, boolean isActive) {
         this.uuid = uuid;
         this.name = name;
-        this.description = description;
         this.apiKey = apiKey;
         this.ownerUuid = ownerUuid;
         this.isActive = isActive;
-        this.clientUuid = clientUuid;
     }
 
     @Override
     public String toString() {
-        return "Api{" +
+        return "shodan{" +
                 "uuid='" + uuid + '\'' +
                 ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
                 ", apiKey='" + apiKey + '\'' +
                 ", ownerUuid='" + ownerUuid + '\'' +
                 ", isActive=" + isActive +
-                ", clientUuid='" + clientUuid + '\'' +
                 '}';
     }
+
+    public Shodan(String uuid, String name, String apiKey, String ownerUuid) {
+        this.uuid = uuid;
+        this.name = name;
+        this.apiKey = apiKey;
+        this.ownerUuid = ownerUuid;
+    }
+
+    public Shodan(String name, String apiKey, String ownerUuid) {
+        this.name = name;
+        this.apiKey = apiKey;
+        this.ownerUuid = ownerUuid;
+    }
+
+    public Shodan(String name, String apiKey) {
+        this.name = name;
+        this.apiKey = apiKey;
+    }
+
+    public Shodan(String name) {
+        this.name = name;
+    }
+
 
 
 }
