@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @RepositoryRestResource
-@CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com", allowedHeaders = "*")
+@CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
 public interface UserRepository extends CrudRepository<User, String>{
      /**
   @Query("select u from user u where u.name")

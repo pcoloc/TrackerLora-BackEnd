@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 @RepositoryRestResource
-@CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com", allowedHeaders = "*")
+@CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
 public interface MonitorRepository extends CrudRepository<Monitor, String> {
 
         List<Monitor> findAll();

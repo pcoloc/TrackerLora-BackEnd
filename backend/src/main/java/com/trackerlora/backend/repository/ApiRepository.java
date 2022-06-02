@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 @RepositoryRestResource
-@CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com", allowedHeaders = "*")
+@CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
 public interface ApiRepository extends CrudRepository<Api, String> {
 
 
