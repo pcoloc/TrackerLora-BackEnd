@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/client")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = " ", allowedHeaders = " ")
 public class ClientController {
 
         @Autowired

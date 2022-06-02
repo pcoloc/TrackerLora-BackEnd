@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RepositoryRestResource
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = " ", allowedHeaders = " ")
 public interface ShodanRepository extends CrudRepository<Shodan, String> {
 
         List<Shodan> findAll();
