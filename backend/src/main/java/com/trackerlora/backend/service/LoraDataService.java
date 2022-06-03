@@ -3,6 +3,7 @@ package com.trackerlora.backend.service;
 import com.trackerlora.backend.dto.LoraData;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.io.IOException;
 import org.jsoup.Jsoup;
@@ -10,6 +11,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 @Component("loraDataService") // (1) Anotación de componente.
+@CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com") // (2) Anotación de CORS.
 public class LoraDataService {
 
     LoraData loraData = new LoraData();
