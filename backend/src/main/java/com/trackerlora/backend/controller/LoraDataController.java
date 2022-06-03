@@ -24,7 +24,7 @@ public class LoraDataController {
     private LoraDataService loraDataService;
 
     // (4) Mapeo de petición GET a la URL /lora/data.
-    @GetMapping("data")
+    @GetMapping()
     @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
     public ResponseEntity<LoraData> getLoraData() {
         // (5) Devuelve una lista de objetos LoraData con los datos del scraping realizados por el servicio.
