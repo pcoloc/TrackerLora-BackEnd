@@ -33,6 +33,7 @@ public class UserController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userMap = new HashMap<>();
         userMap.put("username", authentication.getName());
+        userMap.put("email", authentication.getCredentials());
         userMap.put("error", false);
         return userMap;
     }
