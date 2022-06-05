@@ -11,8 +11,8 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 
-@RepositoryRestResource
 @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
+@RepositoryRestResource
 public interface MonitorRepository extends CrudRepository<Monitor, String> {
 
         List<Monitor> findAll();

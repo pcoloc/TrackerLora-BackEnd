@@ -11,11 +11,13 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 
-@RepositoryRestResource
 @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
+@RepositoryRestResource
 public interface ClientRepository extends CrudRepository<Client, String> {
 
         Client findByUuid(@Param("uuid") String uuid);
         List<Client> findAll();
         Client deleteByUuid(@Param("uuid") String uuid);
+        //find by router = false
+        List<Client> findByisRouter(@Param("isRouter") boolean isRouter);
 }

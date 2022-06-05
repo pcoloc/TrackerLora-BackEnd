@@ -5,6 +5,7 @@ import com.trackerlora.backend.repository.ClientRepository;
 
 import java.util.List;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,12 +24,14 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
 public class ClientController {
 
-        @Autowired
-        private ClientRepository clientRepository;
+    @Autowired
+    private ClientRepository clientRepository;
+    Logger logger = org.slf4j.LoggerFactory.getLogger(ClientController.class);
 
         @GetMapping("/{uuid}")
         public ResponseEntity<Client> getClient(@PathVariable("uuid") String uuid) {
             Client client = clientRepository.findByUuid(uuid);
+            logger.warn("client: " + client);
             return new ResponseEntity<Client>(client, HttpStatus.OK);
         }
 
@@ -55,5 +58,22 @@ public class ClientController {
             clientRepository.deleteByUuid(uuid);
             return new ResponseEntity<String>("Client deleted", HttpStatus.OK);
         }
+
+        @GetMapping("/nodes")
+        public ResponseEntity<List<Client>> getAllNodes() {
+            List<Client> clients = clientRepository.findByisRouter(false);
+            return new ResponseEntity<List<Client>>(clients, HttpStatus.OK);
+        }
+
+        @GetMapping("/routers")
+        public ResponseEntity<List<Client>> getAllRouters() {
+            List<Client> clients = clientRepository.findByisRouter(true);
+            return new ResponseEntity<List<Client>>(clients, HttpStatus.OK);
+        }
+
+
+
+
+
 
 }

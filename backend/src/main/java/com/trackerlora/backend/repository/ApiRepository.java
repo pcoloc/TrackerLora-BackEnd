@@ -10,8 +10,8 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 
-@RepositoryRestResource
 @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
+@RepositoryRestResource
 public interface ApiRepository extends CrudRepository<Api, String> {
 
 

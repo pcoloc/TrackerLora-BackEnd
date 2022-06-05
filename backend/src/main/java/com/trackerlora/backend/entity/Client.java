@@ -1,5 +1,6 @@
 package com.trackerlora.backend.entity;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -22,8 +24,10 @@ public class Client {
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String uuid;
 
+    @NotBlank(message = "isRouter is mandatory")
     private boolean isRouter;
 
+    @NotBlank(message = "name is mandatory")
     private String name;
 
     private String description;
@@ -41,8 +45,9 @@ public class Client {
 
     private boolean isActive;
 
+    private Date addedAt;
 
-
+    private String ttnId;
 
     public String getUuid() {
         return uuid;
@@ -122,6 +127,22 @@ public class Client {
 
     public void setActive(boolean isActive) {
         this.isActive = isActive;
+    }
+
+    public Date getAddedAt() {
+        return addedAt;
+    }
+
+    public void setAddedAt(Date addedAt) {
+        this.addedAt = addedAt;
+    }
+
+    public String getTtnId() {
+        return ttnId;
+    }
+
+    public void setTtnId(String ttnId) {
+        this.ttnId = ttnId;
     }
 
     public Client() {

@@ -33,7 +33,10 @@ public class UserController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userMap = new HashMap<>();
         userMap.put("username", authentication.getName());
-        userMap.put("email", authentication.getCredentials());
+        //get user from database to get the email and uuid and put it in the map
+        User user = repository.findUserByUsername(authentication.getName());
+        userMap.put("email", user.getEmail());
+        userMap.put("uuid", user.getUuid());
         userMap.put("error", false);
         return userMap;
     }

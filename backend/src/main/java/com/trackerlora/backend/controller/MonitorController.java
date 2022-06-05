@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/monitor")
 @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
+@RequestMapping("/monitor")
 public class MonitorController {
 
     @Autowired

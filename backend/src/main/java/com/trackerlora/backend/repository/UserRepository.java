@@ -9,20 +9,14 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
-@RepositoryRestResource
 @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
+@RepositoryRestResource
 public interface UserRepository extends CrudRepository<User, String>{
-     /**
-  @Query("select u from user u where u.name")
-  user findByName(String name);
-  */
+
   List<User> findByFirstName(@Param("firstName") String firstName);
   List<User> findAll();
   User findUserByUsername(@Param("userName") String userName);
-
   User findUserByUuid(@Param("uuid") String uuid);
-
-
   void deleteByUuid(String uuid);
 
 }

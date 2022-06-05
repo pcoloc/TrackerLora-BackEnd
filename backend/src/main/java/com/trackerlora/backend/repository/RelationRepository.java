@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
-@RepositoryRestResource
 @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
+@RepositoryRestResource
 public interface RelationRepository extends CrudRepository<Relation, String> {
 
         List<Relation> findAll();

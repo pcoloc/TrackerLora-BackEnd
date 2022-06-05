@@ -1,6 +1,6 @@
 package com.trackerlora.backend.repository;
 
-import com.trackerlora.backend.entity.Shodan;
+import com.trackerlora.backend.entity.StatsTTN;
 
 import java.util.List;
 
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
 @RepositoryRestResource
-public interface ShodanRepository extends CrudRepository<Shodan, String> {
+public interface StatsTTNRepository extends CrudRepository<StatsTTN, String>  {
 
-        List<Shodan> findAll();
-        Shodan deleteByUuid(@Param("uuid") String uuid);
-        Shodan findByUuid(@Param("uuid") String uuid);
+        List<StatsTTN> findAll();
+        StatsTTN deleteByUuid(@Param("uuid") String uuid);
+        StatsTTN findByUuid(@Param("uuid") String uuid);
+        List<StatsTTN> findByClientId(String clientId);
 
 }
-
 
