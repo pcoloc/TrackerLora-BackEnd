@@ -36,11 +36,12 @@ public class UserController {
         //get user from database to get the email and uuid and put it in the map
         User user = repository.findUserByUsername(authentication.getName());
         userMap.put("email", user.getEmail());
+        userMap.put("first_name", user.getFirstName());
+        userMap.put("last_name", user.getLastName());
         userMap.put("uuid", user.getUuid());
         userMap.put("error", false);
         return userMap;
     }
-
     @PostMapping()
     @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
     public User createUser(@RequestBody User user) {
