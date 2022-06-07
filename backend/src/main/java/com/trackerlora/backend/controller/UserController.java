@@ -21,14 +21,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
+@CrossOrigin(origins = "https://trackerlora2.lopezcarrillo.com")
 public class UserController {
 
     @Autowired
     private UserRepository repository;
 
     @GetMapping()
-    @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
+    @CrossOrigin(origins = "https://trackerlora2.lopezcarrillo.com")
     public Map<String, Object> getUsername() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userMap = new HashMap<>();
@@ -43,19 +43,19 @@ public class UserController {
         return userMap;
     }
     @PostMapping()
-    @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
+    @CrossOrigin(origins = "https://trackerlora2.lopezcarrillo.com")
     public User createUser(@RequestBody User user) {
         return repository.save(user);
     }
 
     @PutMapping()
-    @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
+    @CrossOrigin(origins = "https://trackerlora2.lopezcarrillo.com")
     public User updateUser(@PathVariable int uuid, @RequestBody User user) {
         return repository.save(user);
     }
 
     @DeleteMapping()
-    @CrossOrigin(origins = "https://trackerlora.lopezcarrillo.com")
+    @CrossOrigin(origins = "https://trackerlora2.lopezcarrillo.com")
     public void deleteUser(@PathVariable("uuid") String uuid) {
         repository.deleteByUuid(uuid);
     }
