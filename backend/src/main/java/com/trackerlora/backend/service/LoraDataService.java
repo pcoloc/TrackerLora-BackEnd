@@ -27,7 +27,7 @@ public class LoraDataService {
             Element date = tbody.getElementsByClass("date").get(0);
             Element content = tbody.getElementById("article-content");
             Element urlImage = content.getElementsByTag("img").get(0);
-            loraData.Author = author.text();
+            loraData.author = author.text();
             loraData.title = title.text();
             loraData.content = content.text();
             loraData.date = date.text();
