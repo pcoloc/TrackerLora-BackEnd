@@ -20,7 +20,7 @@ public class BackendApplication {
 		SpringApplication.run(BackendApplication.class, args);
 	}
 
-	//@EnableWebSecurity
+	@EnableWebSecurity
 	@Configuration
 	class SecurityConfiguration {
 
