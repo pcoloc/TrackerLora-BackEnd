@@ -12,6 +12,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class BackendApplication {
@@ -20,25 +22,36 @@ public class BackendApplication {
 		SpringApplication.run(BackendApplication.class, args);
 	}
 
-	@EnableWebSecurity
-	@Configuration
-	class SecurityConfiguration {
+    // @Bean
+	// public WebMvcConfigurer corsConfigurer() {
+	// 	return new WebMvcConfigurer() {
+	// 		@Override
+	// 		public void addCorsMappings(CorsRegistry registry) {
+	// 			registry.addMapping("/**").allowedOrigins("https://trackerlora.lopezcarrillo.com");
+    //             registry.addMapping("/**").allowedOrigins("http://localhost:4200");
+	// 		}
+	// 	};
+	// }
 
-        @Bean
-        public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-            http.csrf().disable()
-            .addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
-            .authorizeRequests()
-            .antMatchers(HttpMethod.POST, "/auth/register", "/auth/login" ).permitAll()
-            .anyRequest().authenticated()
-            .and()
-            .httpBasic();
+	// @EnableWebSecurity
+	// @Configuration
+	// class SecurityConfiguration {
 
-            return http.build();
-        }
+    //     @Bean
+    //     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    //         http.csrf().disable()
+    //         .addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
+    //         .authorizeRequests()
+    //         .antMatchers(HttpMethod.POST, "/auth/register", "/auth/login" ).permitAll()
+    //         .anyRequest().authenticated()
+    //         .and()
+    //         .httpBasic();
+
+    //         return http.build();
+    //     }
 
 
-	}
+	// }
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
