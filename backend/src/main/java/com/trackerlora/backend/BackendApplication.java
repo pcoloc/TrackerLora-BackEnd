@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class BackendApplication {
@@ -22,7 +23,6 @@ public class BackendApplication {
 	//@EnableWebSecurity
 	@Configuration
 	class SecurityConfiguration {
-
 
         @Bean
         public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -36,7 +36,13 @@ public class BackendApplication {
 
             return http.build();
         }
+
+
 	}
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 }
 
 // import org.springframework.boot.SpringApplication;
