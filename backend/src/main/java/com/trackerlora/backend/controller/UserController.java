@@ -59,6 +59,4 @@ public class UserController {
     public void deleteUser(@PathVariable("uuid") String uuid) {
         repository.deleteByUuid(uuid);
     }
-
-
 }
