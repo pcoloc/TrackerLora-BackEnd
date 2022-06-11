@@ -21,14 +21,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = {"https://trackerlora.lopezcarrillo.com", "http://localhost:4200"})
+@CrossOrigin(origins = {"https://trackerlora.lopezcarrillo.com", "http://localhost:4200", "*"})
 public class UserController {
 
     @Autowired
     private UserRepository repository;
 
     @GetMapping("/details")
-    @CrossOrigin(origins = {"https://trackerlora.lopezcarrillo.com", "http://localhost:4200"})
+    @CrossOrigin(origins = {"https://trackerlora.lopezcarrillo.com", "http://localhost:4200", "*"})
     public Map<String, Object> getUsername() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Map<String, Object> userMap = new HashMap<>();
