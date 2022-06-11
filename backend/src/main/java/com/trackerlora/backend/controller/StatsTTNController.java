@@ -59,7 +59,7 @@ public class StatsTTNController {
         //resttemplate with bearer Token at header
             HttpHeaders headers = new HttpHeaders();
             headers.set("Authorization", "Bearer " + client.getApiKey());
-            HttpEntity request = new HttpEntity(headers);
+            HttpEntity<?> request = new HttpEntity<Object>(headers);
             logger.warn(client.getApiKey());
             String url = urlString + client.getTtnId() + "/connection/stats";
             ResponseEntity<String> response = this.restTemplate.exchange(url, HttpMethod.GET, request, String.class);
