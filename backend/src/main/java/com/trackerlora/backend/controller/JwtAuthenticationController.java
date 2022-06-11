@@ -14,6 +14,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,6 +43,7 @@ public class JwtAuthenticationController {
     }
 
     @PostMapping("/login")
+    @CrossOrigin(origins = {"https://trackerlora.lopezcarrillo.com", "http://localhost:4200"})
     public ResponseEntity<?> loginUser(@RequestParam("user_name") String username,
                                        @RequestParam("password") String password) {
         Map<String, Object> responseMap = new HashMap<>();
@@ -79,6 +81,7 @@ public class JwtAuthenticationController {
     }
 
     @PostMapping("/register")
+    @CrossOrigin(origins = {"https://trackerlora.lopezcarrillo.com", "http://localhost:4200"})
     public ResponseEntity<?> saveUser(@RequestParam("first_name") String firstName,
                                       @RequestParam("last_name") String lastName,
                                       @RequestParam("user_name") String userName, @RequestParam("email") String email
