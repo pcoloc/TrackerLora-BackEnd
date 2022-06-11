@@ -25,7 +25,7 @@ public class LoraDataController {
 
     // (4) Mapeo de petición GET a la URL /lora/data.
     @CrossOrigin(origins = {"https://trackerlora.lopezcarrillo.com", "http://localhost:4200"})
-    @GetMapping()
+    @GetMapping("/data")
     public ResponseEntity<LoraData> getLoraData() {
         // (5) Devuelve una lista de objetos LoraData con los datos del scraping realizados por el servicio.
         return new ResponseEntity<LoraData>(loraDataService.retrieveLoraData(),
