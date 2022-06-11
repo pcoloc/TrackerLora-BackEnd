@@ -71,6 +71,20 @@ public class ClientController {
             return new ResponseEntity<List<Client>>(clients, HttpStatus.OK);
         }
 
+        @GetMapping("/routers/count")
+        public ResponseEntity<Integer> getRoutersCount() {
+            ResponseEntity<List<Client>> router = getAllRouters();
+            Integer count = router.getBody().size();
+            return new ResponseEntity<Integer>(count, HttpStatus.OK);
+        }
+
+        @GetMapping("/nodes/count")
+        public ResponseEntity<Integer> getNodesCount() {
+            ResponseEntity<List<Client>> nodes = getAllNodes();
+            Integer count = nodes.getBody().size();
+            return new ResponseEntity<Integer>(count, HttpStatus.OK);
+        }
+
 
 
 
