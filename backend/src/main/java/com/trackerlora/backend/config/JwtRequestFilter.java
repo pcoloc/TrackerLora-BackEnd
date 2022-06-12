@@ -4,6 +4,8 @@ package com.trackerlora.backend.config;
 import com.trackerlora.backend.service.JwtUserDetailsService;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,7 +24,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
     private final JwtUserDetailsService jwtUserDetailsService;
     private final JwtTokenUtil jwtTokenUtil;
-
+    // I need a logger
+    private Logger logger = LoggerFactory.getLogger(JwtRequestFilter.class);
     public JwtRequestFilter(JwtUserDetailsService jwtUserDetailsService, JwtTokenUtil jwtTokenUtil) {
         this.jwtUserDetailsService = jwtUserDetailsService;
         this.jwtTokenUtil = jwtTokenUtil;
@@ -33,6 +36,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         final String requestTokenHeader = request.getHeader("Authorization");
+        logger.warn("requestTokenHeader: {}", requestTokenHeader);
         if (StringUtils.startsWith(requestTokenHeader,"Bearer ")) {
             String jwtToken = requestTokenHeader.substring(7);
             try {
