@@ -1,6 +1,7 @@
 package com.trackerlora.backend.controller;
 
 import com.trackerlora.backend.entity.Client;
+import com.trackerlora.backend.entity.Location;
 import com.trackerlora.backend.repository.ClientRepository;
 
 import java.util.List;
@@ -84,6 +85,15 @@ public class ClientController {
             Integer count = nodes.getBody().size();
             return new ResponseEntity<Integer>(count, HttpStatus.OK);
         }
+
+        //Get last location registered sorted by date of a client by uuid
+        @GetMapping("/location/{uuid}")
+        public ResponseEntity<Location> getLastLocation(@PathVariable("uuid") String uuid) {
+            Client client = clientRepository.findByUuid(uuid);
+            Location location = client.getLastLocation();
+            return new ResponseEntity<Location>(location, HttpStatus.OK);
+        }
+
 
 
 

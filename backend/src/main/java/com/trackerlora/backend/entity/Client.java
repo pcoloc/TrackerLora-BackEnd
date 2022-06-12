@@ -2,6 +2,7 @@ package com.trackerlora.backend.entity;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -223,6 +224,22 @@ public class Client {
             return false;
         return true;
     }
+
+    //get las tlocation sort by date of the client
+    public Location getLastLocation() {
+        if (locations == null || locations.isEmpty()) {
+            return null;
+        }
+        Collections.sort(locations, new Comparator<Location>() {
+            @Override
+            public int compare(Location o1, Location o2) {
+                return o1.getDate().compareTo(o2.getDate());
+            }
+        });
+        return locations.get(locations.size() - 1);
+    }
+
+
 
 
 
