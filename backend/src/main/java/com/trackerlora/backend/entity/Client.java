@@ -15,6 +15,9 @@ import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 @Entity
 @Table(name = "clients")
@@ -89,7 +92,8 @@ public class Client {
     public void setLocations(List<Location> locations) {
         this.locations = locations;
     }
-
+    @JsonIgnore
+    @JsonProperty(value = "apiKey")
     public String getApiKey() {
         return apiKey;
     }
@@ -137,7 +141,8 @@ public class Client {
     public void setAddedAt(Date addedAt) {
         this.addedAt = addedAt;
     }
-
+    @JsonIgnore
+    @JsonProperty(value = "ttnId")
     public String getTtnId() {
         return ttnId;
     }
