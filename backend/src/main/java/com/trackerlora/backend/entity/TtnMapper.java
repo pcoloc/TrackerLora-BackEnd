@@ -61,7 +61,7 @@ public class TtnMapper {
 
     private float altitude;
 
-    private float accuracy_metters;
+    private float accuracy_meters;
 
     //Getter and Setter methods are automatically generated
     public Integer getId() {
@@ -256,12 +256,12 @@ public class TtnMapper {
         this.altitude = altitude;
     }
 
-    public float getAccuracyMetters() {
-        return accuracy_metters;
+    public float getAccuracyMeters() {
+        return accuracy_meters;
     }
 
-    public void setAccuracyMetters(float accuracy_metters) {
-        this.accuracy_metters = accuracy_metters;
+    public void setAccuracyMeters(float accuracy_meters) {
+        this.accuracy_meters = accuracy_meters;
     }
 
     @Override
@@ -273,14 +273,14 @@ public class TtnMapper {
                 + gateway_timestamp + ", ChannelIndex=" + channel_index + ", Rssi=" + rssi + ", Snr=" + snr
                 + ", GatewayLatitude=" + gateway_latitude + ", GatewayLongitude=" + gateway_longitude
                 + ", GatewayAltitude=" + gateway_altitude + ", Latitude=" + latitude + ", Longitude=" + longitude
-                + ", Altitude=" + altitude + ", AccuracyMetters=" + accuracy_metters + "]";
+                + ", Altitude=" + altitude + ", AccuracyMeters=" + accuracy_meters + "]";
     }
 
     public TtnMapper(Integer id, Integer uid, String session, String devID, Integer time, Integer fPort,
             Integer fCount, Integer frequency, Integer bandwidth, Integer spreadingFactor, String codingRate,
             String gatewayID, Integer antennaIndex, Integer gatewayTime, Integer gatewayTimestamp, Integer channelIndex,
             Integer rssi, Integer snr, float gatewayLatitude, float gatewayLongitude, Integer gatewayAltitude,
-            float latitude, float longitude, float altitude, float accuracyMetters) {
+            float latitude, float longitude, float altitude, float accuracyMeters) {
         super();
         this.id = id;
         this.uid = uid;
@@ -306,7 +306,7 @@ public class TtnMapper {
         this.latitude = latitude;
         this.longitude = longitude;
         this.altitude = altitude;
-        this.accuracy_metters = accuracyMetters;
+        this.accuracy_meters = accuracyMeters;
 
     }
 
