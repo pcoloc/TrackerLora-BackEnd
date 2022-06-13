@@ -15,6 +15,6 @@ import com.trackerlora.backend.entity.TtnMapper;
 public interface TtnMapperRepository extends CrudRepository<TtnMapper, String> {
 
     List<TtnMapper> findAll();
-    TtnMapper findTtnMapperByIndex(@Param("index") String index);
-   void deleteByIndex(Integer index);
+    TtnMapper findTtnMapperById(@Param("id") String id);
+   void deleteById(Integer id);
 }

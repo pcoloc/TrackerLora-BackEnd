@@ -10,10 +10,10 @@ import javax.persistence.Id;
 @Entity
 @Table(name = "ttnmapper")
 public class TtnMapper {
-    //the id is called index
+    //the id is called id
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer index;
+    private Integer id;
 
     private Integer uid;
 
@@ -64,12 +64,12 @@ public class TtnMapper {
     private float AccuracyMetters;
 
     //Getter and Setter methods are automatically generated
-    public Integer getIndex() {
-        return index;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIndex(Integer index) {
-        this.index = index;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getUid() {
@@ -266,7 +266,7 @@ public class TtnMapper {
 
     @Override
     public String toString() {
-        return "TtnMapper [index=" + index + ", uid=" + uid + ", Session=" + Session + ", DevID=" + DevID + ", Time="
+        return "TtnMapper [id=" + id + ", uid=" + uid + ", Session=" + Session + ", DevID=" + DevID + ", Time="
                 + Time + ", FPort=" + FPort + ", FCount=" + FCount + ", Frecuency=" + Frecuency + ", Bandwidth="
                 + Bandwidth + ", SpreadingFactor=" + SpreadingFactor + ", CodingRate=" + CodingRate + ", GatewayID="
                 + GatewayID + ", AntennaIndex=" + AntennaIndex + ", GatewayTime=" + GatewayTime + ", GatewayTimestamp="
@@ -276,13 +276,13 @@ public class TtnMapper {
                 + ", Altitude=" + Altitude + ", AccuracyMetters=" + AccuracyMetters + "]";
     }
 
-    public TtnMapper(Integer index, Integer uid, String session, String devID, Integer time, Integer fPort,
+    public TtnMapper(Integer id, Integer uid, String session, String devID, Integer time, Integer fPort,
             Integer fCount, Integer frecuency, Integer bandwidth, Integer spreadingFactor, String codingRate,
             String gatewayID, Integer antennaIndex, Integer gatewayTime, Integer gatewayTimestamp, Integer channelIndex,
             Integer rssi, Integer snr, float gatewayLatitude, float gatewayLongitude, Integer gatewayAltitude,
             float latitude, float longitude, float altitude, float accuracyMetters) {
         super();
-        this.index = index;
+        this.id = id;
         this.uid = uid;
         Session = session;
         DevID = devID;

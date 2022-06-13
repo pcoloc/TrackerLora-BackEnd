@@ -44,9 +44,9 @@ public class TtnMapperController {
         return new ResponseEntity<TtnMapper>(updatedTtnMapper, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{index}")
-    public ResponseEntity<String> deleteTtnMapper(@PathVariable("index") Integer index) {
-        ttnMapperRepository.deleteByIndex(index);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteTtnMapper(@PathVariable("id") Integer id) {
+        ttnMapperRepository.deleteById(id);
         return new ResponseEntity<String>("TtnMapper deleted", HttpStatus.OK);
     }
 
