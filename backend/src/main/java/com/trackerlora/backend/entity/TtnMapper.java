@@ -15,45 +15,45 @@ public class TtnMapper {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private Integer uid;
+    private long uid;
 
     private String session;
 
     private String dev_id;
 
-    private Integer time;
+    private long time;
 
-    private Integer fport;
+    private long fport;
 
-    private Integer fcount;
+    private long fcount;
 
-    private Integer frequency;
+    private long frequency;
 
-    private Integer bandwidth;
+    private long bandwidth;
 
-    private Integer spreading_factor;
+    private long spreading_factor;
 
     private String coding_rate;
 
     private String gateway_id;
 
-    private Integer antenna_index;
+    private long antenna_index;
 
-    private Integer gateway_time;
+    private long gateway_time;
 
-    private Integer gateway_timestamp;
+    private long gateway_timestamp;
 
-    private Integer channel_index;
+    private long channel_index;
 
-    private Integer rssi;
+    private long rssi;
 
-    private Integer snr;
+    private long snr;
 
     private float gateway_latitude;
 
     private float gateway_longitude;
 
-    private Integer gateway_altitude;
+    private long gateway_altitude;
 
     private float latitude;
 
@@ -72,11 +72,11 @@ public class TtnMapper {
         this.id = id;
     }
 
-    public Integer getUid() {
+    public long getUid() {
         return uid;
     }
 
-    public void setUid(Integer uid) {
+    public void setUid(long uid) {
         this.uid = uid;
     }
 
@@ -96,51 +96,51 @@ public class TtnMapper {
         this.dev_id = dev_id;
     }
 
-    public Integer getTime() {
+    public long getTime() {
         return time;
     }
 
-    public void setTime(Integer time) {
+    public void setTime(long time) {
         this.time = time;
     }
 
-    public Integer getFPort() {
+    public long getFPort() {
         return fport;
     }
 
-    public void setFPort(Integer fport) {
+    public void setFPort(long fport) {
         this.fport = fport;
     }
 
-    public Integer getFCount() {
+    public long getFCount() {
         return fcount;
     }
 
-    public void setFCount(Integer fcount) {
+    public void setFCount(long fcount) {
         this.fcount = fcount;
     }
 
-    public Integer getFrequency() {
+    public long getFrequency() {
         return frequency;
     }
 
-    public void setFrequency(Integer frequency) {
+    public void setFrequency(long frequency) {
         this.frequency = frequency;
     }
 
-    public Integer getBandwidth() {
+    public long getBandwidth() {
         return bandwidth;
     }
 
-    public void setBandwidth(Integer bandwidth) {
+    public void setBandwidth(long bandwidth) {
         this.bandwidth = bandwidth;
     }
 
-    public Integer getSpreadingFactor() {
+    public long getSpreadingFactor() {
         return spreading_factor;
     }
 
-    public void setSpreadingFactor(Integer spreading_factor) {
+    public void setSpreadingFactor(long spreading_factor) {
         this.spreading_factor = spreading_factor;
     }
 
@@ -160,51 +160,51 @@ public class TtnMapper {
         this.gateway_id = gateway_id;
     }
 
-    public Integer getAntennaIndex() {
+    public long getAntennaIndex() {
         return antenna_index;
     }
 
-    public void setAntennaIndex(Integer antenna_index) {
+    public void setAntennaIndex(long antenna_index) {
         this.antenna_index = antenna_index;
     }
 
-    public Integer getGatewayTime() {
+    public long getGatewayTime() {
         return gateway_time;
     }
 
-    public void setGatewayTime(Integer gateway_time) {
+    public void setGatewayTime(long gateway_time) {
         this.gateway_time = gateway_time;
     }
 
-    public Integer getGatewayTimestamp() {
+    public long getGatewayTimestamp() {
         return gateway_timestamp;
     }
 
-    public void setGatewayTimestamp(Integer gateway_timestamp) {
+    public void setGatewayTimestamp(long gateway_timestamp) {
         this.gateway_timestamp = gateway_timestamp;
     }
 
-    public Integer getChannelIndex() {
+    public long getChannelIndex() {
         return channel_index;
     }
 
-    public void setChannelIndex(Integer channel_index) {
+    public void setChannelIndex(long channel_index) {
         this.channel_index = channel_index;
     }
 
-    public Integer getRssi() {
+    public long getRssi() {
         return rssi;
     }
 
-    public void setRssi(Integer rssi) {
+    public void setRssi(long rssi) {
         this.rssi = rssi;
     }
 
-    public Integer getSnr() {
+    public long getSnr() {
         return snr;
     }
 
-    public void setSnr(Integer snr) {
+    public void setSnr(long snr) {
         this.snr = snr;
     }
 
@@ -224,11 +224,11 @@ public class TtnMapper {
         this.gateway_longitude = gateway_longitude;
     }
 
-    public Integer getGatewayAltitude() {
+    public long getGatewayAltitude() {
         return gateway_altitude;
     }
 
-    public void setGatewayAltitude(Integer gateway_altitude) {
+    public void setGatewayAltitude(long gateway_altitude) {
         this.gateway_altitude = gateway_altitude;
     }
 
@@ -276,10 +276,10 @@ public class TtnMapper {
                 + ", Altitude=" + altitude + ", AccuracyMeters=" + accuracy_meters + "]";
     }
 
-    public TtnMapper(Integer id, Integer uid, String session, String devID, Integer time, Integer fPort,
-            Integer fCount, Integer frequency, Integer bandwidth, Integer spreadingFactor, String codingRate,
-            String gatewayID, Integer antennaIndex, Integer gatewayTime, Integer gatewayTimestamp, Integer channelIndex,
-            Integer rssi, Integer snr, float gatewayLatitude, float gatewayLongitude, Integer gatewayAltitude,
+    public TtnMapper(Integer id, long uid, String session, String devID, long time, long fPort,
+            long fCount, long frequency, long bandwidth, long spreadingFactor, String codingRate,
+            String gatewayID, long antennaIndex, long gatewayTime, long gatewayTimestamp, long channelIndex,
+            long rssi, long snr, float gatewayLatitude, float gatewayLongitude, long gatewayAltitude,
             float latitude, float longitude, float altitude, float accuracyMeters) {
         super();
         this.id = id;
