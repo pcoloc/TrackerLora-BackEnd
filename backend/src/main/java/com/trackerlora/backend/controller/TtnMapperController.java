@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 @RestController
-@RequestMapping("/tnmapper")
+@RequestMapping("/ttnmapper")
 @CrossOrigin(origins = {"https://trackerlora.lopezcarrillo.com", "http://localhost:4200"})
 public class TtnMapperController {
 
