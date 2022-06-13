@@ -17,51 +17,51 @@ public class TtnMapper {
 
     private Integer uid;
 
-    private String Session;
+    private String session;
 
-    private String DevID;
+    private String dev_id;
 
-    private Integer Time;
+    private Integer time;
 
-    private Integer FPort;
+    private Integer fport;
 
-    private Integer FCount;
+    private Integer fcount;
 
-    private Integer Frecuency;
+    private Integer frecuency;
 
-    private Integer Bandwidth;
+    private Integer bandwidth;
 
-    private Integer SpreadingFactor;
+    private Integer spreading_factor;
 
-    private String CodingRate;
+    private String coding_rate;
 
-    private String GatewayID;
+    private String gateway_id;
 
-    private Integer AntennaIndex;
+    private Integer antenna_index;
 
-    private Integer GatewayTime;
+    private Integer gateway_time;
 
-    private Integer GatewayTimestamp;
+    private Integer gateway_timestamp;
 
-    private Integer ChannelIndex;
+    private Integer channel_index;
 
-    private Integer Rssi;
+    private Integer rssi;
 
-    private Integer Snr;
+    private Integer snr;
 
-    private float GatewayLatitude;
+    private float gateway_latitude;
 
-    private float GatewayLongitude;
+    private float gateway_longitude;
 
-    private Integer GatewayAltitude;
+    private Integer gateway_altitude;
 
-    private float Latitude;
+    private float latitude;
 
-    private float Longitude;
+    private float longitude;
 
-    private float Altitude;
+    private float altitude;
 
-    private float AccuracyMetters;
+    private float accuracy_metters;
 
     //Getter and Setter methods are automatically generated
     public Integer getId() {
@@ -81,199 +81,199 @@ public class TtnMapper {
     }
 
     public String getSession() {
-        return Session;
+        return session;
     }
 
     public void setSession(String session) {
-        Session = session;
+        this.session = session;
     }
 
     public String getDevID() {
-        return DevID;
+        return dev_id;
     }
 
-    public void setDevID(String devID) {
-        DevID = devID;
+    public void setDevID(String dev_id) {
+        this.dev_id = dev_id;
     }
 
     public Integer getTime() {
-        return Time;
+        return time;
     }
 
     public void setTime(Integer time) {
-        Time = time;
+        this.time = time;
     }
 
     public Integer getFPort() {
-        return FPort;
+        return fport;
     }
 
-    public void setFPort(Integer fPort) {
-        FPort = fPort;
+    public void setFPort(Integer fport) {
+        this.fport = fport;
     }
 
     public Integer getFCount() {
-        return FCount;
+        return fcount;
     }
 
-    public void setFCount(Integer fCount) {
-        FCount = fCount;
+    public void setFCount(Integer fcount) {
+        this.fcount = fcount;
     }
 
     public Integer getFrecuency() {
-        return Frecuency;
+        return frecuency;
     }
 
     public void setFrecuency(Integer frecuency) {
-        Frecuency = frecuency;
+        this.frecuency = frecuency;
     }
 
     public Integer getBandwidth() {
-        return Bandwidth;
+        return bandwidth;
     }
 
     public void setBandwidth(Integer bandwidth) {
-        Bandwidth = bandwidth;
+        this.bandwidth = bandwidth;
     }
 
     public Integer getSpreadingFactor() {
-        return SpreadingFactor;
+        return spreading_factor;
     }
 
-    public void setSpreadingFactor(Integer spreadingFactor) {
-        SpreadingFactor = spreadingFactor;
+    public void setSpreadingFactor(Integer spreading_factor) {
+        this.spreading_factor = spreading_factor;
     }
 
     public String getCodingRate() {
-        return CodingRate;
+        return coding_rate;
     }
 
-    public void setCodingRate(String codingRate) {
-        CodingRate = codingRate;
+    public void setCodingRate(String coding_rate) {
+        this.coding_rate = coding_rate;
     }
 
     public String getGatewayID() {
-        return GatewayID;
+        return gateway_id;
     }
 
-    public void setGatewayID(String gatewayID) {
-        GatewayID = gatewayID;
+    public void setGatewayID(String gateway_id) {
+        this.gateway_id = gateway_id;
     }
 
     public Integer getAntennaIndex() {
-        return AntennaIndex;
+        return antenna_index;
     }
 
-    public void setAntennaIndex(Integer antennaIndex) {
-        AntennaIndex = antennaIndex;
+    public void setAntennaIndex(Integer antenna_index) {
+        this.antenna_index = antenna_index;
     }
 
     public Integer getGatewayTime() {
-        return GatewayTime;
+        return gateway_time;
     }
 
-    public void setGatewayTime(Integer gatewayTime) {
-        GatewayTime = gatewayTime;
+    public void setGatewayTime(Integer gateway_time) {
+        this.gateway_time = gateway_time;
     }
 
     public Integer getGatewayTimestamp() {
-        return GatewayTimestamp;
+        return gateway_timestamp;
     }
 
-    public void setGatewayTimestamp(Integer gatewayTimestamp) {
-        GatewayTimestamp = gatewayTimestamp;
+    public void setGatewayTimestamp(Integer gateway_timestamp) {
+        this.gateway_timestamp = gateway_timestamp;
     }
 
     public Integer getChannelIndex() {
-        return ChannelIndex;
+        return channel_index;
     }
 
-    public void setChannelIndex(Integer channelIndex) {
-        ChannelIndex = channelIndex;
+    public void setChannelIndex(Integer channel_index) {
+        this.channel_index = channel_index;
     }
 
     public Integer getRssi() {
-        return Rssi;
+        return rssi;
     }
 
     public void setRssi(Integer rssi) {
-        Rssi = rssi;
+        this.rssi = rssi;
     }
 
     public Integer getSnr() {
-        return Snr;
+        return snr;
     }
 
     public void setSnr(Integer snr) {
-        Snr = snr;
+        this.snr = snr;
     }
 
     public float getGatewayLatitude() {
-        return GatewayLatitude;
+        return gateway_latitude;
     }
 
-    public void setGatewayLatitude(float gatewayLatitude) {
-        GatewayLatitude = gatewayLatitude;
+    public void setGatewayLatitude(float gateway_latitude) {
+        this.gateway_latitude = gateway_latitude;
     }
 
     public float getGatewayLongitude() {
-        return GatewayLongitude;
+        return gateway_longitude;
     }
 
-    public void setGatewayLongitude(float gatewayLongitude) {
-        GatewayLongitude = gatewayLongitude;
+    public void setGatewayLongitude(float gateway_longitude) {
+        this.gateway_longitude = gateway_longitude;
     }
 
     public Integer getGatewayAltitude() {
-        return GatewayAltitude;
+        return gateway_altitude;
     }
 
-    public void setGatewayAltitude(Integer gatewayAltitude) {
-        GatewayAltitude = gatewayAltitude;
+    public void setGatewayAltitude(Integer gateway_altitude) {
+        this.gateway_altitude = gateway_altitude;
     }
 
     public float getLatitude() {
-        return Latitude;
+        return latitude;
     }
 
     public void setLatitude(float latitude) {
-        Latitude = latitude;
+        this.latitude = latitude;
     }
 
     public float getLongitude() {
-        return Longitude;
+        return longitude;
     }
 
     public void setLongitude(float longitude) {
-        Longitude = longitude;
+        this.longitude = longitude;
     }
 
     public float getAltitude() {
-        return Altitude;
+        return altitude;
     }
 
     public void setAltitude(float altitude) {
-        Altitude = altitude;
+        this.altitude = altitude;
     }
 
     public float getAccuracyMetters() {
-        return AccuracyMetters;
+        return accuracy_metters;
     }
 
-    public void setAccuracyMetters(float accuracyMetters) {
-        AccuracyMetters = accuracyMetters;
+    public void setAccuracyMetters(float accuracy_metters) {
+        this.accuracy_metters = accuracy_metters;
     }
 
     @Override
     public String toString() {
-        return "TtnMapper [id=" + id + ", uid=" + uid + ", Session=" + Session + ", DevID=" + DevID + ", Time="
-                + Time + ", FPort=" + FPort + ", FCount=" + FCount + ", Frecuency=" + Frecuency + ", Bandwidth="
-                + Bandwidth + ", SpreadingFactor=" + SpreadingFactor + ", CodingRate=" + CodingRate + ", GatewayID="
-                + GatewayID + ", AntennaIndex=" + AntennaIndex + ", GatewayTime=" + GatewayTime + ", GatewayTimestamp="
-                + GatewayTimestamp + ", ChannelIndex=" + ChannelIndex + ", Rssi=" + Rssi + ", Snr=" + Snr
-                + ", GatewayLatitude=" + GatewayLatitude + ", GatewayLongitude=" + GatewayLongitude
-                + ", GatewayAltitude=" + GatewayAltitude + ", Latitude=" + Latitude + ", Longitude=" + Longitude
-                + ", Altitude=" + Altitude + ", AccuracyMetters=" + AccuracyMetters + "]";
+        return "TtnMapper [id=" + id + ", uid=" + uid + ", Session=" + session + ", DevID=" + dev_id + ", Time="
+                + time + ", FPort=" + fport + ", FCount=" + fcount + ", Frecuency=" + frecuency + ", Bandwidth="
+                + bandwidth + ", SpreadingFactor=" + spreading_factor + ", CodingRate=" + coding_rate + ", GatewayID="
+                + gateway_id + ", AntennaIndex=" + antenna_index + ", GatewayTime=" + gateway_time + ", GatewayTimestamp="
+                + gateway_timestamp + ", ChannelIndex=" + channel_index + ", Rssi=" + rssi + ", Snr=" + snr
+                + ", GatewayLatitude=" + gateway_latitude + ", GatewayLongitude=" + gateway_longitude
+                + ", GatewayAltitude=" + gateway_altitude + ", Latitude=" + latitude + ", Longitude=" + longitude
+                + ", Altitude=" + altitude + ", AccuracyMetters=" + accuracy_metters + "]";
     }
 
     public TtnMapper(Integer id, Integer uid, String session, String devID, Integer time, Integer fPort,
@@ -284,29 +284,30 @@ public class TtnMapper {
         super();
         this.id = id;
         this.uid = uid;
-        Session = session;
-        DevID = devID;
-        Time = time;
-        FPort = fPort;
-        FCount = fCount;
-        Frecuency = frecuency;
-        Bandwidth = bandwidth;
-        SpreadingFactor = spreadingFactor;
-        CodingRate = codingRate;
-        GatewayID = gatewayID;
-        AntennaIndex = antennaIndex;
-        GatewayTime = gatewayTime;
-        GatewayTimestamp = gatewayTimestamp;
-        ChannelIndex = channelIndex;
-        Rssi = rssi;
-        Snr = snr;
-        GatewayLatitude = gatewayLatitude;
-        GatewayLongitude = gatewayLongitude;
-        GatewayAltitude = gatewayAltitude;
-        Latitude = latitude;
-        Longitude = longitude;
-        Altitude = altitude;
-        AccuracyMetters = accuracyMetters;
+        this.session = session;
+        this.dev_id = devID;
+        this.time = time;
+        this.fport = fPort;
+        this.fcount = fCount;
+        this.frecuency = frecuency;
+        this.bandwidth = bandwidth;
+        this.spreading_factor = spreadingFactor;
+        this.coding_rate = codingRate;
+        this.gateway_id = gatewayID;
+        this.antenna_index = antennaIndex;
+        this.gateway_time = gatewayTime;
+        this.gateway_timestamp = gatewayTimestamp;
+        this.channel_index = channelIndex;
+        this.rssi = rssi;
+        this.snr = snr;
+        this.gateway_latitude = gatewayLatitude;
+        this.gateway_longitude = gatewayLongitude;
+        this.gateway_altitude = gatewayAltitude;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.altitude = altitude;
+        this.accuracy_metters = accuracyMetters;
+
     }
 
     public TtnMapper() {
