@@ -15,7 +15,7 @@ public class TtnMapper {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private long uid;
+    private Integer uid;
 
     private String session;
 
@@ -23,9 +23,9 @@ public class TtnMapper {
 
     private long time;
 
-    private long fport;
+    private Integer fport;
 
-    private long fcount;
+    private Integer fcount;
 
     private long frequency;
 
@@ -37,17 +37,17 @@ public class TtnMapper {
 
     private String gateway_id;
 
-    private long antenna_index;
+    private Integer antenna_index;
 
     private long gateway_time;
 
     private long gateway_timestamp;
 
-    private long channel_index;
+    private Integer channel_index;
 
-    private long rssi;
+    private Integer rssi;
 
-    private long snr;
+    private Integer snr;
 
     private float gateway_latitude;
 
@@ -72,11 +72,11 @@ public class TtnMapper {
         this.id = id;
     }
 
-    public long getUid() {
+    public Integer getUid() {
         return uid;
     }
 
-    public void setUid(long uid) {
+    public void setUid(Integer uid) {
         this.uid = uid;
     }
 
@@ -108,7 +108,7 @@ public class TtnMapper {
         return fport;
     }
 
-    public void setFPort(long fport) {
+    public void setFPort(Integer fport) {
         this.fport = fport;
     }
 
@@ -116,7 +116,7 @@ public class TtnMapper {
         return fcount;
     }
 
-    public void setFCount(long fcount) {
+    public void setFCount(Integer fcount) {
         this.fcount = fcount;
     }
 
@@ -124,7 +124,7 @@ public class TtnMapper {
         return frequency;
     }
 
-    public void setFrequency(long frequency) {
+    public void setFrequency(Integer frequency) {
         this.frequency = frequency;
     }
 
@@ -164,7 +164,7 @@ public class TtnMapper {
         return antenna_index;
     }
 
-    public void setAntennaIndex(long antenna_index) {
+    public void setAntennaIndex(Integer antenna_index) {
         this.antenna_index = antenna_index;
     }
 
@@ -188,7 +188,7 @@ public class TtnMapper {
         return channel_index;
     }
 
-    public void setChannelIndex(long channel_index) {
+    public void setChannelIndex(Integer channel_index) {
         this.channel_index = channel_index;
     }
 
@@ -196,7 +196,7 @@ public class TtnMapper {
         return rssi;
     }
 
-    public void setRssi(long rssi) {
+    public void setRssi(Integer rssi) {
         this.rssi = rssi;
     }
 
@@ -204,7 +204,7 @@ public class TtnMapper {
         return snr;
     }
 
-    public void setSnr(long snr) {
+    public void setSnr(Integer snr) {
         this.snr = snr;
     }
 
@@ -276,10 +276,10 @@ public class TtnMapper {
                 + ", Altitude=" + altitude + ", AccuracyMeters=" + accuracy_meters + "]";
     }
 
-    public TtnMapper(Integer id, long uid, String session, String devID, long time, long fPort,
-            long fCount, long frequency, long bandwidth, long spreadingFactor, String codingRate,
-            String gatewayID, long antennaIndex, long gatewayTime, long gatewayTimestamp, long channelIndex,
-            long rssi, long snr, float gatewayLatitude, float gatewayLongitude, long gatewayAltitude,
+    public TtnMapper(Integer id, Integer uid, String session, String devID, long time, Integer fPort,
+            Integer fCount, long frequency, long bandwidth, long spreadingFactor, String codingRate,
+            String gatewayID, Integer antennaIndex, long gatewayTime, long gatewayTimestamp, Integer channelIndex,
+            Integer rssi, Integer snr, float gatewayLatitude, float gatewayLongitude, long gatewayAltitude,
             float latitude, float longitude, float altitude, float accuracyMeters) {
         super();
         this.id = id;
@@ -309,8 +309,6 @@ public class TtnMapper {
         this.accuracy_meters = accuracyMeters;
 
     }
-
     public TtnMapper() {
     }
-
 }
