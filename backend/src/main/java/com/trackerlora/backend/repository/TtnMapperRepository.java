@@ -17,4 +17,5 @@ public interface TtnMapperRepository extends CrudRepository<TtnMapper, String> {
     List<TtnMapper> findAll();
     TtnMapper findTtnMapperById(@Param("id") String id);
    void deleteById(Integer id);
+
 }
