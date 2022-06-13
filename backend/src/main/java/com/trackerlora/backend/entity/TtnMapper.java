@@ -27,7 +27,7 @@ public class TtnMapper {
 
     private Integer fcount;
 
-    private Integer frecuency;
+    private Integer frequency;
 
     private Integer bandwidth;
 
@@ -120,12 +120,12 @@ public class TtnMapper {
         this.fcount = fcount;
     }
 
-    public Integer getFrecuency() {
-        return frecuency;
+    public Integer getFrequency() {
+        return frequency;
     }
 
-    public void setFrecuency(Integer frecuency) {
-        this.frecuency = frecuency;
+    public void setFrequency(Integer frequency) {
+        this.frequency = frequency;
     }
 
     public Integer getBandwidth() {
@@ -267,7 +267,7 @@ public class TtnMapper {
     @Override
     public String toString() {
         return "TtnMapper [id=" + id + ", uid=" + uid + ", Session=" + session + ", DevID=" + dev_id + ", Time="
-                + time + ", FPort=" + fport + ", FCount=" + fcount + ", Frecuency=" + frecuency + ", Bandwidth="
+                + time + ", FPort=" + fport + ", FCount=" + fcount + ", Frequency=" + frequency + ", Bandwidth="
                 + bandwidth + ", SpreadingFactor=" + spreading_factor + ", CodingRate=" + coding_rate + ", GatewayID="
                 + gateway_id + ", AntennaIndex=" + antenna_index + ", GatewayTime=" + gateway_time + ", GatewayTimestamp="
                 + gateway_timestamp + ", ChannelIndex=" + channel_index + ", Rssi=" + rssi + ", Snr=" + snr
@@ -277,7 +277,7 @@ public class TtnMapper {
     }
 
     public TtnMapper(Integer id, Integer uid, String session, String devID, Integer time, Integer fPort,
-            Integer fCount, Integer frecuency, Integer bandwidth, Integer spreadingFactor, String codingRate,
+            Integer fCount, Integer frequency, Integer bandwidth, Integer spreadingFactor, String codingRate,
             String gatewayID, Integer antennaIndex, Integer gatewayTime, Integer gatewayTimestamp, Integer channelIndex,
             Integer rssi, Integer snr, float gatewayLatitude, float gatewayLongitude, Integer gatewayAltitude,
             float latitude, float longitude, float altitude, float accuracyMetters) {
@@ -289,7 +289,7 @@ public class TtnMapper {
         this.time = time;
         this.fport = fPort;
         this.fcount = fCount;
-        this.frecuency = frecuency;
+        this.frequency = frequency;
         this.bandwidth = bandwidth;
         this.spreading_factor = spreadingFactor;
         this.coding_rate = codingRate;
