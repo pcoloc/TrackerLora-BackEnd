@@ -1,7 +1,5 @@
 package com.trackerlora.backend.entity;
 
-import com.trackerlora.backend.entity.Gateways;
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
