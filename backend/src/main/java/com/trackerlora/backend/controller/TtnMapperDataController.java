@@ -69,6 +69,7 @@ public class TtnMapperDataController {
         public String greetingJson(HttpEntity<String> httpEntity) {
             String json = httpEntity.getBody();
             // json contains the plain json string
+            logger.warn("json: " + json);
             return json;
         }
 
