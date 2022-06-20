@@ -92,10 +92,10 @@ public class TtnMapperData {
     private Float rssi;
 
     @Column(nullable=true)
-    private Float signal_rssi;
+    private String signal_rssi;
 
     @Column(nullable=true)
-    private Float snr;
+    private String snr;
 
     @Column(nullable=true)
     private Float gateway_latitude;
@@ -342,19 +342,19 @@ public class TtnMapperData {
         this.rssi = rssi;
     }
 
-    public Float getSignal_rssi() {
+    public String getSignal_rssi() {
         return signal_rssi;
     }
 
-    public void setSignal_rssi(Float signal_rssi) {
+    public void setSignal_rssi(String signal_rssi) {
         this.signal_rssi = signal_rssi;
     }
 
-    public Float getSnr() {
+    public String getSnr() {
         return snr;
     }
 
-    public void setSnr(Float snr) {
+    public void setSnr(String snr) {
         this.snr = snr;
     }
 
