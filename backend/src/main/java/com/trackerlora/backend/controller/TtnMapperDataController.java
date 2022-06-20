@@ -44,6 +44,7 @@ public class TtnMapperDataController {
 
         @PostMapping("/add")
         public ResponseEntity<TtnMapperData> addTtnMapperData(@RequestBody TtnMapperData ttnMapperData) {
+            logger.warn("ttnMapperData: " + ttnMapperData);
             TtnMapperData newTtnMapperData = ttnMapperDataRepository.save(ttnMapperData);
             return new ResponseEntity<TtnMapperData>(newTtnMapperData, HttpStatus.OK);
         }
