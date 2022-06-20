@@ -126,19 +126,19 @@ public class TtnMapperData {
         this.id = id;
     }
 
-    public String getNetworkId() {
+    public String getNetwork_id() {
         return network_id;
     }
 
-    public void setNetworkId(String network_id) {
+    public void setNetwork_id(String network_id) {
         this.network_id = network_id;
     }
 
-    public String getAppId() {
+    public String getApp_id() {
         return app_id;
     }
 
-    public void setAppId(String app_id) {
+    public void setApp_id(String app_id) {
         this.app_id = app_id;
     }
 
