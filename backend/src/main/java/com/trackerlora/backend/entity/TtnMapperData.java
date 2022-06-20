@@ -38,10 +38,10 @@ public class TtnMapperData {
     private String time;
 
     @Column(nullable=true)
-    private Integer fport;
+    private Integer fPort;
 
     @Column(nullable=true)
-    private Integer fcount;
+    private Integer fCount;
 
     @Column(nullable=true)
     private Long frequency;
@@ -89,10 +89,10 @@ public class TtnMapperData {
     private Integer channel_index;
 
     @Column(nullable=true)
-    private Float rssi;
+    private Float Rssi;
 
     @Column(nullable=true)
-    private String signal_rssi;
+    private String signal_Rssi;
 
     @Column(nullable=true)
     private String snr;
@@ -198,20 +198,20 @@ public class TtnMapperData {
         this.time = time;
     }
 
-    public Integer getFport() {
-        return fport;
+    public Integer getFPort() {
+        return fPort;
     }
 
-    public void setFport(Integer fport) {
-        this.fport = fport;
+    public void setFPort(Integer fPort) {
+        this.fPort = fPort;
     }
 
-    public Integer getFcount() {
-        return fcount;
+    public Integer getFCount() {
+        return fCount;
     }
 
-    public void setFcount(Integer fcount) {
-        this.fcount = fcount;
+    public void setFCount(Integer fCount) {
+        this.fCount = fCount;
     }
 
     public Long getFrequency() {
@@ -335,19 +335,19 @@ public class TtnMapperData {
     }
 
     public Float getRssi() {
-        return rssi;
+        return Rssi;
     }
 
-    public void setRssi(Float rssi) {
-        this.rssi = rssi;
+    public void setRssi(Float Rssi) {
+        this.Rssi = Rssi;
     }
 
-    public String getSignal_rssi() {
-        return signal_rssi;
+    public String getSignal_Rssi() {
+        return signal_Rssi;
     }
 
-    public void setSignal_rssi(String signal_rssi) {
-        this.signal_rssi = signal_rssi;
+    public void setSignal_Rssi(String signal_Rssi) {
+        this.signal_Rssi = signal_Rssi;
     }
 
     public String getSnr() {
@@ -494,8 +494,8 @@ public class TtnMapperData {
                 ", fine_timestamp_encrypted='" + fine_timestamp_encrypted + '\'' +
                 ", fine_timestamp_encrypted_key_id='" + fine_timestamp_encrypted_key_id + '\'' +
                 ", channel_index='" + channel_index + '\'' +
-                ", rssi='" + rssi + '\'' +
-                ", signal_rssi='" + signal_rssi + '\'' +
+                ", Rssi='" + Rssi + '\'' +
+                ", signal_Rssi='" + signal_Rssi + '\'' +
                 ", snr='" + snr + '\'' +
                 ", gateway_latitude='" + gateway_latitude + '\'' +
                 ", gateway_longitude='" + gateway_longitude + '\'' +
