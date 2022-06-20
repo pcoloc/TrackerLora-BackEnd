@@ -58,10 +58,10 @@ public class Gateways {
     private Integer channel;
 
     @Column(name = "rssi", nullable = true)
-    private Float rssi;
+    private Double rssi;
 
     @Column(name = "snr", nullable = true)
-    private Float snr;
+    private Double snr;
 
     @Column(name = "latitude", nullable = true)
     private Float latitude;
@@ -142,19 +142,19 @@ public class Gateways {
         this.channel = channel;
     }
 
-    public Float getRssi() {
+    public double getRssi() {
         return rssi;
     }
 
-    public void setRssi(Float rssi) {
+    public void setRssi(double rssi) {
         this.rssi = rssi;
     }
 
-    public Float getSnr() {
+    public double getSnr() {
         return snr;
     }
 
-    public void setSnr(Float snr) {
+    public void setSnr(double snr) {
         this.snr = snr;
     }
 
@@ -219,7 +219,7 @@ public class Gateways {
                 '}';
     }
 
-    public Gateways(String network_id, String gtw_id, String gtw_eui, Integer antenna_index, Long time, Long timestamp, Integer channel, Float rssi, Float snr, Float latitude, Float longitude, Float altitude, Float location_accuracy, String location_source) {
+    public Gateways(String network_id, String gtw_id, String gtw_eui, Integer antenna_index, Long time, Long timestamp, Integer channel, Double rssi, Double snr, Float latitude, Float longitude, Float altitude, Float location_accuracy, String location_source) {
         this.network_id = network_id;
         this.gtw_id = gtw_id;
         this.gtw_eui = gtw_eui;
@@ -239,7 +239,7 @@ public class Gateways {
     public Gateways() {
     }
 
-    public Gateways(String network_id, String gtw_id, String gtw_eui, Integer antenna_index, Long time, Long timestamp, Integer channel, Float rssi, Float snr, Float latitude, Float longitude, Float altitude, Float location_accuracy, String location_source, Integer id) {
+    public Gateways(String network_id, String gtw_id, String gtw_eui, Integer antenna_index, Long time, Long timestamp, Integer channel, Double rssi, Double snr, Float latitude, Float longitude, Float altitude, Float location_accuracy, String location_source, Integer id) {
         this.network_id = network_id;
         this.gtw_id = gtw_id;
         this.gtw_eui = gtw_eui;
