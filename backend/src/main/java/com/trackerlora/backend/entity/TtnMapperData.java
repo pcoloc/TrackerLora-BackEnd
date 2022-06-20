@@ -1,6 +1,10 @@
 package com.trackerlora.backend.entity;
 
+import com.trackerlora.backend.entity.Gateways;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +13,44 @@ import javax.persistence.Table;
 
 
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+// "network_id":"NS_TTS_V3://ttn@000013",
+//    "app_id":"aplicacionpaco",
+//    "dev_id":"heltec-v2",
+//    "time":1655739586422000000,
+//    "port":10,
+//    "counter":1,
+//    "frequency":868500000,
+//    "modulation":"LORA",
+//    "bandwidth":125000,
+//    "spreading_factor":7,
+//    "coding_rate":"4/5",
+//    "gateways":[
+//       {
+//          "network_id":"NS_TTS_V3://ttn@000013",
+//          "gtw_id":"dragino-pac",
+//          "gtw_eui":"A84041FFFF21C284",
+//          "antenna_index":0,
+//          "time":1655739629845000000,
+//          "timestamp":3218513291,
+//          "channel":2,
+//          "rssi":-89.0,
+//          "snr":7.5,
+//          "latitude":36.83021314913074,
+//          "longitude":-2.405869862996042,
+//          "altitude":20,
+//          "location_accuracy":0,
+//          "location_source":"SOURCE_REGISTRY"
+//       }
+//    ],
+//    "latitude":36.83086373,
+//    "longitude":-2.40480238,
+//    "altitude":48.3681640625,
+//    "accuracy_meters":3.7900924682617188,
+//    "accuracy_source":"gps",
+//    "userid":"58a83bbf-f5e9-4c92-ad3f-8523a58c8941",
+//    "useragent":"Android12 App34:2021.12.17"
 
 @Entity
 @Table(name = "ttnMapperData")
@@ -19,128 +60,63 @@ public class TtnMapperData {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(nullable=true)
-    private Integer uid;
+    @Column(name = "network_id", nullable = true)
+    private String networkId;
 
-    @Column(nullable=true)
-    private String session;
+    @Column(name = "app_id", nullable = true)
+    private String appId;
 
-    @Column(nullable=true)
-    private String app_id;
+    @Column(name = "dev_id", nullable = true)
+    private String devId;
 
-    @Column(nullable=true)
-    private String dev_id;
+    @Column(name = "time", nullable = true)
+    private Long time;
 
-    @Column(nullable=true)
-    private String dev_eui;
+    @Column(name = "port", nullable = true)
+    private Integer port;
 
-    @Column(nullable=true)
-    private String time;
+    @Column(name = "counter", nullable = true)
+    private Integer counter;
 
-    @Column(nullable=true)
-    private Integer fPort;
+    @Column(name = "frequency", nullable = true)
+    private Integer frequency;
 
-    @Column(nullable=true)
-    private Integer fCount;
-
-    @Column(nullable=true)
-    private Long frequency;
-
-    @Column(nullable=true)
+    @Column(name = "modulation", nullable = true)
     private String modulation;
 
-    @Column(nullable=true)
-    private Long bandwidth;
+    @Column(name = "bandwidth", nullable = true)
+    private Integer bandwidth;
 
-    @Column(nullable=true)
-    private Integer spreading_factor;
+    @Column(name = "spreading_factor", nullable = true)
+    private Integer spreadingFactor;
 
-    @Column(nullable=true)
-    private String bitrate;
+    @Column(name = "coding_rate", nullable = true)
+    private String codingRate;
 
-    @Column(nullable=true)
-    private String coding_rate;
+    @Column(name = "gateways", nullable = true)
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Gateways> gateways;
 
-    @Column(nullable=true)
-    private String gateway_id;
-
-    @Column(nullable=true)
-    private String gateway_eui;
-
-    @Column(nullable=true)
-    private Integer antenna_index;
-
-    @Column(nullable=true)
-    private String gateway_time;
-
-    @Column(nullable=true)
-    private Long gateway_timestamp;
-
-    @Column(nullable=true)
-    private Long fine_timestamp;
-
-    @Column(nullable=true)
-    private Long fine_timestamp_encrypted;
-
-    @Column(nullable=true)
-    private String fine_timestamp_encrypted_key_id;
-
-    @Column(nullable=true)
-    private Integer channel_index;
-
-    @Column(nullable=true)
-    private Float Rssi;
-
-    @Column(nullable=true)
-    private String signal_Rssi;
-
-    @Column(nullable=true)
-    private String snr;
-
-    @Column(nullable=true)
-    private Float gateway_latitude;
-
-    @Column(nullable=true)
-    private Float gateway_longitude;
-
-    @Column(nullable=true)
-    private Float gateway_altitude;
-
-    @Column(nullable=true)
-    private Float gateway_location_accuracy;
-
-    @Column(nullable=true)
-    private String gateway_location_source;
-
-    @Column(nullable=true)
+    @Column(name = "latitude", nullable = true)
     private Float latitude;
 
-    @Column(nullable=true)
+    @Column(name = "longitude", nullable = true)
     private Float longitude;
 
-    @Column(nullable=true)
+    @Column(name = "altitude", nullable = true)
     private Float altitude;
 
-    @Column(nullable=true)
-    private Float accuracy_meters;
+    @Column(name = "accuracy_meters", nullable = true)
+    private Float accuracyMeters;
 
-    @Column(nullable=true)
-    private Integer satellites;
+    @Column(name = "accuracy_source", nullable = true)
+    private String accuracySource;
 
-    @Column(nullable=true)
-    private String hdop;
+    @Column(name = "userid", nullable = true)
+    private String userid;
 
-    @Column(nullable=true)
-    private String accuracy_source;
-
-    @Column(nullable=true)
-    private String experiment;
-
-    @Column(nullable=true)
-    private String user_id;
-
-    @Column(nullable=true)
-    private String user_agent;
+    @Column(name = "useragent", nullable = true)
+    private String useragent;
 
     public Integer getId() {
         return id;
@@ -150,75 +126,59 @@ public class TtnMapperData {
         this.id = id;
     }
 
-    public Integer getUid() {
-        return uid;
+    public String getNetworkId() {
+        return networkId;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setNetworkId(String networkId) {
+        this.networkId = networkId;
     }
 
-    public String getSession() {
-        return session;
+    public String getAppId() {
+        return appId;
     }
 
-    public void setSession(String session) {
-        this.session = session;
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
-    public String getApp_id() {
-        return app_id;
+    public String getDevId() {
+        return devId;
     }
 
-    public void setApp_id(String app_id) {
-        this.app_id = app_id;
+    public void setDevId(String devId) {
+        this.devId = devId;
     }
 
-    public String getDev_id() {
-        return dev_id;
-    }
-
-    public void setDev_id(String dev_id) {
-        this.dev_id = dev_id;
-    }
-
-    public String getDev_eui() {
-        return dev_eui;
-    }
-
-    public void setDev_eui(String dev_eui) {
-        this.dev_eui = dev_eui;
-    }
-
-    public String getTime() {
+    public Long getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Long time) {
         this.time = time;
     }
 
-    public Integer getFPort() {
-        return fPort;
+    public Integer getPort() {
+        return port;
     }
 
-    public void setFPort(Integer fPort) {
-        this.fPort = fPort;
+    public void setPort(Integer port) {
+        this.port = port;
     }
 
-    public Integer getFCount() {
-        return fCount;
+    public Integer getCounter() {
+        return counter;
     }
 
-    public void setFCount(Integer fCount) {
-        this.fCount = fCount;
+    public void setCounter(Integer counter) {
+        this.counter = counter;
     }
 
-    public Long getFrequency() {
+    public Integer getFrequency() {
         return frequency;
     }
 
-    public void setFrequency(Long frequency) {
+    public void setFrequency(Integer frequency) {
         this.frequency = frequency;
     }
 
@@ -230,288 +190,123 @@ public class TtnMapperData {
         this.modulation = modulation;
     }
 
-    public Long getBandwidth() {
+    public Integer getBandwidth() {
         return bandwidth;
     }
 
-    public void setBandwidth(Long bandwidth) {
+    public void setBandwidth(Integer bandwidth) {
         this.bandwidth = bandwidth;
     }
 
-    public Integer getSpreading_factor() {
-        return spreading_factor;
+    public Integer getSpreadingFactor() {
+        return spreadingFactor;
     }
 
-    public void setSpreading_factor(Integer spreading_factor) {
-        this.spreading_factor = spreading_factor;
+    public void setSpreadingFactor(Integer spreadingFactor) {
+        this.spreadingFactor = spreadingFactor;
     }
 
-    public String getBitrate() {
-        return bitrate;
+    public String getCodingRate() {
+        return codingRate;
     }
 
-    public void setBitrate(String bitrate) {
-        this.bitrate = bitrate;
+    public void setCodingRate(String codingRate) {
+        this.codingRate = codingRate;
     }
 
-    public String getCoding_rate() {
-        return coding_rate;
+    public List<Gateways> getGateways() {
+        return gateways;
     }
 
-    public void setCoding_rate(String coding_rate) {
-        this.coding_rate = coding_rate;
+    public void setGateways(List<Gateways> gateways) {
+        this.gateways = gateways;
     }
 
-    public String getGateway_id() {
-        return gateway_id;
-    }
-
-    public void setGateway_id(String gateway_id) {
-        this.gateway_id = gateway_id;
-    }
-
-    public String getGateway_eui() {
-        return gateway_eui;
-    }
-
-    public void setGateway_eui(String gateway_eui) {
-        this.gateway_eui = gateway_eui;
-    }
-
-    public Integer getAntenna_index() {
-        return antenna_index;
-    }
-
-    public void setAntenna_index(Integer antenna_index) {
-        this.antenna_index = antenna_index;
-    }
-
-    public String getGateway_time() {
-        return gateway_time;
-    }
-
-    public void setGateway_time(String gateway_time) {
-        this.gateway_time = gateway_time;
-    }
-
-    public Long getGateway_timestamp() {
-        return gateway_timestamp;
-    }
-
-    public void setGateway_timestamp(Long gateway_timestamp) {
-        this.gateway_timestamp = gateway_timestamp;
-    }
-
-    public Long getFine_timestamp() {
-        return fine_timestamp;
-    }
-
-    public void setFine_timestamp(Long fine_timestamp) {
-        this.fine_timestamp = fine_timestamp;
-    }
-
-    public Long getFine_timestamp_encrypted() {
-        return fine_timestamp_encrypted;
-    }
-
-    public void setFine_timestamp_encrypted(Long fine_timestamp_encrypted) {
-        this.fine_timestamp_encrypted = fine_timestamp_encrypted;
-    }
-
-    public String getFine_timestamp_encrypted_key_id() {
-        return fine_timestamp_encrypted_key_id;
-    }
-
-    public void setFine_timestamp_encrypted_key_id(String fine_timestamp_encrypted_key_id) {
-        this.fine_timestamp_encrypted_key_id = fine_timestamp_encrypted_key_id;
-    }
-
-    public Integer getChannel_index() {
-        return channel_index;
-    }
-
-    public void setChannel_index(Integer channel_index) {
-        this.channel_index = channel_index;
-    }
-
-    public Float getRssi() {
-        return Rssi;
-    }
-
-    public void setRssi(Float Rssi) {
-        this.Rssi = Rssi;
-    }
-
-    public String getSignal_Rssi() {
-        return signal_Rssi;
-    }
-
-    public void setSignal_Rssi(String signal_Rssi) {
-        this.signal_Rssi = signal_Rssi;
-    }
-
-    public String getSnr() {
-        return snr;
-    }
-
-    public void setSnr(String snr) {
-        this.snr = snr;
-    }
-
-    public Float getGateway_latitude() {
-        return gateway_latitude;
-    }
-
-    public void setGateway_latitude(Float gateway_latitude) {
-        this.gateway_latitude = gateway_latitude;
-    }
-
-    public Float getGateway_longitude() {
-        return gateway_longitude;
-    }
-
-    public void setGateway_longitude(Float gateway_longitude) {
-        this.gateway_longitude = gateway_longitude;
-    }
-
-    public Float getGateway_altitude() {
-        return gateway_altitude;
-    }
-
-    public void setGateway_altitude(Float gateway_altitude) {
-        this.gateway_altitude = gateway_altitude;
-    }
-
-    public Float getGateway_location_accuracy() {
-        return gateway_location_accuracy;
-    }
-
-    public void setGateway_location_accuracy(Float gateway_location_accuracy) {
-        this.gateway_location_accuracy = gateway_location_accuracy;
-    }
-
-    public String getGateway_location_source() {
-        return gateway_location_source;
-    }
-
-    public void setGateway_location_source(String gateway_location_source) {
-        this.gateway_location_source = gateway_location_source;
-    }
-
-    public Float getLatitude () {
+    public Float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude (Float latitude) {
+    public void setLatitude(Float latitude) {
         this.latitude = latitude;
     }
 
-    public Float getLongitude () {
+    public Float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude (Float longitude) {
+    public void setLongitude(Float longitude) {
         this.longitude = longitude;
     }
 
-    public Float getAltitude () {
+    public Float getAltitude() {
         return altitude;
     }
 
-    public void setAltitude (Float altitude) {
+    public void setAltitude(Float altitude) {
         this.altitude = altitude;
     }
 
-    public Float getAccuracy_meters () {
-        return accuracy_meters;
+    public Float getAccuracyMeters() {
+        return accuracyMeters;
     }
 
-    public void setAccuracy_meters (Float accuracy_meters) {
-        this.accuracy_meters = accuracy_meters;
+    public void setAccuracyMeters(Float accuracyMeters) {
+        this.accuracyMeters = accuracyMeters;
     }
 
-    public Integer getSatellites () {
-        return satellites;
+    public String getAccuracySource() {
+        return accuracySource;
     }
 
-    public void setSatellites (Integer satellites) {
-        this.satellites = satellites;
+    public void setAccuracySource(String accuracySource) {
+        this.accuracySource = accuracySource;
     }
 
-    public String getHdop () {
-        return hdop;
+    public String getUserid() {
+        return userid;
     }
 
-    public void setHdop (String hdop) {
-        this.hdop = hdop;
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
-    public String getAccuracy_source() {
-        return accuracy_source;
+    public String getUseragent() {
+        return useragent;
     }
 
-    public void setAccuracy_source(String accuracy_source) {
-        this.accuracy_source = accuracy_source;
-    }
-
-    public String getExperiment() {
-        return experiment;
-    }
-
-    public void setExperiment(String experiment) {
-        this.experiment = experiment;
-    }
-
-    public String getUser_id () {
-        return user_id;
-    }
-
-    public void setUser_id (String user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getUser_agent () {
-        return user_agent;
-    }
-
-    public void setUser_agent (String user_agent) {
-        this.user_agent = user_agent;
-    }
-
-    public TtnMapperData() {
-
+    public void setUseragent(String useragent) {
+        this.useragent = useragent;
     }
 
     @Override
     public String toString() {
         return "TtnMapperData{" +
-                "gateway_id='" + gateway_id + '\'' +
-                ", gateway_eui='" + gateway_eui + '\'' +
-                ", antenna_index='" + antenna_index + '\'' +
-                ", gateway_time='" + gateway_time + '\'' +
-                ", gateway_timestamp='" + gateway_timestamp + '\'' +
-                ", fine_timestamp='" + fine_timestamp + '\'' +
-                ", fine_timestamp_encrypted='" + fine_timestamp_encrypted + '\'' +
-                ", fine_timestamp_encrypted_key_id='" + fine_timestamp_encrypted_key_id + '\'' +
-                ", channel_index='" + channel_index + '\'' +
-                ", Rssi='" + Rssi + '\'' +
-                ", signal_Rssi='" + signal_Rssi + '\'' +
-                ", snr='" + snr + '\'' +
-                ", gateway_latitude='" + gateway_latitude + '\'' +
-                ", gateway_longitude='" + gateway_longitude + '\'' +
-                ", gateway_altitude='" + gateway_altitude + '\'' +
-                ", gateway_location_accuracy='" + gateway_location_accuracy + '\'' +
-                ", gateway_location_source='" + gateway_location_source + '\'' +
-                ", latitude='" + latitude + '\'' +
-                ", longitude='" + longitude + '\'' +
-                ", altitude='" + altitude + '\'' +
-                ", accuracy_meters='" + accuracy_meters + '\'' +
-                ", satellites='" + satellites + '\'' +
-                ", hdop='" + hdop + '\'' +
-                ", accuracy_source='" + accuracy_source + '\'' +
-                ", experiment='" + experiment + '\'' +
-                ", user_id='" + user_id + '\'' +
-                ", user_agent='" + user_agent + '\'' + '}';
+                "id=" + id +
+                ", networkId='" + networkId + '\'' +
+                ", appId='" + appId + '\'' +
+                ", devId='" + devId + '\'' +
+                ", time=" + time +
+                ", port=" + port +
+                ", counter=" + counter +
+                ", frequency=" + frequency +
+                ", modulation='" + modulation + '\'' +
+                ", bandwidth=" + bandwidth +
+                ", spreadingFactor=" + spreadingFactor +
+                ", codingRate='" + codingRate + '\'' +
+                ", gateways=" + gateways.toString() +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", altitude=" + altitude +
+                ", accuracyMeters=" + accuracyMeters +
+                ", accuracySource='" + accuracySource + '\'' +
+                ", userid='" + userid + '\'' +
+                ", useragent='" + useragent + '\'' +
+                '}';
     }
+
+    public TtnMapperData() {
+    }
+
+
 
 }
