@@ -107,7 +107,7 @@ public class TtnMapperData {
     private Float altitude;
 
     @Column(name = "accuracy_meters", nullable = true)
-    private Float accuracy_metters;
+    private Float accuracy_meters;
 
     @Column(name = "accuracy_source", nullable = true)
     private String accuracy_source;
@@ -247,11 +247,11 @@ public class TtnMapperData {
     }
 
     public Float getAccuracyMeters() {
-        return accuracy_metters;
+        return accuracy_meters;
     }
 
-    public void setAccuracyMeters(Float accuracy_metters) {
-        this.accuracy_metters = accuracy_metters;
+    public void setAccuracyMeters(Float accuracy_meters) {
+        this.accuracy_meters = accuracy_meters;
     }
 
     public String getAccuracySource() {
@@ -297,7 +297,7 @@ public class TtnMapperData {
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", altitude=" + altitude +
-                ", accuracy_metters=" + accuracy_metters +
+                ", accuracy_meters=" + accuracy_meters +
                 ", accuracy_source='" + accuracy_source + '\'' +
                 ", user_id='" + user_id + '\'' +
                 ", user_agent='" + user_agent + '\'' +

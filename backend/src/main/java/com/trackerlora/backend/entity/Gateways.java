@@ -46,7 +46,7 @@ public class Gateways {
     private String gtw_eui;
 
     @Column(name = "antenna_index", nullable = true)
-    private Integer antena_index;
+    private Integer antenna_index;
 
     @Column(name = "time", nullable = true)
     private Long time;
@@ -111,11 +111,11 @@ public class Gateways {
     }
 
     public Integer getAntennaIndex() {
-        return antena_index;
+        return antenna_index;
     }
 
-    public void setAntennaIndex(Integer antena_index) {
-        this.antena_index = antena_index;
+    public void setAntennaIndex(Integer antenna_index) {
+        this.antenna_index = antenna_index;
     }
 
     public Long getTime() {
@@ -205,7 +205,7 @@ public class Gateways {
                 ", network_id='" + network_id + '\'' +
                 ", gtw_id='" + gtw_id + '\'' +
                 ", gtw_eui='" + gtw_eui + '\'' +
-                ", antena_index=" + antena_index +
+                ", antenna_index=" + antenna_index +
                 ", time=" + time +
                 ", timestamp=" + timestamp +
                 ", channel=" + channel +
@@ -219,11 +219,11 @@ public class Gateways {
                 '}';
     }
 
-    public Gateways(String network_id, String gtw_id, String gtw_eui, Integer antena_index, Long time, Long timestamp, Integer channel, Float rssi, Float snr, Float latitude, Float longitude, Float altitude, Float location_accuracy, String location_source) {
+    public Gateways(String network_id, String gtw_id, String gtw_eui, Integer antenna_index, Long time, Long timestamp, Integer channel, Float rssi, Float snr, Float latitude, Float longitude, Float altitude, Float location_accuracy, String location_source) {
         this.network_id = network_id;
         this.gtw_id = gtw_id;
         this.gtw_eui = gtw_eui;
-        this.antena_index = antena_index;
+        this.antenna_index = antenna_index;
         this.time = time;
         this.timestamp = timestamp;
         this.channel = channel;
@@ -239,11 +239,11 @@ public class Gateways {
     public Gateways() {
     }
 
-    public Gateways(String network_id, String gtw_id, String gtw_eui, Integer antena_index, Long time, Long timestamp, Integer channel, Float rssi, Float snr, Float latitude, Float longitude, Float altitude, Float location_accuracy, String location_source, Integer id) {
+    public Gateways(String network_id, String gtw_id, String gtw_eui, Integer antenna_index, Long time, Long timestamp, Integer channel, Float rssi, Float snr, Float latitude, Float longitude, Float altitude, Float location_accuracy, String location_source, Integer id) {
         this.network_id = network_id;
         this.gtw_id = gtw_id;
         this.gtw_eui = gtw_eui;
-        this.antena_index = antena_index;
+        this.antenna_index = antenna_index;
         this.time = time;
         this.timestamp = timestamp;
         this.channel = channel;
