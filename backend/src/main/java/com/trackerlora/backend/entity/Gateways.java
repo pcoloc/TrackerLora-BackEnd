@@ -86,35 +86,35 @@ public class Gateways {
         this.id = id;
     }
 
-    public String getNetworkId() {
+    public String getNetwork_id() {
         return network_id;
     }
 
-    public void setNetworkId(String network_id) {
+    public void setNetwork_id(String network_id) {
         this.network_id = network_id;
     }
 
-    public String getGtwId() {
+    public String getGtw_id() {
         return gtw_id;
     }
 
-    public void setGtwId(String gtw_id) {
+    public void setGtw_id(String gtw_id) {
         this.gtw_id = gtw_id;
     }
 
-    public String getGtwEui() {
+    public String getGtw_eui() {
         return gtw_eui;
     }
 
-    public void setGtwEui(String gtw_eui) {
+    public void setGtw_eui(String gtw_eui) {
         this.gtw_eui = gtw_eui;
     }
 
-    public Integer getAntennaIndex() {
+    public Integer getAntenna_index() {
         return antenna_index;
     }
 
-    public void setAntennaIndex(Integer antenna_index) {
+    public void setAntenna_index(Integer antenna_index) {
         this.antenna_index = antenna_index;
     }
 
@@ -182,19 +182,19 @@ public class Gateways {
         this.altitude = altitude;
     }
 
-    public Float getLocationAccuracy() {
+    public Float getLocation_accuracy() {
         return location_accuracy;
     }
 
-    public void setLocationAccuracy(Float location_accuracy) {
+    public void setLocation_accuracy(Float location_accuracy) {
         this.location_accuracy = location_accuracy;
     }
 
-    public String getLocationSource() {
+    public String getLocation_source() {
         return location_source;
     }
 
-    public void setLocationSource(String location_source) {
+    public void setLocation_source(String location_source) {
         this.location_source = location_source;
     }
 

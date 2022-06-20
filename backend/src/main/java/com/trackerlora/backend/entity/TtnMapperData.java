@@ -142,11 +142,11 @@ public class TtnMapperData {
         this.app_id = app_id;
     }
 
-    public String getDevId() {
+    public String getDev_id() {
         return dev_id;
     }
 
-    public void setDevId(String dev_id) {
+    public void setDev_id(String dev_id) {
         this.dev_id = dev_id;
     }
 
@@ -198,19 +198,19 @@ public class TtnMapperData {
         this.bandwidth = bandwidth;
     }
 
-    public Integer getSpreadingFactor() {
+    public Integer getSpreading_factor() {
         return spreading_factor;
     }
 
-    public void setSpreadingFactor(Integer spreading_factor) {
+    public void setSpreading_factor(Integer spreading_factor) {
         this.spreading_factor = spreading_factor;
     }
 
-    public String getCodingRate() {
+    public String getCoding_rate() {
         return coding_rate;
     }
 
-    public void setCodingRate(String coding_rate) {
+    public void setCoding_rate(String coding_rate) {
         this.coding_rate = coding_rate;
     }
 
@@ -246,19 +246,19 @@ public class TtnMapperData {
         this.altitude = altitude;
     }
 
-    public Float getAccuracyMeters() {
+    public Float getAccuracy_meters() {
         return accuracy_meters;
     }
 
-    public void setAccuracyMeters(Float accuracy_meters) {
+    public void setAccuracy_meters(Float accuracy_meters) {
         this.accuracy_meters = accuracy_meters;
     }
 
-    public String getAccuracySource() {
+    public String getAccuracy_source() {
         return accuracy_source;
     }
 
-    public void setAccuracySource(String accuracy_source) {
+    public void setAccuracy_source(String accuracy_source) {
         this.accuracy_source = accuracy_source;
     }
 
