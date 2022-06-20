@@ -49,8 +49,8 @@ import javax.persistence.OneToMany;
 //    "altitude":48.3681640625,
 //    "accuracy_meters":3.7900924682617188,
 //    "accuracy_source":"gps",
-//    "userid":"58a83bbf-f5e9-4c92-ad3f-8523a58c8941",
-//    "useragent":"Android12 App34:2021.12.17"
+//    "user_id":"58a83bbf-f5e9-4c92-ad3f-8523a58c8941",
+//    "user_agent":"Android12 App34:2021.12.17"
 
 @Entity
 @Table(name = "ttnMapperData")
@@ -61,13 +61,13 @@ public class TtnMapperData {
     private Integer id;
 
     @Column(name = "network_id", nullable = true)
-    private String networkId;
+    private String network_id;
 
     @Column(name = "app_id", nullable = true)
-    private String appId;
+    private String app_id;
 
     @Column(name = "dev_id", nullable = true)
-    private String devId;
+    private String dev_id;
 
     @Column(name = "time", nullable = true)
     private Long time;
@@ -88,10 +88,10 @@ public class TtnMapperData {
     private Integer bandwidth;
 
     @Column(name = "spreading_factor", nullable = true)
-    private Integer spreadingFactor;
+    private Integer spreading_factor;
 
     @Column(name = "coding_rate", nullable = true)
-    private String codingRate;
+    private String coding_rate;
 
     @Column(name = "gateways", nullable = true)
     @OneToMany(cascade = CascadeType.ALL)
@@ -107,16 +107,16 @@ public class TtnMapperData {
     private Float altitude;
 
     @Column(name = "accuracy_meters", nullable = true)
-    private Float accuracyMeters;
+    private Float accuracy_metters;
 
     @Column(name = "accuracy_source", nullable = true)
-    private String accuracySource;
+    private String accuracy_source;
 
-    @Column(name = "userid", nullable = true)
-    private String userid;
+    @Column(name = "user_id", nullable = true)
+    private String user_id;
 
-    @Column(name = "useragent", nullable = true)
-    private String useragent;
+    @Column(name = "user_agent", nullable = true)
+    private String user_agent;
 
     public Integer getId() {
         return id;
@@ -127,27 +127,27 @@ public class TtnMapperData {
     }
 
     public String getNetworkId() {
-        return networkId;
+        return network_id;
     }
 
-    public void setNetworkId(String networkId) {
-        this.networkId = networkId;
+    public void setNetworkId(String network_id) {
+        this.network_id = network_id;
     }
 
     public String getAppId() {
-        return appId;
+        return app_id;
     }
 
-    public void setAppId(String appId) {
-        this.appId = appId;
+    public void setAppId(String app_id) {
+        this.app_id = app_id;
     }
 
     public String getDevId() {
-        return devId;
+        return dev_id;
     }
 
-    public void setDevId(String devId) {
-        this.devId = devId;
+    public void setDevId(String dev_id) {
+        this.dev_id = dev_id;
     }
 
     public Long getTime() {
@@ -199,19 +199,19 @@ public class TtnMapperData {
     }
 
     public Integer getSpreadingFactor() {
-        return spreadingFactor;
+        return spreading_factor;
     }
 
-    public void setSpreadingFactor(Integer spreadingFactor) {
-        this.spreadingFactor = spreadingFactor;
+    public void setSpreadingFactor(Integer spreading_factor) {
+        this.spreading_factor = spreading_factor;
     }
 
     public String getCodingRate() {
-        return codingRate;
+        return coding_rate;
     }
 
-    public void setCodingRate(String codingRate) {
-        this.codingRate = codingRate;
+    public void setCodingRate(String coding_rate) {
+        this.coding_rate = coding_rate;
     }
 
     public List<Gateways> getGateways() {
@@ -247,60 +247,60 @@ public class TtnMapperData {
     }
 
     public Float getAccuracyMeters() {
-        return accuracyMeters;
+        return accuracy_metters;
     }
 
-    public void setAccuracyMeters(Float accuracyMeters) {
-        this.accuracyMeters = accuracyMeters;
+    public void setAccuracyMeters(Float accuracy_metters) {
+        this.accuracy_metters = accuracy_metters;
     }
 
     public String getAccuracySource() {
-        return accuracySource;
+        return accuracy_source;
     }
 
-    public void setAccuracySource(String accuracySource) {
-        this.accuracySource = accuracySource;
+    public void setAccuracySource(String accuracy_source) {
+        this.accuracy_source = accuracy_source;
     }
 
     public String getUserid() {
-        return userid;
+        return user_id;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid;
+    public void setUserid(String user_id) {
+        this.user_id = user_id;
     }
 
     public String getUseragent() {
-        return useragent;
+        return user_agent;
     }
 
-    public void setUseragent(String useragent) {
-        this.useragent = useragent;
+    public void setUseragent(String user_agent) {
+        this.user_agent = user_agent;
     }
 
     @Override
     public String toString() {
         return "TtnMapperData{" +
                 "id=" + id +
-                ", networkId='" + networkId + '\'' +
-                ", appId='" + appId + '\'' +
-                ", devId='" + devId + '\'' +
+                ", network_id='" + network_id + '\'' +
+                ", app_id='" + app_id + '\'' +
+                ", dev_id='" + dev_id + '\'' +
                 ", time=" + time +
                 ", port=" + port +
                 ", counter=" + counter +
                 ", frequency=" + frequency +
                 ", modulation='" + modulation + '\'' +
                 ", bandwidth=" + bandwidth +
-                ", spreadingFactor=" + spreadingFactor +
-                ", codingRate='" + codingRate + '\'' +
+                ", spreading_factor=" + spreading_factor +
+                ", coding_rate='" + coding_rate + '\'' +
                 ", gateways=" + gateways.toString() +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", altitude=" + altitude +
-                ", accuracyMeters=" + accuracyMeters +
-                ", accuracySource='" + accuracySource + '\'' +
-                ", userid='" + userid + '\'' +
-                ", useragent='" + useragent + '\'' +
+                ", accuracy_metters=" + accuracy_metters +
+                ", accuracy_source='" + accuracy_source + '\'' +
+                ", user_id='" + user_id + '\'' +
+                ", user_agent='" + user_agent + '\'' +
                 '}';
     }
 
