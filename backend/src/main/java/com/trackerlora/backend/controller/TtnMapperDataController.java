@@ -1,6 +1,8 @@
 package com.trackerlora.backend.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpEntity;
 import org.slf4j.Logger;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.trackerlora.backend.entity.Gateways;
 import com.trackerlora.backend.entity.TtnMapperData;
 import com.trackerlora.backend.repository.TtnMapperDataRepository;
 
@@ -73,5 +76,25 @@ public class TtnMapperDataController {
             return json;
         }
 
+        @GetMapping("/cleaned")
+        public Map<String, Object> getCleanedTtnMapperData() {
+            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+            Map<String, Object> map =  new HashMap<>();
+            int index = 1;
+            for(TtnMapperData ttnMapperDataItem : ttnMapperData) {
+                for(Gateways gateway : ttnMapperDataItem.getGateways()) {
+                    map.put("Gateway-"+ index , gateway.getId());
+                    map.put("RSSI-"+ index, gateway.getRssi());
+                    map.put("SNR-"+ index, gateway.getSnr());
+                    index++;
+                }
+                map.put("Cliente", ttnMapperDataItem.getDev_id());
+                map.put("SF", ttnMapperDataItem.getSpreading_factor());
+                map.put("Latitud", ttnMapperDataItem.getLatitude());
+                map.put("Longitud", ttnMapperDataItem.getLongitude());
+                map.put("Potencia", "14");
+            }
+            return map;
+        }
 
 }
