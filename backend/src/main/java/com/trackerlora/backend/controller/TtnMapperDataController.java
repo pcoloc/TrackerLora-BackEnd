@@ -1,5 +1,6 @@
 package com.trackerlora.backend.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -77,11 +78,13 @@ public class TtnMapperDataController {
         }
 
         @GetMapping("/cleaned")
-        public Map<String, Object> getCleanedTtnMapperData() {
+        public List<Map<String, Object>> getCleanedTtnMapperData() {
             List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+            List<Map<String, Object>> cleanedTtnMapperData = new ArrayList<Map<String,Object>>();
+
             Map<String, Object> map =  new HashMap<>();
-            int index = 1;
             for(TtnMapperData ttnMapperDataItem : ttnMapperData) {
+                int index = 1;
                 for(Gateways gateway : ttnMapperDataItem.getGateways()) {
                     map.put("Gateway-"+ index , gateway.getId());
                     map.put("RSSI-"+ index, gateway.getRssi());
@@ -92,9 +95,9 @@ public class TtnMapperDataController {
                 map.put("SF", ttnMapperDataItem.getSpreading_factor());
                 map.put("Latitud", ttnMapperDataItem.getLatitude());
                 map.put("Longitud", ttnMapperDataItem.getLongitude());
-                map.put("Potencia", "14");
+                map.put("Potencia", 14);
+                cleanedTtnMapperData.add(map);
             }
-            return map;
+            return cleanedTtnMapperData;
         }
-
 }
