@@ -82,9 +82,10 @@ public class TtnMapperDataController {
             List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
             List<Map<String, Object>> cleanedTtnMapperData = new ArrayList<Map<String,Object>>();
 
-            Map<String, Object> map =  new HashMap<>();
+
             for(TtnMapperData ttnMapperDataItem : ttnMapperData) {
                 int index = 1;
+                Map<String, Object> map =  new HashMap<>();
                 for(Gateways gateway : ttnMapperDataItem.getGateways()) {
                     map.put("Gateway-"+ index , gateway.getId());
                     map.put("RSSI-"+ index, gateway.getRssi());
@@ -96,6 +97,7 @@ public class TtnMapperDataController {
                 map.put("Latitud", ttnMapperDataItem.getLatitude());
                 map.put("Longitud", ttnMapperDataItem.getLongitude());
                 map.put("Potencia", 14);
+                //map.put("metros", ttnMapperDataItem.getDistance());
                 cleanedTtnMapperData.add(map);
             }
             return cleanedTtnMapperData;
