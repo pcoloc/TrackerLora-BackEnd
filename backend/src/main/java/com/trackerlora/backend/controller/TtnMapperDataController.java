@@ -88,14 +88,14 @@ public class TtnMapperDataController {
                 Map<String, Object> map =  new HashMap<>();
                 for(Gateways gateway : ttnMapperDataItem.getGateways()) {
                     Map<String, Object> gatewayMap = new HashMap<>();
-                    gatewayMap.put("Gateway-"+ index , gateway.getGtw_id() != null ? gateway.getGtw_id() : "Unknown Gateway");
-                    gatewayMap.put("RSSI-"+ index, (Double) gateway.getRssi() != null ? gateway.getRssi() : -10000 );
-                    gatewayMap.put("SNR-"+ index, (Double) gateway.getSnr() != null ? gateway.getSnr() : -10000 );
-                    gatewayMap.put("Latitud-"+ index, gateway.getLatitude() != null ? gateway.getLatitude() : -10000);
-                    gatewayMap.put("Longitud-"+ index, gateway.getLongitude() != null ?gateway.getLongitude() : -10000);
-                    gatewayMap.put("Metros-"+ index, ttnMapperDataItem.getDistance(gateway.getLatitude(), gateway.getLongitude()));
+                    gatewayMap.put("name" , gateway.getGtw_id() != null ? gateway.getGtw_id() : "Unknown Gateway");
+                    gatewayMap.put("RSSI", (Double) gateway.getRssi() != null ? gateway.getRssi() : -10000 );
+                    gatewayMap.put("SNR", (Double) gateway.getSnr() != null ? gateway.getSnr() : -10000 );
+                    gatewayMap.put("Latitud", gateway.getLatitude() != null ? gateway.getLatitude() : -10000);
+                    gatewayMap.put("Longitud", gateway.getLongitude() != null ?gateway.getLongitude() : -10000);
+                    gatewayMap.put("Metros", ttnMapperDataItem.getDistance(gateway.getLatitude(), gateway.getLongitude()));
                     index++;
-                    map.put("Gateway", gatewayMap);
+                    map.put("Gateway-"+index, gatewayMap);
                 }
                 map.put("Cliente", ttnMapperDataItem.getDev_id() != null ? ttnMapperDataItem.getDev_id() : "Unknown Device");
                 map.put("SF", ttnMapperDataItem.getSpreading_factor() != null ? ttnMapperDataItem.getSpreading_factor() : -10000);
