@@ -94,8 +94,8 @@ public class TtnMapperDataController {
                     gatewayMap.put("Latitud", gateway.getLatitude() != null ? gateway.getLatitude() : -10000);
                     gatewayMap.put("Longitud", gateway.getLongitude() != null ?gateway.getLongitude() : -10000);
                     gatewayMap.put("Metros", ttnMapperDataItem.getDistance(gateway.getLatitude(), gateway.getLongitude()));
-                    index++;
                     map.put("Gateway-"+index, gatewayMap);
+                    index++;
                 }
                 map.put("Cliente", ttnMapperDataItem.getDev_id() != null ? ttnMapperDataItem.getDev_id() : "Unknown Device");
                 map.put("SF", ttnMapperDataItem.getSpreading_factor() != null ? ttnMapperDataItem.getSpreading_factor() : -10000);
