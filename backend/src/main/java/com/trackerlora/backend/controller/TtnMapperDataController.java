@@ -90,6 +90,8 @@ public class TtnMapperDataController {
                     map.put("Gateway-"+ index , gateway.getId());
                     map.put("RSSI-"+ index, gateway.getRssi());
                     map.put("SNR-"+ index, gateway.getSnr());
+                    map.put("Latitude-"+ index, gateway.getLatitude());
+                    map.put("Longitude-"+ index, gateway.getLongitude());
                     index++;
                 }
                 map.put("Cliente", ttnMapperDataItem.getDev_id());
