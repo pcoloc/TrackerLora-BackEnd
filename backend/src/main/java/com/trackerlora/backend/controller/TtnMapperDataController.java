@@ -89,19 +89,19 @@ public class TtnMapperDataController {
                 for(Gateways gateway : ttnMapperDataItem.getGateways()) {
                     Map<String, Object> gatewayMap = new HashMap<>();
                     gatewayMap.put("name" , gateway.getGtw_id() != null ? gateway.getGtw_id() : "Unknown Gateway");
-                    gatewayMap.put("RSSI", (Double) gateway.getRssi() != null ? gateway.getRssi() : -10000 );
-                    gatewayMap.put("SNR", (Double) gateway.getSnr() != null ? gateway.getSnr() : -10000 );
-                    gatewayMap.put("Latitud", gateway.getLatitude() != null ? gateway.getLatitude() : -10000);
-                    gatewayMap.put("Longitud", gateway.getLongitude() != null ?gateway.getLongitude() : -10000);
-                    gatewayMap.put("Metros", ttnMapperDataItem.getDistance(gateway.getLatitude(), gateway.getLongitude()));
-                    map.put("Gateway_"+index, gatewayMap);
+                    gatewayMap.put("rssi", (Double) gateway.getRssi() != null ? gateway.getRssi() : -10000 );
+                    gatewayMap.put("snr", (Double) gateway.getSnr() != null ? gateway.getSnr() : -10000 );
+                    gatewayMap.put("latitud", gateway.getLatitude() != null ? gateway.getLatitude() : -10000);
+                    gatewayMap.put("longitud", gateway.getLongitude() != null ?gateway.getLongitude() : -10000);
+                    gatewayMap.put("metros", ttnMapperDataItem.getDistance(gateway.getLatitude(), gateway.getLongitude()));
+                    map.put("gateway_"+index, gatewayMap);
                     index++;
                 }
-                map.put("Cliente", ttnMapperDataItem.getDev_id() != null ? ttnMapperDataItem.getDev_id() : "Unknown Device");
-                map.put("SF", ttnMapperDataItem.getSpreading_factor() != null ? ttnMapperDataItem.getSpreading_factor() : -10000);
-                map.put("Latitud", ttnMapperDataItem.getLatitude() != null ?  ttnMapperDataItem.getLatitude() : -10000);
-                map.put("Longitud", ttnMapperDataItem.getLongitude() != null ? ttnMapperDataItem.getLongitude() : -10000);
-                map.put("Potencia", 14);
+                map.put("cliente", ttnMapperDataItem.getDev_id() != null ? ttnMapperDataItem.getDev_id() : "Unknown Device");
+                map.put("sf", ttnMapperDataItem.getSpreading_factor() != null ? ttnMapperDataItem.getSpreading_factor() : -10000);
+                map.put("latitud", ttnMapperDataItem.getLatitude() != null ?  ttnMapperDataItem.getLatitude() : -10000);
+                map.put("longitud", ttnMapperDataItem.getLongitude() != null ? ttnMapperDataItem.getLongitude() : -10000);
+                map.put("potencia", 14);
                 //map.put("metros", ttnMapperDataItem.getDistance());
                 cleanedTtnMapperData.add(map);
             }
