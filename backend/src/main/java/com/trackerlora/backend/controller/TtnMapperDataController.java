@@ -87,13 +87,15 @@ public class TtnMapperDataController {
                 int index = 1;
                 Map<String, Object> map =  new HashMap<>();
                 for(Gateways gateway : ttnMapperDataItem.getGateways()) {
-                    map.put("Gateway-"+ index , gateway.getGtw_id() != null ? gateway.getGtw_id() : "Unknown Gateway");
-                    map.put("RSSI-"+ index, (Double) gateway.getRssi() != null ? gateway.getRssi() : -10000 );
-                    map.put("SNR-"+ index, (Double) gateway.getSnr() != null ? gateway.getSnr() : -10000 );
-                    map.put("Latitude-"+ index, gateway.getLatitude() != null ? gateway.getLatitude() : -10000);
-                    map.put("Longitude-"+ index, gateway.getLongitude() != null ?gateway.getLongitude() : -10000);
-                    map.put("Metros-"+ index, ttnMapperDataItem.getDistance(gateway.getLatitude(), gateway.getLongitude()));
+                    Map<String, Object> gatewayMap = new HashMap<>();
+                    gatewayMap.put("Gateway-"+ index , gateway.getGtw_id() != null ? gateway.getGtw_id() : "Unknown Gateway");
+                    gatewayMap.put("RSSI-"+ index, (Double) gateway.getRssi() != null ? gateway.getRssi() : -10000 );
+                    gatewayMap.put("SNR-"+ index, (Double) gateway.getSnr() != null ? gateway.getSnr() : -10000 );
+                    gatewayMap.put("Latitud-"+ index, gateway.getLatitude() != null ? gateway.getLatitude() : -10000);
+                    gatewayMap.put("Longitud-"+ index, gateway.getLongitude() != null ?gateway.getLongitude() : -10000);
+                    gatewayMap.put("Metros-"+ index, ttnMapperDataItem.getDistance(gateway.getLatitude(), gateway.getLongitude()));
                     index++;
+                    map.put("Gateway", gatewayMap);
                 }
                 map.put("Cliente", ttnMapperDataItem.getDev_id() != null ? ttnMapperDataItem.getDev_id() : "Unknown Device");
                 map.put("SF", ttnMapperDataItem.getSpreading_factor() != null ? ttnMapperDataItem.getSpreading_factor() : -10000);
