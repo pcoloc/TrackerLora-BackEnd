@@ -87,7 +87,7 @@ public class TtnMapperDataController {
                 int index = 1;
                 Map<String, Object> map =  new HashMap<>();
                 for(Gateways gateway : ttnMapperDataItem.getGateways()) {
-                    map.put("Gateway-"+ index , gateway.getId());
+                    map.put("Gateway-"+ index , gateway.getGtw_id());
                     map.put("RSSI-"+ index, gateway.getRssi());
                     map.put("SNR-"+ index, gateway.getSnr());
                     map.put("Latitude-"+ index, gateway.getLatitude());
