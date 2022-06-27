@@ -87,17 +87,18 @@ public class TtnMapperDataController {
                 int index = 1;
                 Map<String, Object> map =  new HashMap<>();
                 for(Gateways gateway : ttnMapperDataItem.getGateways()) {
-                    map.put("Gateway-"+ index , gateway.getGtw_id());
-                    map.put("RSSI-"+ index, gateway.getRssi());
-                    map.put("SNR-"+ index, gateway.getSnr());
-                    map.put("Latitude-"+ index, gateway.getLatitude());
-                    map.put("Longitude-"+ index, gateway.getLongitude());
+                    map.put("Gateway-"+ index , gateway.getGtw_id() != null ? gateway.getGtw_id() : "Unknown Gateway");
+                    map.put("RSSI-"+ index, (Double) gateway.getRssi() != null ? gateway.getRssi() : -10000 );
+                    map.put("SNR-"+ index, (Double) gateway.getSnr() != null ? gateway.getSnr() : -10000 );
+                    map.put("Latitude-"+ index, gateway.getLatitude() != null ? gateway.getLatitude() : -10000);
+                    map.put("Longitude-"+ index, gateway.getLongitude() != null ?gateway.getLongitude() : -10000);
+                    map.put("Metros-"+ index, ttnMapperDataItem.getDistance(gateway.getLatitude(), gateway.getLongitude()));
                     index++;
                 }
-                map.put("Cliente", ttnMapperDataItem.getDev_id());
-                map.put("SF", ttnMapperDataItem.getSpreading_factor());
-                map.put("Latitud", ttnMapperDataItem.getLatitude());
-                map.put("Longitud", ttnMapperDataItem.getLongitude());
+                map.put("Cliente", ttnMapperDataItem.getDev_id() != null ? ttnMapperDataItem.getDev_id() : "Unknown Device");
+                map.put("SF", ttnMapperDataItem.getSpreading_factor() != null ? ttnMapperDataItem.getSpreading_factor() : -10000);
+                map.put("Latitud", ttnMapperDataItem.getLatitude() != null ?  ttnMapperDataItem.getLatitude() : -10000);
+                map.put("Longitud", ttnMapperDataItem.getLongitude() != null ? ttnMapperDataItem.getLongitude() : -10000);
                 map.put("Potencia", 14);
                 //map.put("metros", ttnMapperDataItem.getDistance());
                 cleanedTtnMapperData.add(map);
