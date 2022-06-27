@@ -94,7 +94,7 @@ public class TtnMapperDataController {
                     gatewayMap.put("Latitud", gateway.getLatitude() != null ? gateway.getLatitude() : -10000);
                     gatewayMap.put("Longitud", gateway.getLongitude() != null ?gateway.getLongitude() : -10000);
                     gatewayMap.put("Metros", ttnMapperDataItem.getDistance(gateway.getLatitude(), gateway.getLongitude()));
-                    map.put("Gateway-"+index, gatewayMap);
+                    map.put("Gateway_"+index, gatewayMap);
                     index++;
                 }
                 map.put("Cliente", ttnMapperDataItem.getDev_id() != null ? ttnMapperDataItem.getDev_id() : "Unknown Device");
