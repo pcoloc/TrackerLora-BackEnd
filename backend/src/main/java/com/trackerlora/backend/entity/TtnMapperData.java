@@ -116,6 +116,9 @@ public class TtnMapperData {
     @Column(name = "user_agent", nullable = true)
     private String user_agent;
 
+    // @Column(name = "potencia", nullable = true)
+    // private int potencia;
+
     public Integer getId() {
         return id;
     }
@@ -275,6 +278,14 @@ public class TtnMapperData {
     public void setUseragent(String user_agent) {
         this.user_agent = user_agent;
     }
+
+    // public void setPotencia(int potencia){
+    //     this.potencia = potencia;
+    // }
+
+    // public int getPotencia() {
+    //     return this.potencia;
+    // }
 
     public int getDistance(double lat2, double lon2) {
         double distance = 0;

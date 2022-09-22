@@ -23,7 +23,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.trackerlora.backend.entity.Gateways;
+import com.trackerlora.backend.entity.Power;
 import com.trackerlora.backend.entity.TtnMapperData;
+import com.trackerlora.backend.repository.PowerRepository;
 import com.trackerlora.backend.repository.TtnMapperDataRepository;
 
 
@@ -34,6 +36,7 @@ public class TtnMapperDataController {
 
     @Autowired
     private TtnMapperDataRepository ttnMapperDataRepository;
+    private PowerRepository powerRepository;
     Logger logger = org.slf4j.LoggerFactory.getLogger(TtnMapperDataController.class);
 
         @GetMapping("/{id}")
@@ -81,7 +84,7 @@ public class TtnMapperDataController {
         public List<Map<String, Object>> getCleanedTtnMapperData() {
             List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
             List<Map<String, Object>> cleanedTtnMapperData = new ArrayList<Map<String,Object>>();
-
+            Power power = powerRepository.findById(1);
 
             for(TtnMapperData ttnMapperDataItem : ttnMapperData) {
                 int index = 1;
@@ -101,9 +104,10 @@ public class TtnMapperDataController {
                 map.put("sf", ttnMapperDataItem.getSpreading_factor() != null ? ttnMapperDataItem.getSpreading_factor() : -10000);
                 map.put("latitud", ttnMapperDataItem.getLatitude() != null ?  ttnMapperDataItem.getLatitude() : -10000);
                 map.put("longitud", ttnMapperDataItem.getLongitude() != null ? ttnMapperDataItem.getLongitude() : -10000);
-                map.put("potencia", 14);
+                map.put("potencia", power);
                 //map.put("metros", ttnMapperDataItem.getDistance());
                 cleanedTtnMapperData.add(map);
+
             }
             return cleanedTtnMapperData;
         }
