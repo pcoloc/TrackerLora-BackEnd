@@ -10,10 +10,10 @@ services:
     networks:
       - trackerlora_trackerlora
     environment:
-      - server.port=8080
-      - spring.datasource.password=aspitasaspitas2
+      - server.port='8080'
+      - spring.datasource.password='aspitasaspitas2'
       - spring.datasource.username=root
-      - spring.datasource.url= jdbc:postgresql://192.168.1.62:5432/trackerlora
+      - spring.datasource.url= 'jdbc:postgresql://192.168.1.62:5432/trackerlora'
     logging:
       driver: fluentd
       options:
