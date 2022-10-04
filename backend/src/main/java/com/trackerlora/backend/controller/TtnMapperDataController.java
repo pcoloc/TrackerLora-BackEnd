@@ -55,6 +55,7 @@ public class TtnMapperDataController {
         @PostMapping("/add")
         public ResponseEntity<TtnMapperData> addTtnMapperData(@RequestBody TtnMapperData ttnMapperData) {
             logger.warn("ttnMapperData: " + ttnMapperData);
+            //TODO: añadir en esta clase un modificador de la distancia y de la potencia a ver si funciona.
             TtnMapperData newTtnMapperData = ttnMapperDataRepository.save(ttnMapperData);
             return new ResponseEntity<TtnMapperData>(newTtnMapperData, HttpStatus.OK);
         }
@@ -105,7 +106,6 @@ public class TtnMapperDataController {
                 map.put("latitud", ttnMapperDataItem.getLatitude() != null ?  ttnMapperDataItem.getLatitude() : -10000);
                 map.put("longitud", ttnMapperDataItem.getLongitude() != null ? ttnMapperDataItem.getLongitude() : -10000);
                 map.put("potencia", power);
-                //map.put("metros", ttnMapperDataItem.getDistance());
                 cleanedTtnMapperData.add(map);
 
             }
