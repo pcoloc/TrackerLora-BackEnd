@@ -119,6 +119,9 @@ public class TtnMapperData {
     @Column(name = "potencia", nullable = true)
     private int potencia;
 
+    @Column(name = "metros", nullable = true)
+    private int metros;
+
     public Integer getId() {
         return id;
     }
@@ -285,6 +288,14 @@ public class TtnMapperData {
 
     public int getPotencia() {
         return this.potencia;
+    }
+
+    public void setMetros(int metros){
+        this.metros = metros;
+    }
+
+    public int getMetros() {
+        return this.metros;
     }
 
     public int getDistance(double lat2, double lon2) {

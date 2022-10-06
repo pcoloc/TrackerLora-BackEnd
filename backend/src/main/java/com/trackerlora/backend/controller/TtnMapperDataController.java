@@ -55,7 +55,10 @@ public class TtnMapperDataController {
         @PostMapping("/add")
         public ResponseEntity<TtnMapperData> addTtnMapperData(@RequestBody TtnMapperData ttnMapperData) {
             logger.warn("ttnMapperData: " + ttnMapperData);
+            Gateways router = ttnMapperData.getGateways().get(0);
             //TODO: añadir en esta clase un modificador de la distancia y de la potencia a ver si funciona.
+            ttnMapperData.setPotencia(14);
+            ttnMapperData.setMetros(ttnMapperData.getDistance(router.getLatitude(), router.getLongitude()));
             TtnMapperData newTtnMapperData = ttnMapperDataRepository.save(ttnMapperData);
             return new ResponseEntity<TtnMapperData>(newTtnMapperData, HttpStatus.OK);
         }
@@ -85,7 +88,6 @@ public class TtnMapperDataController {
         public List<Map<String, Object>> getCleanedTtnMapperData() {
             List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
             List<Map<String, Object>> cleanedTtnMapperData = new ArrayList<Map<String,Object>>();
-            Power power = powerRepository.findById(1);
 
             for(TtnMapperData ttnMapperDataItem : ttnMapperData) {
                 int index = 1;
@@ -105,7 +107,6 @@ public class TtnMapperDataController {
                 map.put("sf", ttnMapperDataItem.getSpreading_factor() != null ? ttnMapperDataItem.getSpreading_factor() : -10000);
                 map.put("latitud", ttnMapperDataItem.getLatitude() != null ?  ttnMapperDataItem.getLatitude() : -10000);
                 map.put("longitud", ttnMapperDataItem.getLongitude() != null ? ttnMapperDataItem.getLongitude() : -10000);
-                map.put("potencia", power);
                 cleanedTtnMapperData.add(map);
 
             }
