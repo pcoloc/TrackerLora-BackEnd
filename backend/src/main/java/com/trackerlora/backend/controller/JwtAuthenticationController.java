@@ -43,7 +43,7 @@ public class JwtAuthenticationController {
     }
 
     @PostMapping("/login")
-    @CrossOrigin(origins = {"https://trackerlora.lopezcarrillo.com", "http://localhost:4200"})
+    @CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:4200"})
     public ResponseEntity<?> loginUser(@RequestParam("user_name") String username,
                                        @RequestParam("password") String password) {
         Map<String, Object> responseMap = new HashMap<>();
@@ -81,7 +81,7 @@ public class JwtAuthenticationController {
     }
 
     @PostMapping("/register")
-    @CrossOrigin(origins = {"https://trackerlora.lopezcarrillo.com", "http://localhost:4200"})
+    @CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:4200"})
     public ResponseEntity<?> saveUser(@RequestParam("first_name") String firstName,
                                       @RequestParam("last_name") String lastName,
                                       @RequestParam("user_name") String userName, @RequestParam("email") String email

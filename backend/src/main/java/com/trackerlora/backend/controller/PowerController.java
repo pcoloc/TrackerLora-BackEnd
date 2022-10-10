@@ -18,7 +18,7 @@ import org.slf4j.Logger;
 
 @RestController
 @RequestMapping("/power")
-@CrossOrigin(origins = {"https://trackerlora.lopezcarrillo.com", "http://localhost:4200"})
+@CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:4200"})
 public class PowerController {
 
     @Autowired

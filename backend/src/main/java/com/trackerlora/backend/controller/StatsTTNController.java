@@ -26,7 +26,7 @@ import com.trackerlora.backend.entity.StatsTTN;
 
 @RestController
 @RequestMapping("/stats")
-@CrossOrigin(origins = {"https://trackerlora.lopezcarrillo.com", "http://localhost:4200"})
+@CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:4200"})
 public class StatsTTNController {
 
     @Autowired
@@ -39,14 +39,14 @@ public class StatsTTNController {
     private RestTemplate restTemplate;
 
     //with clientid and ApiKey this method return the stats of the client from TheThingsNetwork
-    @CrossOrigin(origins = {"https://trackerlora.lopezcarrillo.com", "http://localhost:4200"})
+    @CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:4200"})
     @GetMapping("/{clientId}")
     public StatsTTN getStats(@PathVariable("clientId") String clientId) {
         return statsTTNRepository.save(consumeAPI(clientId));
     }
 
     // Get Uplink Count from clientId
-    @CrossOrigin(origins = {"https://trackerlora.lopezcarrillo.com", "http://localhost:4200"})
+    @CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:4200"})
     @GetMapping("/uplinkCount/{clientId}")
     public int getUplinkCount(@PathVariable("clientId") String clientId) {
         return consumeAPI(clientId).getUplinkCount();
