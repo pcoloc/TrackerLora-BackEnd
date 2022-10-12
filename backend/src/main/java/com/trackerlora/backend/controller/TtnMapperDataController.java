@@ -1,9 +1,12 @@
 package com.trackerlora.backend.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.HttpEntity;
 import org.slf4j.Logger;
@@ -27,6 +30,7 @@ import com.trackerlora.backend.entity.Power;
 import com.trackerlora.backend.entity.TtnMapperData;
 import com.trackerlora.backend.repository.PowerRepository;
 import com.trackerlora.backend.repository.TtnMapperDataRepository;
+import com.trackerlora.backend.service.CsvExportService;
 
 
 @RestController
@@ -118,4 +122,12 @@ public class TtnMapperDataController {
             }
             return cleanedTtnMapperData;
         }
+        public final CsvExportService csvExportService = new CsvExportService(ttnMapperDataRepository);
+        @GetMapping("/csv")
+        public void getAlTtnMapperDataCsv(HttpServletResponse servletResponse) throws IOException {
+            servletResponse.setContentType("text/csv");
+            servletResponse.addHeader("Content-Disposition","attachment; filename=\"ttnMapper.csv\"");
+            csvExportService.writeEmployeesToCsv(servletResponse.getWriter());
+        }
+
 }
