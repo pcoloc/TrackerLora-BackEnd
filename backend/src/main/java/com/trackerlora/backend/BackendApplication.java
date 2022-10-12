@@ -31,12 +31,4 @@ public class BackendApplication {
         return new RestTemplate();
     }
 
-    @Bean
-    public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
-    return http.authorizeExchange()
-      .pathMatchers("/actuator/**").permitAll()
-      .anyExchange().authenticated()
-      .and().build();
-    }
-
 }
