@@ -17,7 +17,7 @@ services:
     logging:
       driver: fluentd
       options:
-        fluentd-address: 192.168.1.124:24224
+        fluentd-address: lopezcarrillo.com:12345
 networks:
   trackerlora_trackerlora:
     external: true

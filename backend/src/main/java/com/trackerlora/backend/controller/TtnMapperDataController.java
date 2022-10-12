@@ -58,6 +58,12 @@ public class TtnMapperDataController {
             Gateways router = ttnMapperData.getGateways().get(0);
             //TODO: añadir en esta clase un modificador de la distancia y de la potencia a ver si funciona.
             ttnMapperData.setPotencia(14);
+            List<Gateways> gateways = new ArrayList<Gateways>();
+            for(Gateways gateway : ttnMapperData.getGateways()) {
+                gateway.setMetros(ttnMapperData.getDistance(gateway.getLatitude(), gateway.getLongitude()));
+                gateways.add(gateway);
+            }
+            ttnMapperData.setGateways(gateways);
             ttnMapperData.setMetros(ttnMapperData.getDistance(router.getLatitude(), router.getLongitude()));
             TtnMapperData newTtnMapperData = ttnMapperDataRepository.save(ttnMapperData);
             return new ResponseEntity<TtnMapperData>(newTtnMapperData, HttpStatus.OK);
