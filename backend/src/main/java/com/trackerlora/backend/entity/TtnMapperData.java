@@ -117,10 +117,10 @@ public class TtnMapperData {
     private String user_agent;
 
     @Column(name = "potencia", nullable = true)
-    private int potencia;
+    private Integer potencia;
 
     @Column(name = "metros", nullable = true)
-    private int metros;
+    private Integer metros;
 
     public Integer getId() {
         return id;
@@ -282,23 +282,23 @@ public class TtnMapperData {
         this.user_agent = user_agent;
     }
 
-    public void setPotencia(int potencia){
+    public void setPotencia(Integer potencia){
         this.potencia = potencia;
     }
 
-    public int getPotencia() {
+    public Integer getPotencia() {
         return this.potencia;
     }
 
-    public void setMetros(int metros){
+    public void setMetros(Integer metros){
         this.metros = metros;
     }
 
-    public int getMetros() {
+    public Integer getMetros() {
         return this.metros;
     }
 
-    public int getDistance(double lat2, double lon2) {
+    public Integer getDistance(double lat2, double lon2) {
         double distance = 0;
         double lat1 = this.latitude;
         double lon1 = this.longitude;

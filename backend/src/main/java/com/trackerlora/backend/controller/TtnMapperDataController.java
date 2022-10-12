@@ -90,7 +90,7 @@ public class TtnMapperDataController {
             List<Map<String, Object>> cleanedTtnMapperData = new ArrayList<Map<String,Object>>();
 
             for(TtnMapperData ttnMapperDataItem : ttnMapperData) {
-                int index = 1;
+                Integer index = 1;
                 Map<String, Object> map =  new HashMap<>();
                 for(Gateways gateway : ttnMapperDataItem.getGateways()) {
                     Map<String, Object> gatewayMap = new HashMap<>();

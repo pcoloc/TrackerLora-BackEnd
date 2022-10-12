@@ -45,7 +45,7 @@ public class ShodanController {
 
         @PutMapping()
         @CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:4200"})
-        public Shodan updateShodan(@PathVariable int uuid, @RequestBody Shodan shodan) {
+        public Shodan updateShodan(@PathVariable Integer uuid, @RequestBody Shodan shodan) {
             return repository.save(shodan);
         }
 

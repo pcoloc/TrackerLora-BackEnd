@@ -50,7 +50,7 @@ public class UserController {
 
     @PutMapping()
     @CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:4200"})
-    public User updateUser(@PathVariable int uuid, @RequestBody User user) {
+    public User updateUser(@PathVariable Integer uuid, @RequestBody User user) {
         return repository.save(user);
     }
 

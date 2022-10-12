@@ -48,7 +48,7 @@ public class StatsTTNController {
     // Get Uplink Count from clientId
     @CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:4200"})
     @GetMapping("/uplinkCount/{clientId}")
-    public int getUplinkCount(@PathVariable("clientId") String clientId) {
+    public Integer getUplinkCount(@PathVariable("clientId") String clientId) {
         return consumeAPI(clientId).getUplinkCount();
     }
 

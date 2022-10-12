@@ -117,7 +117,7 @@ public class Monitor {
 
     @Override
     public int hashCode() {
-        int result = uuid != null ? uuid.hashCode() : 0;
+        Integer result = uuid != null ? uuid.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (isActive ? 1 : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
