@@ -18,11 +18,11 @@ import com.trackerlora.backend.repository.TtnMapperDataRepository;
 @Service
 public class CsvExportService {
 
-    private static final Logger log = org.slf4j.LoggerFactory.getLogger(CsvExportService.class);
 
     @Autowired
     private TtnMapperDataRepository ttnMapperDataRepository;
 
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(CsvExportService.class);
 
 
 

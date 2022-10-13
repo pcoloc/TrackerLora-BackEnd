@@ -32,6 +32,11 @@ import com.trackerlora.backend.repository.PowerRepository;
 import com.trackerlora.backend.repository.TtnMapperDataRepository;
 import com.trackerlora.backend.service.CsvExportService;
 
+import java.io.Writer;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
+
 
 @RestController
 @RequestMapping("/ttnMapperData")
@@ -42,6 +47,7 @@ public class TtnMapperDataController {
     private TtnMapperDataRepository ttnMapperDataRepository;
     private PowerRepository powerRepository;
     Logger logger = org.slf4j.LoggerFactory.getLogger(TtnMapperDataController.class);
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(CsvExportService.class);
 
         @GetMapping("/{id}")
         public ResponseEntity<TtnMapperData> getTtnMapperData(@PathVariable("id") Integer id) {
@@ -122,12 +128,21 @@ public class TtnMapperDataController {
             }
             return cleanedTtnMapperData;
         }
-        public final CsvExportService csvExportService = new CsvExportService(ttnMapperDataRepository);
         @GetMapping("/csv")
         public void getAlTtnMapperDataCsv(HttpServletResponse servletResponse) throws IOException {
+            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+            CsvExportService csvExportService = new CsvExportService(ttnMapperDataRepository);
             servletResponse.setContentType("text/csv");
             servletResponse.addHeader("Content-Disposition","attachment; filename=\"ttnMapper.csv\"");
-            csvExportService.writeEmployeesToCsv(servletResponse.getWriter());
+            Writer writer = servletResponse.getWriter();
+            //csvExportService.writeEmployeesToCsv(servletResponse.getWriter());
+            try (CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT)) {
+                for (TtnMapperData ttnMapperItem : ttnMapperData) {
+                    csvPrinter.printRecord(ttnMapperItem.getId());
+                }
+            } catch (IOException e) {
+                log.error("Error While writing CSV ", e);
+            }
         }
 
 }
