@@ -20,20 +20,19 @@ public class CsvExportService {
 
 
     @Autowired
-    private TtnMapperDataRepository ttnMapperDataRepository;
+    private List<TtnMapperData> ttnMapperDatas;
 
     private static final Logger log = org.slf4j.LoggerFactory.getLogger(CsvExportService.class);
 
 
 
-    public CsvExportService(TtnMapperDataRepository ttnMapperDataRepository) {
-        this.ttnMapperDataRepository = ttnMapperDataRepository;
+    public CsvExportService(List<TtnMapperData> ttnMapperDatas) {
+        this.ttnMapperDatas = ttnMapperDatas;
     }
 
     public void writeEmployeesToCsv(Writer writer) {
-        List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
         try (CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT)) {
-            for (TtnMapperData ttnMapperItem : ttnMapperData) {
+            for (TtnMapperData ttnMapperItem : ttnMapperDatas) {
                 csvPrinter.printRecord(ttnMapperItem.getId());
             }
         } catch (IOException e) {

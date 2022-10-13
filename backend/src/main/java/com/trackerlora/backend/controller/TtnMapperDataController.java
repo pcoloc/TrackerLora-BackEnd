@@ -26,9 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.trackerlora.backend.entity.Gateways;
-import com.trackerlora.backend.entity.Power;
 import com.trackerlora.backend.entity.TtnMapperData;
-import com.trackerlora.backend.repository.PowerRepository;
 import com.trackerlora.backend.repository.TtnMapperDataRepository;
 import com.trackerlora.backend.service.CsvExportService;
 
@@ -45,7 +43,6 @@ public class TtnMapperDataController {
 
     @Autowired
     private TtnMapperDataRepository ttnMapperDataRepository;
-    private PowerRepository powerRepository;
     Logger logger = org.slf4j.LoggerFactory.getLogger(TtnMapperDataController.class);
     private static final Logger log = org.slf4j.LoggerFactory.getLogger(CsvExportService.class);
 
@@ -131,14 +128,17 @@ public class TtnMapperDataController {
         @GetMapping("/csv")
         public void getAlTtnMapperDataCsv(HttpServletResponse servletResponse) throws IOException {
             List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
-            CsvExportService csvExportService = new CsvExportService(ttnMapperDataRepository);
+            //CsvExportService csvExportService = new CsvExportService(ttnMapperDataRepository);
             servletResponse.setContentType("text/csv");
             servletResponse.addHeader("Content-Disposition","attachment; filename=\"ttnMapper.csv\"");
             Writer writer = servletResponse.getWriter();
             //csvExportService.writeEmployeesToCsv(servletResponse.getWriter());
             try (CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT)) {
+                csvPrinter.printRecord("id", "rssi", "snr", "gw_latitud", "gw_longitud", "spreading_factor", "cl_latitud", "cl_longitud", "potencia", "metros"  );
                 for (TtnMapperData ttnMapperItem : ttnMapperData) {
-                    csvPrinter.printRecord(ttnMapperItem.getId());
+                    for(Gateways gateway : ttnMapperItem.getGateways()) {
+                    csvPrinter.printRecord(ttnMapperItem.getId(), gateway.getRssi(), gateway.getSnr(), gateway.getLatitude(), gateway.getLongitude(), ttnMapperItem.getSpreading_factor(), ttnMapperItem.getLatitude(), ttnMapperItem.getLongitude(), ttnMapperItem.getPotencia(), gateway.getDistance(ttnMapperItem.getLatitude(), ttnMapperItem.getLongitude()) );
+                    }
                 }
             } catch (IOException e) {
                 log.error("Error While writing CSV ", e);
