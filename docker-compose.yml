@@ -3,6 +3,7 @@ version: '3.7'
 services:
   backend:
     build: ./backend
+    image: pcoloc/trackerlora_back
     container_name: trackerlora_back
     ports:
       - "8080:8080"
