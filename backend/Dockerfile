@@ -2,11 +2,11 @@ FROM --platform=linux/amd64 maven:3.8.5-openjdk-17 as build
 # speed up Maven JVM a bit
 ENV MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
 # set working directory
-WORKDIR /opt/demo
+WORKDIR /usr/src/app
 # copy just pom.xml
 COPY pom.xml .
 # go-offline using the pom.xml
-RUN mvn dependency:go-offline
+# RUN mvn dependency:go-offline
 # copy your other files
 COPY ./src ./src
 # compile the source code and package it in a jar file
