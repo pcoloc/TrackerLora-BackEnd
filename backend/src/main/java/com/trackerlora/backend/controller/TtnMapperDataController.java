@@ -135,9 +135,11 @@ public class TtnMapperDataController {
             //csvExportService.writeEmployeesToCsv(servletResponse.getWriter());
             try (CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT)) {
                 csvPrinter.printRecord("id", "rssi", "snr", "spreading_factor", "potencia", "metros"  );
+                int counter = 1;
                 for (TtnMapperData ttnMapperItem : ttnMapperData) {
                     for(Gateways gateway : ttnMapperItem.getGateways()) {
-                    csvPrinter.printRecord(ttnMapperItem.getId(), gateway.getRssi(), gateway.getSnr(), ttnMapperItem.getSpreading_factor(), ttnMapperItem.getPotencia(), gateway.getDistance(ttnMapperItem.getLatitude(), ttnMapperItem.getLongitude()) );
+                    csvPrinter.printRecord(counter, gateway.getRssi(), gateway.getSnr(), ttnMapperItem.getSpreading_factor(), ttnMapperItem.getPotencia(), gateway.getDistance(ttnMapperItem.getLatitude(), ttnMapperItem.getLongitude()) );
+                    counter ++;
                     }
                 }
             } catch (IOException e) {
