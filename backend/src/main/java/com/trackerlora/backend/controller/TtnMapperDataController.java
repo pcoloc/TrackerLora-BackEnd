@@ -134,10 +134,10 @@ public class TtnMapperDataController {
             Writer writer = servletResponse.getWriter();
             //csvExportService.writeEmployeesToCsv(servletResponse.getWriter());
             try (CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT)) {
-                csvPrinter.printRecord("id", "rssi", "snr", "gw_latitud", "gw_longitud", "spreading_factor", "cl_latitud", "cl_longitud", "potencia", "metros"  );
+                csvPrinter.printRecord("id", "rssi", "snr", "spreading_factor", "potencia", "metros"  );
                 for (TtnMapperData ttnMapperItem : ttnMapperData) {
                     for(Gateways gateway : ttnMapperItem.getGateways()) {
-                    csvPrinter.printRecord(ttnMapperItem.getId(), gateway.getRssi(), gateway.getSnr(), gateway.getLatitude(), gateway.getLongitude(), ttnMapperItem.getSpreading_factor(), ttnMapperItem.getLatitude(), ttnMapperItem.getLongitude(), ttnMapperItem.getPotencia(), gateway.getDistance(ttnMapperItem.getLatitude(), ttnMapperItem.getLongitude()) );
+                    csvPrinter.printRecord(ttnMapperItem.getId(), gateway.getRssi(), gateway.getSnr(), ttnMapperItem.getSpreading_factor(), ttnMapperItem.getPotencia(), gateway.getDistance(ttnMapperItem.getLatitude(), ttnMapperItem.getLongitude()) );
                     }
                 }
             } catch (IOException e) {
