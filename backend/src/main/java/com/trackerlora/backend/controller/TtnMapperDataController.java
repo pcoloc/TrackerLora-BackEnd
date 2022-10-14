@@ -147,4 +147,77 @@ public class TtnMapperDataController {
             }
         }
 
+        @GetMapping("/mikrotik_csv")
+        public void getAlTtnMapperDataMicrotikCsv(HttpServletResponse servletResponse) throws IOException {
+            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+            //CsvExportService csvExportService = new CsvExportService(ttnMapperDataRepository);
+            servletResponse.setContentType("text/csv");
+            servletResponse.addHeader("Content-Disposition","attachment; filename=\"ttnMapper.csv\"");
+            Writer writer = servletResponse.getWriter();
+            //csvExportService.writeEmployeesToCsv(servletResponse.getWriter());
+            try (CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT)) {
+                csvPrinter.printRecord("id", "rssi", "snr", "spreading_factor", "potencia", "metros"  );
+                int counter = 1;
+                for (TtnMapperData ttnMapperItem : ttnMapperData) {
+                    for(Gateways gateway : ttnMapperItem.getGateways()) {
+                    //si es el router Mikrotik
+                        if(gateway.getGtw_id().equals("paco96routermikro")){
+                            csvPrinter.printRecord(counter, gateway.getRssi(), gateway.getSnr(), ttnMapperItem.getSpreading_factor(), ttnMapperItem.getPotencia(), gateway.getDistance(ttnMapperItem.getLatitude(), ttnMapperItem.getLongitude()) );
+                            counter ++;
+                        }
+                    }
+                }
+            } catch (IOException e) {
+                log.error("Error While writing CSV ", e);
+            }
+        }
+
+        @GetMapping("/dragino_csv")
+        public void getAlTtnMapperDataDraginoCsv(HttpServletResponse servletResponse) throws IOException {
+            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+            //CsvExportService csvExportService = new CsvExportService(ttnMapperDataRepository);
+            servletResponse.setContentType("text/csv");
+            servletResponse.addHeader("Content-Disposition","attachment; filename=\"ttnMapper.csv\"");
+            Writer writer = servletResponse.getWriter();
+            //csvExportService.writeEmployeesToCsv(servletResponse.getWriter());
+            try (CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT)) {
+                csvPrinter.printRecord("id", "rssi", "snr", "spreading_factor", "potencia", "metros"  );
+                int counter = 1;
+                for (TtnMapperData ttnMapperItem : ttnMapperData) {
+                    for(Gateways gateway : ttnMapperItem.getGateways()) {
+                    //filtramos por el router de Dragino
+                        if(gateway.getGtw_id().equals("dragino-pac")){
+                            csvPrinter.printRecord(counter, gateway.getRssi(), gateway.getSnr(), ttnMapperItem.getSpreading_factor(), ttnMapperItem.getPotencia(), gateway.getDistance(ttnMapperItem.getLatitude(), ttnMapperItem.getLongitude()) );
+                            counter ++;
+                        }
+                    }
+                }
+            } catch (IOException e) {
+                log.error("Error While writing CSV ", e);
+            }
+        }
+
+        @GetMapping("/total")
+        public long getTotalRows(HttpEntity<String> httpEntity){
+            return 1;
+        }
+
+        @GetMapping("/gw/{gw}")
+        public long getTotalGwRows(@PathVariable("gw") String gw){
+            return 1;
+        }
+
+        @GetMapping("/sf/{sf}")
+        public long getTotalSfRows(@PathVariable("sf") String sf){
+            return 1;
+        }
+        @GetMapping("/pw/{pw}")
+        public long getTotalPwRows(@PathVariable("pw") String pw){
+            return 1;
+        }
+
+        @GetMapping("/sfpw/{sf}/{pw}")
+        public long getTotalSfPwRows(@PathVariable("sf") String sf, @PathVariable("pw") String pw){
+            return 1;
+        }
 }
