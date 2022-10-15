@@ -248,17 +248,18 @@ public class TtnMapperDataController {
          */
         @GetMapping("/gwsf/{gw}/{sf}")
         public long getTotalGatewaysSfRows(@PathVariable("gw") String gw, @PathVariable("sf") Integer sf){
-            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
-                int counter = 0;
-                for (TtnMapperData ttnMapperItem : ttnMapperData) {
-                    for(Gateways gateway : ttnMapperItem.getGateways()) {
-                    //si es el router Mikrotik
-                        if(gateway.getGtw_id().equals(gw) && ttnMapperItem.getSpreading_factor() == sf){
-                            counter ++;
-                        }
-                    }
-                }
-                return counter;
+            // List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+            //     int counter = 0;
+            //     for (TtnMapperData ttnMapperItem : ttnMapperData) {
+            //         for(Gateways gateway : ttnMapperItem.getGateways()) {
+            //         //si es el router Mikrotik
+            //             if(gateway.getGtw_id().equals(gw) && ttnMapperItem.getSpreading_factor() == sf){
+            //                 counter ++;
+            //             }
+            //         }
+            //     }
+            //     return counter;
+            return ttnMapperDataRepository.countBygtw_id_AndSpreading_factor(gw, sf);
         }
 
         /**
@@ -268,17 +269,18 @@ public class TtnMapperDataController {
          */
         @GetMapping("/gwpw/{gw}/{pw}")
         public long getTotalGatewaysPwRows(@PathVariable("gw") String gw, @PathVariable("pw") Integer pw){
-            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
-                int counter = 0;
-                for (TtnMapperData ttnMapperItem : ttnMapperData) {
-                    for(Gateways gateway : ttnMapperItem.getGateways()) {
-                    //si es el router Mikrotik
-                        if(gateway.getGtw_id().equals(gw) && ttnMapperItem.getPotencia() == pw){
-                            counter ++;
-                        }
-                    }
-                }
-                return counter;
+            // List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+            //     int counter = 0;
+            //     for (TtnMapperData ttnMapperItem : ttnMapperData) {
+            //         for(Gateways gateway : ttnMapperItem.getGateways()) {
+            //         //si es el router Mikrotik
+            //             if(gateway.getGtw_id().equals(gw) && ttnMapperItem.getPotencia() == pw){
+            //                 counter ++;
+            //             }
+            //         }
+            //     }
+            //     return counter;
+            return ttnMapperDataRepository.countBygtw_id_AndPotencia(gw, pw);
         }
 
         @GetMapping("/testbot")
