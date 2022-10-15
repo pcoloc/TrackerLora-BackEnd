@@ -65,7 +65,7 @@ public class TtnMapperDataController {
             System.out.println("------------- Adding data --------------");
             System.out.println("data accuracy is: " + ttnMapperData.getAccuracy_meters());
             System.out.println("-----------------------------------------");
-            if(ttnMapperData.getAccuracy_meters() > 50){
+            if(ttnMapperData.getAccuracy_meters() <= 50){
             Gateways router = ttnMapperData.getGateways().get(0);
             //TODO: añadir en esta clase un modificador de la distancia y de la potencia a ver si funciona.
             ttnMapperData.setPotencia(7);
@@ -77,10 +77,11 @@ public class TtnMapperDataController {
             ttnMapperData.setGateways(gateways);
             ttnMapperData.setMetros(ttnMapperData.getDistance(router.getLatitude(), router.getLongitude()));
             TtnMapperData newTtnMapperData = ttnMapperDataRepository.save(ttnMapperData);
-
+            System.out.println("--------- Added data ---------------");
             return new ResponseEntity<TtnMapperData>(newTtnMapperData, HttpStatus.OK);
             }
-            return new ResponseEntity<TtnMapperData>(ttnMapperData, HttpStatus.UNPROCESSABLE_ENTITY);
+            System.out.println("--------- Not Added data ---------------");
+            return new ResponseEntity<TtnMapperData>(ttnMapperData, HttpStatus.OK);
         }
 
         @PutMapping("/update")
