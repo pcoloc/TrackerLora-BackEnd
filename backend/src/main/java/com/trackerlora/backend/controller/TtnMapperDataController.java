@@ -62,6 +62,7 @@ public class TtnMapperDataController {
         @PostMapping("/add")
         public ResponseEntity<TtnMapperData> addTtnMapperData(@RequestBody TtnMapperData ttnMapperData) {
             logger.warn("ttnMapperData: " + ttnMapperData);
+            if(ttnMapperData.getAccuracy_meters() > 50){
             Gateways router = ttnMapperData.getGateways().get(0);
             //TODO: añadir en esta clase un modificador de la distancia y de la potencia a ver si funciona.
             ttnMapperData.setPotencia(7);
@@ -73,7 +74,10 @@ public class TtnMapperDataController {
             ttnMapperData.setGateways(gateways);
             ttnMapperData.setMetros(ttnMapperData.getDistance(router.getLatitude(), router.getLongitude()));
             TtnMapperData newTtnMapperData = ttnMapperDataRepository.save(ttnMapperData);
+
             return new ResponseEntity<TtnMapperData>(newTtnMapperData, HttpStatus.OK);
+            }
+            return new ResponseEntity<TtnMapperData>(ttnMapperData, HttpStatus.UNPROCESSABLE_ENTITY);
         }
 
         @PutMapping("/update")
@@ -196,28 +200,112 @@ public class TtnMapperDataController {
                 log.error("Error While writing CSV ", e);
             }
         }
-
+        //SELECT COUNT(*) FROM gateways
         @GetMapping("/total")
         public long getTotalRows(HttpEntity<String> httpEntity){
-            return 1;
+            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+                int counter = 0;
+                for (TtnMapperData ttnMapperItem : ttnMapperData) {
+                    for(Gateways gateway : ttnMapperItem.getGateways()) {
+                            counter ++;
+                    }
+                }
+                return counter;
         }
-
+        //SELECT COUNT(*) FROM gateways WHERE gtw_id='dragino-pac'
         @GetMapping("/gw/{gw}")
         public long getTotalGwRows(@PathVariable("gw") String gw){
-            return 1;
+            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+                int counter = 0;
+                for (TtnMapperData ttnMapperItem : ttnMapperData) {
+                    for(Gateways gateway : ttnMapperItem.getGateways()) {
+                        if(gateway.getGtw_id().equals(gw)){
+                            counter ++;
+                        }
+                    }
+                }
+                return counter;
         }
-
+        //SELECT COUNT(*) FROM ttn_mapper_data WHERE spreading_factor=7
         @GetMapping("/sf/{sf}")
-        public long getTotalSfRows(@PathVariable("sf") String sf){
-            return 1;
+        public long getTotalSfRows(@PathVariable("sf") Integer sf){
+            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+                int counter = 0;
+                for (TtnMapperData ttnMapperItem : ttnMapperData) {
+                    for(Gateways gateway : ttnMapperItem.getGateways()) {
+                        if(ttnMapperItem.getSpreading_factor() == sf){
+                            counter ++;
+                        }
+                    }
+                }
+                return counter;
         }
+        //SELECT COUNT(*) FROM ttn_mapper_data WHERE potencia=7
         @GetMapping("/pw/{pw}")
-        public long getTotalPwRows(@PathVariable("pw") String pw){
-            return 1;
+        public long getTotalPwRows(@PathVariable("pw") Integer pw){
+            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+                int counter = 0;
+                for (TtnMapperData ttnMapperItem : ttnMapperData) {
+                    for(Gateways gateway : ttnMapperItem.getGateways()) {
+                        if(ttnMapperItem.getPotencia() == pw){
+                            counter ++;
+                        }
+                    }
+                }
+                return counter;
+        }
+        //SELECT COUNT(*) FROM ttn_mapper_data WHERE spreading_factor=7 and potencia=14
+        @GetMapping("/sfpw/{sf}/{pw}")
+        public long getTotalSfPwRows(@PathVariable("sf") Integer sf, @PathVariable("pw") Integer pw){
+            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+                int counter = 0;
+                for (TtnMapperData ttnMapperItem : ttnMapperData) {
+                    for(Gateways gateway : ttnMapperItem.getGateways()) {
+                        if(ttnMapperItem.getPotencia() == pw && ttnMapperItem.getSpreading_factor() == sf){
+                            counter ++;
+                        }
+                    }
+                }
+                return counter;
         }
 
-        @GetMapping("/sfpw/{sf}/{pw}")
-        public long getTotalSfPwRows(@PathVariable("sf") String sf, @PathVariable("pw") String pw){
-            return 1;
+        /**
+         * @param gw
+         * @param sf
+         * @return counter of rows
+         */
+        @GetMapping("/gwsf/{gw}/{sf}")
+        public long getTotalGatewaysSfRows(@PathVariable("gw") String gw, @PathVariable("sf") Integer sf){
+            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+                int counter = 0;
+                for (TtnMapperData ttnMapperItem : ttnMapperData) {
+                    for(Gateways gateway : ttnMapperItem.getGateways()) {
+                    //si es el router Mikrotik
+                        if(gateway.getGtw_id().equals(gw) && ttnMapperItem.getSpreading_factor() == sf){
+                            counter ++;
+                        }
+                    }
+                }
+                return counter;
+        }
+
+        /**
+         * @param gw
+         * @param pw
+         * @return counter of rows
+         */
+        @GetMapping("/gwpw/{gw}/{pw}")
+        public long getTotalGatewaysPwRows(@PathVariable("gw") String gw, @PathVariable("pw") Integer pw){
+            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+                int counter = 0;
+                for (TtnMapperData ttnMapperItem : ttnMapperData) {
+                    for(Gateways gateway : ttnMapperItem.getGateways()) {
+                    //si es el router Mikrotik
+                        if(gateway.getGtw_id().equals(gw) && ttnMapperItem.getPotencia() == pw){
+                            counter ++;
+                        }
+                    }
+                }
+                return counter;
         }
 }
