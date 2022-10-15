@@ -259,7 +259,7 @@ public class TtnMapperDataController {
             //         }
             //     }
             //     return counter;
-            return ttnMapperDataRepository.countByGateways_gtwId_AndSpreading_factor(gw, sf);
+            return ttnMapperDataRepository.countByGateways_gtwId_AndSpreadingFactor(gw, sf);
         }
 
         /**
