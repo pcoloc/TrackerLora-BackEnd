@@ -208,7 +208,7 @@ public class TtnMapperDataController {
             List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
                 int counter = 0;
                 for (TtnMapperData ttnMapperItem : ttnMapperData) {
-                    for(int i = 0; i> ttnMapperItem.getGateways().size(); i++) {
+                    for(int i = 0; i < ttnMapperItem.getGateways().size(); i++) {
                             counter ++;
                     }
                 }
@@ -234,7 +234,7 @@ public class TtnMapperDataController {
             List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
                 int counter = 0;
                 for (TtnMapperData ttnMapperItem : ttnMapperData) {
-                    for(int i = 0; i> ttnMapperItem.getGateways().size(); i++) {
+                    for(int i = 0; i < ttnMapperItem.getGateways().size(); i++) {
                         if(ttnMapperItem.getSpreading_factor() == sf){
                             counter ++;
                         }
@@ -248,7 +248,7 @@ public class TtnMapperDataController {
             List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
                 int counter = 0;
                 for (TtnMapperData ttnMapperItem : ttnMapperData) {
-                    for(int i = 0; i> ttnMapperItem.getGateways().size(); i++) {
+                    for(int i = 0; i < ttnMapperItem.getGateways().size(); i++) {
                         if(ttnMapperItem.getPotencia() == pw){
                             counter ++;
                         }
@@ -262,7 +262,7 @@ public class TtnMapperDataController {
             List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
                 int counter = 0;
                 for (TtnMapperData ttnMapperItem : ttnMapperData) {
-                    for(int i = 0; i> ttnMapperItem.getGateways().size(); i++) {
+                    for(int i = 0; i < ttnMapperItem.getGateways().size(); i++) {
                         if(ttnMapperItem.getPotencia() == pw && ttnMapperItem.getSpreading_factor() == sf){
                             counter ++;
                         }
