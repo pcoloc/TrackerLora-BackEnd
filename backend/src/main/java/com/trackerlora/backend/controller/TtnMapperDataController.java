@@ -223,58 +223,22 @@ public class TtnMapperDataController {
         //SELECT COUNT(*) FROM gateways WHERE gtw_id='dragino-pac'
         @GetMapping("/gw/{gw}")
         public long getTotalGwRows(@PathVariable("gw") String gw){
-            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
-                int counter = 0;
-                for (TtnMapperData ttnMapperItem : ttnMapperData) {
-                    for(Gateways gateway : ttnMapperItem.getGateways()) {
-                        if(gateway.getGtw_id().equals(gw)){
-                            counter ++;
-                        }
-                    }
-                }
-                return counter;
+           return ttnMapperDataRepository.getAllGatewayIdRows(gw);
         }
         //SELECT COUNT(*) FROM ttn_mapper_data WHERE spreading_factor=7
         @GetMapping("/sf/{sf}")
         public long getTotalSfRows(@PathVariable("sf") Integer sf){
-            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
-                int counter = 0;
-                for (TtnMapperData ttnMapperItem : ttnMapperData) {
-                    for(int i = 0; i < ttnMapperItem.getGateways().size(); i++) {
-                        if(ttnMapperItem.getSpreading_factor() == sf){
-                            counter ++;
-                        }
-                    }
-                }
-                return counter;
+            return ttnMapperDataRepository.getAllSfRows(sf);
         }
         //SELECT COUNT(*) FROM ttn_mapper_data WHERE potencia=7
         @GetMapping("/pw/{pw}")
         public long getTotalPwRows(@PathVariable("pw") Integer pw){
-            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
-                int counter = 0;
-                for (TtnMapperData ttnMapperItem : ttnMapperData) {
-                    for(int i = 0; i < ttnMapperItem.getGateways().size(); i++) {
-                        if(ttnMapperItem.getPotencia() == pw){
-                            counter ++;
-                        }
-                    }
-                }
-                return counter;
+            return ttnMapperDataRepository.getAllPwRows(pw);
         }
         //SELECT COUNT(*) FROM ttn_mapper_data WHERE spreading_factor=7 and potencia=14
         @GetMapping("/sfpw/{sf}/{pw}")
         public long getTotalSfPwRows(@PathVariable("sf") Integer sf, @PathVariable("pw") Integer pw){
-            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
-                int counter = 0;
-                for (TtnMapperData ttnMapperItem : ttnMapperData) {
-                    for(int i = 0; i < ttnMapperItem.getGateways().size(); i++) {
-                        if(ttnMapperItem.getPotencia() == pw && ttnMapperItem.getSpreading_factor() == sf){
-                            counter ++;
-                        }
-                    }
-                }
-                return counter;
+            return ttnMapperDataRepository.getAllSfPwRows(sf, pw);
         }
 
         /**
