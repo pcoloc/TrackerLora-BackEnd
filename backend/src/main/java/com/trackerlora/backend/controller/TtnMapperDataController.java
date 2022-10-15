@@ -64,7 +64,7 @@ public class TtnMapperDataController {
             logger.warn("ttnMapperData: " + ttnMapperData);
             System.out.println("------------- Adding data --------------");
             System.out.println("data accuracy is: " + ttnMapperData.getAccuracy_meters());
-            System.out.println("-----------------------------------------")
+            System.out.println("-----------------------------------------");
             if(ttnMapperData.getAccuracy_meters() > 50){
             Gateways router = ttnMapperData.getGateways().get(0);
             //TODO: añadir en esta clase un modificador de la distancia y de la potencia a ver si funciona.
