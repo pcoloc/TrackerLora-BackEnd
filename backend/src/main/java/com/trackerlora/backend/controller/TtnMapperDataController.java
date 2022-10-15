@@ -27,7 +27,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.request.SendMessage;
-import com.pengrad.telegrambot.response.SendResponse;
 import com.trackerlora.backend.entity.Gateways;
 import com.trackerlora.backend.entity.TtnMapperData;
 import com.trackerlora.backend.repository.TtnMapperDataRepository;
@@ -75,10 +74,8 @@ public class TtnMapperDataController {
             System.out.println("data accuracy is: " + ttnMapperData.getAccuracy_meters());
             System.out.println("-----------------------------------------");
             // Send messages
-            bot.execute(new SendMessage(11051100, "Ha llegado una nueva petición."));
             if(ttnMapperData.getAccuracy_meters() <= 50){
             Gateways router = ttnMapperData.getGateways().get(0);
-            //TODO: añadir en esta clase un modificador de la distancia y de la potencia a ver si funciona.
             ttnMapperData.setPotencia(7);
             List<Gateways> gateways = new ArrayList<Gateways>();
             for(Gateways gateway : ttnMapperData.getGateways()) {
@@ -89,10 +86,11 @@ public class TtnMapperDataController {
             ttnMapperData.setMetros(ttnMapperData.getDistance(router.getLatitude(), router.getLongitude()));
             TtnMapperData newTtnMapperData = ttnMapperDataRepository.save(ttnMapperData);
             System.out.println("--------- Added data ---------------");
-            bot.execute(new SendMessage(11051100, "Buenas noticias, ¡Se ha añadido!"));
             return new ResponseEntity<TtnMapperData>(newTtnMapperData, HttpStatus.OK);
             }
             System.out.println("--------- Not Added data ---------------");
+            String mensaje = "Malas noticias, ¡No se ha añadido nada porque la precisión era de" + ttnMapperData.getAccuracy_meters() + " metros!";
+            bot.execute(new SendMessage(11051100, mensaje));
             return new ResponseEntity<TtnMapperData>(ttnMapperData, HttpStatus.OK);
         }
 
@@ -219,14 +217,8 @@ public class TtnMapperDataController {
         //SELECT COUNT(*) FROM gateways
         @GetMapping("/total")
         public long getTotalRows(HttpEntity<String> httpEntity){
-            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
-                int counter = 0;
-                for (TtnMapperData ttnMapperItem : ttnMapperData) {
-                    for(int i = 0; i < ttnMapperItem.getGateways().size(); i++) {
-                            counter ++;
-                    }
-                }
-                return counter;
+            return ttnMapperDataRepository.getAllGatewayRows();
+
         }
         //SELECT COUNT(*) FROM gateways WHERE gtw_id='dragino-pac'
         @GetMapping("/gw/{gw}")

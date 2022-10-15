@@ -4,6 +4,7 @@ import com.trackerlora.backend.entity.TtnMapperData;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -13,4 +14,6 @@ public interface TtnMapperDataRepository extends CrudRepository<TtnMapperData, S
     TtnMapperData findById(Integer id);
     List<TtnMapperData> findAll();
     void deleteById(Integer id);
+    @Query("SELECT COUNT(*) FROM gateways")
+    long getAllGatewayRows();
 }
