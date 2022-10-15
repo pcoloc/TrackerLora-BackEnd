@@ -146,19 +146,19 @@ public class Gateways {
         this.channel = channel;
     }
 
-    public double getRssi() {
+    public Double getRssi() {
         return rssi;
     }
 
-    public void setRssi(double rssi) {
+    public void setRssi(Double rssi) {
         this.rssi = rssi;
     }
 
-    public double getSnr() {
+    public Double getSnr() {
         return snr;
     }
 
-    public void setSnr(double snr) {
+    public void setSnr(Double snr) {
         this.snr = snr;
     }
 
