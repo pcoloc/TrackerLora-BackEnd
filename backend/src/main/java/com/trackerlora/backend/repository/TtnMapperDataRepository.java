@@ -25,6 +25,6 @@ public interface TtnMapperDataRepository extends CrudRepository<TtnMapperData, S
     long getAllPwRows(int pw);
     @Query("SELECT COUNT(*) FROM TtnMapperData tn WHERE tn.spreading_factor=?#{[0]} AND tn.potencia=?#{[1]}")
     long getAllSfPwRows(int sf, int pw);
-    long countBygtw_id_AndSpreading_factor(String gtw_id, Integer spreading_factor);
-    long countBygtw_id_AndPotencia(String gtw_id, Integer potencia);
+    long countBygtwId_AndSpreading_factor(String gtwId, Integer spreading_factor);
+    long countBygtwId_AndPotencia(String gtwId, Integer potencia);
 }
