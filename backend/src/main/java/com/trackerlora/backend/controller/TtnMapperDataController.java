@@ -259,7 +259,7 @@ public class TtnMapperDataController {
             //         }
             //     }
             //     return counter;
-            return ttnMapperDataRepository.countBygtwId_AndSpreading_factor(gw, sf);
+            return ttnMapperDataRepository.countByGateways_gtwId_AndSpreading_factor(gw, sf);
         }
 
         /**
@@ -280,7 +280,7 @@ public class TtnMapperDataController {
             //         }
             //     }
             //     return counter;
-            return ttnMapperDataRepository.countBygtwId_AndPotencia(gw, pw);
+            return ttnMapperDataRepository.countByGateways_gtwId_AndPotencia(gw, pw);
         }
 
         @GetMapping("/testbot")

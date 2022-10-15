@@ -19,12 +19,12 @@ public interface TtnMapperDataRepository extends CrudRepository<TtnMapperData, S
     long getAllGatewayRows();
     @Query("SELECT COUNT(*) FROM Gateways gw WHERE gw.gtwId=:#{#gateway}")
     long getAllGatewayIdRows(@Param("gateway") String gateway);
-    @Query("SELECT COUNT(*) FROM TtnMapperData tn WHERE tn.spreading_factor=?#{[0]}")
+    @Query("SELECT COUNT(*) FROM TtnMapperData tn WHERE tn.spreadingFactor=?#{[0]}")
     long getAllSfRows(int sf);
     @Query("SELECT COUNT(*) FROM TtnMapperData tn WHERE tn.potencia=?#{[0]}")
     long getAllPwRows(int pw);
-    @Query("SELECT COUNT(*) FROM TtnMapperData tn WHERE tn.spreading_factor=?#{[0]} AND tn.potencia=?#{[1]}")
+    @Query("SELECT COUNT(*) FROM TtnMapperData tn WHERE tn.spreadingFactor=?#{[0]} AND tn.potencia=?#{[1]}")
     long getAllSfPwRows(int sf, int pw);
-    long countBygtwId_AndSpreading_factor(String gtwId, Integer spreading_factor);
-    long countBygtwId_AndPotencia(String gtwId, Integer potencia);
+    long countByGateways_gtwId_AndSpreading_factor(String gtwId, Integer spreadingFactor);
+    long countByGateways_gtwId_AndPotencia(String gtwId, Integer potencia);
 }

@@ -86,7 +86,7 @@ public class TtnMapperData {
     private Integer bandwidth;
 
     @Column(name = "spreading_factor", nullable = true)
-    private Integer spreading_factor;
+    private Integer spreadingFactor;
 
     @Column(name = "coding_rate", nullable = true)
     private String coding_rate;
@@ -203,11 +203,11 @@ public class TtnMapperData {
     }
 
     public Integer getSpreading_factor() {
-        return spreading_factor;
+        return spreadingFactor;
     }
 
-    public void setSpreading_factor(Integer spreading_factor) {
-        this.spreading_factor = spreading_factor;
+    public void setSpreading_factor(Integer spreadingFactor) {
+        this.spreadingFactor = spreadingFactor;
     }
 
     public String getCoding_rate() {
@@ -326,7 +326,7 @@ public class TtnMapperData {
                 ", frequency=" + frequency +
                 ", modulation='" + modulation + '\'' +
                 ", bandwidth=" + bandwidth +
-                ", spreading_factor=" + spreading_factor +
+                ", spreadingFactor=" + spreadingFactor +
                 ", coding_rate='" + coding_rate + '\'' +
                 ", gateways=" + gateways.toString() +
                 ", latitude=" + latitude +
