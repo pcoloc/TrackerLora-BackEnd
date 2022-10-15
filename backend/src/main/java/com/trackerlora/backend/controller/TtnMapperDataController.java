@@ -63,7 +63,8 @@ public class TtnMapperDataController {
         public ResponseEntity<TtnMapperData> addTtnMapperData(@RequestBody TtnMapperData ttnMapperData) {
             logger.warn("ttnMapperData: " + ttnMapperData);
             System.out.println("------------- Adding data --------------");
-            System.out.print("data accuracy is: " + ttnMapperData.getAccuracy_meters());
+            System.out.println("data accuracy is: " + ttnMapperData.getAccuracy_meters());
+            System.out.println("-----------------------------------------")
             if(ttnMapperData.getAccuracy_meters() > 50){
             Gateways router = ttnMapperData.getGateways().get(0);
             //TODO: añadir en esta clase un modificador de la distancia y de la potencia a ver si funciona.
@@ -136,7 +137,7 @@ public class TtnMapperDataController {
             List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
             //CsvExportService csvExportService = new CsvExportService(ttnMapperDataRepository);
             servletResponse.setContentType("text/csv");
-            servletResponse.addHeader("Content-Disposition","attachment; filename=\"ttnMapper.csv\"");
+            servletResponse.addHeader("Content-Disposition","attachment; filename=\"ttnMapper_total.csv\"");
             Writer writer = servletResponse.getWriter();
             //csvExportService.writeEmployeesToCsv(servletResponse.getWriter());
             try (CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT)) {
@@ -158,7 +159,7 @@ public class TtnMapperDataController {
             List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
             //CsvExportService csvExportService = new CsvExportService(ttnMapperDataRepository);
             servletResponse.setContentType("text/csv");
-            servletResponse.addHeader("Content-Disposition","attachment; filename=\"ttnMapper.csv\"");
+            servletResponse.addHeader("Content-Disposition","attachment; filename=\"ttnMapper_mikrotik.csv\"");
             Writer writer = servletResponse.getWriter();
             //csvExportService.writeEmployeesToCsv(servletResponse.getWriter());
             try (CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT)) {
@@ -183,7 +184,7 @@ public class TtnMapperDataController {
             List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
             //CsvExportService csvExportService = new CsvExportService(ttnMapperDataRepository);
             servletResponse.setContentType("text/csv");
-            servletResponse.addHeader("Content-Disposition","attachment; filename=\"ttnMapper.csv\"");
+            servletResponse.addHeader("Content-Disposition","attachment; filename=\"ttnMapper_dragino.csv\"");
             Writer writer = servletResponse.getWriter();
             //csvExportService.writeEmployeesToCsv(servletResponse.getWriter());
             try (CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT)) {
