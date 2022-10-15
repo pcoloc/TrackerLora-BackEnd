@@ -25,6 +25,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pengrad.telegrambot.TelegramBot;
+import com.pengrad.telegrambot.request.SendMessage;
+import com.pengrad.telegrambot.response.SendResponse;
 import com.trackerlora.backend.entity.Gateways;
 import com.trackerlora.backend.entity.TtnMapperData;
 import com.trackerlora.backend.repository.TtnMapperDataRepository;
@@ -46,6 +49,12 @@ public class TtnMapperDataController {
     Logger logger = org.slf4j.LoggerFactory.getLogger(TtnMapperDataController.class);
     private static final Logger log = org.slf4j.LoggerFactory.getLogger(CsvExportService.class);
 
+        // Create your bot passing the token received from @BotFather
+        TelegramBot bot = new TelegramBot("429373973:AAGFbX5A6cZoxGfiykLwdIQw7TzA3HEnT2M");
+
+
+
+
         @GetMapping("/{id}")
         public ResponseEntity<TtnMapperData> getTtnMapperData(@PathVariable("id") Integer id) {
             TtnMapperData ttnMapperData = ttnMapperDataRepository.findById(id);
@@ -65,6 +74,8 @@ public class TtnMapperDataController {
             System.out.println("------------- Adding data --------------");
             System.out.println("data accuracy is: " + ttnMapperData.getAccuracy_meters());
             System.out.println("-----------------------------------------");
+            // Send messages
+            bot.execute(new SendMessage(11051100, "Ha llegado una nueva petición."));
             if(ttnMapperData.getAccuracy_meters() <= 50){
             Gateways router = ttnMapperData.getGateways().get(0);
             //TODO: añadir en esta clase un modificador de la distancia y de la potencia a ver si funciona.
@@ -78,6 +89,7 @@ public class TtnMapperDataController {
             ttnMapperData.setMetros(ttnMapperData.getDistance(router.getLatitude(), router.getLongitude()));
             TtnMapperData newTtnMapperData = ttnMapperDataRepository.save(ttnMapperData);
             System.out.println("--------- Added data ---------------");
+            bot.execute(new SendMessage(11051100, "Buenas noticias, ¡Se ha añadido!"));
             return new ResponseEntity<TtnMapperData>(newTtnMapperData, HttpStatus.OK);
             }
             System.out.println("--------- Not Added data ---------------");
@@ -311,5 +323,11 @@ public class TtnMapperDataController {
                     }
                 }
                 return counter;
+        }
+
+        @GetMapping("/testbot")
+        public void pruebaBot(){
+            bot.execute(new SendMessage(11051100, "¡Estoy vivo!"));
+
         }
 }
