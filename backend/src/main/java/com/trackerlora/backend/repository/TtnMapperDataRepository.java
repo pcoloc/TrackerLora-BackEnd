@@ -17,7 +17,7 @@ public interface TtnMapperDataRepository extends CrudRepository<TtnMapperData, S
     void deleteById(Integer id);
     @Query("SELECT COUNT(*) FROM Gateways")
     long getAllGatewayRows();
-    @Query("SELECT COUNT(*) FROM Gateways gw WHERE gw.gtw_id=:#{#gateway}")
+    @Query("SELECT COUNT(*) FROM Gateways gw WHERE gw.gtwId=:#{#gateway}")
     long getAllGatewayIdRows(@Param("gateway") String gateway);
     @Query("SELECT COUNT(*) FROM TtnMapperData tn WHERE tn.spreading_factor=?#{[0]}")
     long getAllSfRows(int sf);
