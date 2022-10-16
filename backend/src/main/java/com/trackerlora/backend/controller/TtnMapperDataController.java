@@ -263,7 +263,7 @@ public class TtnMapperDataController {
 
         @GetMapping("/gwsfpw/{gw}/{sf}/{pw}")
         public long getTotalGwSfPwRows(@PathVariable("gw") String gw, @PathVariable("sf") Integer sf, @PathVariable("pw") Integer pw){
-            return ttnMapperDataRepository.getAllSfPwRows(sf, pw);
+            return ttnMapperDataRepository.countByGateways_gtwId_AndPotencia_AndSpreadingFactor(gw, sf, pw);
         }
 
         @GetMapping("/testbot")
