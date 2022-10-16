@@ -27,4 +27,5 @@ public interface TtnMapperDataRepository extends CrudRepository<TtnMapperData, S
     long getAllSfPwRows(int sf, int pw);
     long countByGateways_gtwId_AndSpreadingFactor(String gtwId, Integer spreadingFactor);
     long countByGateways_gtwId_AndPotencia(String gtwId, Integer potencia);
+    long countByGateways_gtwId_AndPotencia_AndSpreadingFactor(String gtwId, Integer potencia, Integer spreadingFactor);
 }
