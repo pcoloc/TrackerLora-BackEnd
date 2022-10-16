@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.trackerlora.backend.entity.TtnMapper;
 
 
-@CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:4200"})
+@CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:80"})
 @RepositoryRestResource
 public interface TtnMapperRepository extends CrudRepository<TtnMapper, String> {
 

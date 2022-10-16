@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 // (1) Anotación de controlador REST.
 @RestController
 // (2) Anotación de mapeo de petición en la URL /lora.
-@CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:4200", "*"})
+@CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:80", "*"})
 @RequestMapping("/lora")
 public class LoraDataController {
 
@@ -24,7 +24,7 @@ public class LoraDataController {
     private LoraDataService loraDataService;
 
     // (4) Mapeo de petición GET a la URL /lora/data.
-    @CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:4200", "*"})
+    @CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:80", "*"})
     @GetMapping("/data")
     public ResponseEntity<LoraData> getLoraData() {
         // (5) Devuelve una lista de objetos LoraData con los datos del scraping realizados por el servicio.

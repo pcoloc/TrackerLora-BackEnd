@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:4200"})
+@CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:80"})
 @RepositoryRestResource
 public interface StatsTTNRepository extends CrudRepository<StatsTTN, String>  {
 

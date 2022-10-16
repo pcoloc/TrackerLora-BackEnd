@@ -11,7 +11,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 @Component("loraDataService") // (1) Anotación de componente.
-@CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:4200"}) // (2) Anotación de CORS.
+@CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:80"}) // (2) Anotación de CORS.
 public class LoraDataService {
 
     LoraData loraData = new LoraData();

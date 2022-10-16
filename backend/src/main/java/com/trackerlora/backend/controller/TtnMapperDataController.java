@@ -40,7 +40,7 @@ import org.apache.commons.csv.CSVPrinter;
 
 @RestController
 @RequestMapping("/ttnMapperData")
-@CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:4200"})
+@CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:80"})
 public class TtnMapperDataController {
 
     @Autowired
