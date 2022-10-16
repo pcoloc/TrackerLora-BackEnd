@@ -76,7 +76,7 @@ public class TtnMapperDataController {
             // Send messages
             if(ttnMapperData.getAccuracy_meters() <= 50){
             Gateways router = ttnMapperData.getGateways().get(0);
-            ttnMapperData.setPotencia(7);
+            ttnMapperData.setPotencia(1);
             List<Gateways> gateways = new ArrayList<Gateways>();
             for(Gateways gateway : ttnMapperData.getGateways()) {
                 gateway.setMetros(ttnMapperData.getDistance(gateway.getLatitude(), gateway.getLongitude()));
@@ -248,17 +248,6 @@ public class TtnMapperDataController {
          */
         @GetMapping("/gwsf/{gw}/{sf}")
         public long getTotalGatewaysSfRows(@PathVariable("gw") String gw, @PathVariable("sf") Integer sf){
-            // List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
-            //     int counter = 0;
-            //     for (TtnMapperData ttnMapperItem : ttnMapperData) {
-            //         for(Gateways gateway : ttnMapperItem.getGateways()) {
-            //         //si es el router Mikrotik
-            //             if(gateway.getGtw_id().equals(gw) && ttnMapperItem.getSpreading_factor() == sf){
-            //                 counter ++;
-            //             }
-            //         }
-            //     }
-            //     return counter;
             return ttnMapperDataRepository.countByGateways_gtwId_AndSpreadingFactor(gw, sf);
         }
 
@@ -269,17 +258,6 @@ public class TtnMapperDataController {
          */
         @GetMapping("/gwpw/{gw}/{pw}")
         public long getTotalGatewaysPwRows(@PathVariable("gw") String gw, @PathVariable("pw") Integer pw){
-            // List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
-            //     int counter = 0;
-            //     for (TtnMapperData ttnMapperItem : ttnMapperData) {
-            //         for(Gateways gateway : ttnMapperItem.getGateways()) {
-            //         //si es el router Mikrotik
-            //             if(gateway.getGtw_id().equals(gw) && ttnMapperItem.getPotencia() == pw){
-            //                 counter ++;
-            //             }
-            //         }
-            //     }
-            //     return counter;
             return ttnMapperDataRepository.countByGateways_gtwId_AndPotencia(gw, pw);
         }
 
