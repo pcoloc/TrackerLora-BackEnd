@@ -227,11 +227,12 @@ public class TtnMapperDataController {
                 csvPrinter.printRecord("id", "rssi", "snr", "spreading_factor", "potencia", "metros"  );
                 int counter = 1;
                 for (TtnMapperData ttnMapperItem : ttnMapperData) {
-                    for(Gateways gateway : ttnMapperItem.getGateways()) {
-                    //filtramos por el router de Dragino
-                        if(gateway.getGtw_id().equals("dragino-pac")){
-                            csvPrinter.printRecord(counter, gateway.getRssi(), gateway.getSnr(), ttnMapperItem.getSpreading_factor(), ttnMapperItem.getPotencia(), gateway.getDistance(ttnMapperItem.getLatitude(), ttnMapperItem.getLongitude()) );
-                            counter ++;
+                    if(ttnMapperItem.getSpreading_factor() == sf && ttnMapperItem.getPotencia() == pw) {
+                        for(Gateways gateway : ttnMapperItem.getGateways()) {
+                            if(gateway.getGtw_id().equals(gw)){
+                                csvPrinter.printRecord(counter, gateway.getRssi(), gateway.getSnr(), ttnMapperItem.getSpreading_factor(), ttnMapperItem.getPotencia(), gateway.getDistance(ttnMapperItem.getLatitude(), ttnMapperItem.getLongitude()) );
+                                counter ++;
+                            }
                         }
                     }
                 }
