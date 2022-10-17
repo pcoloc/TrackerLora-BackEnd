@@ -153,15 +153,17 @@ public class TtnMapperDataController {
                 Integer index = 1;
                 Map<String, Object> map =  new HashMap<>();
                 for(Gateways gateway : ttnMapperDataItem.getGateways()) {
-                    Map<String, Object> gatewayMap = new HashMap<>();
-                    gatewayMap.put("name" , gateway.getGtw_id() != null ? gateway.getGtw_id() : "Unknown Gateway");
-                    gatewayMap.put("rssi", (Double) gateway.getRssi() != null ? gateway.getRssi() : -10000 );
-                    gatewayMap.put("snr", (Double) gateway.getSnr() != null ? gateway.getSnr() : -10000 );
-                    gatewayMap.put("latitud", gateway.getLatitude() != null ? gateway.getLatitude() : -10000);
-                    gatewayMap.put("longitud", gateway.getLongitude() != null ?gateway.getLongitude() : -10000);
-                    gatewayMap.put("metros", ttnMapperDataItem.getDistance(gateway.getLatitude(), gateway.getLongitude()));
-                    map.put("gateway_"+index, gatewayMap);
-                    index++;
+                    if(gateway.getGtw_id().equals(gw)){
+                        Map<String, Object> gatewayMap = new HashMap<>();
+                        gatewayMap.put("name" , gateway.getGtw_id() != null ? gateway.getGtw_id() : "Unknown Gateway");
+                        gatewayMap.put("rssi", (Double) gateway.getRssi() != null ? gateway.getRssi() : -10000 );
+                        gatewayMap.put("snr", (Double) gateway.getSnr() != null ? gateway.getSnr() : -10000 );
+                        gatewayMap.put("latitud", gateway.getLatitude() != null ? gateway.getLatitude() : -10000);
+                        gatewayMap.put("longitud", gateway.getLongitude() != null ?gateway.getLongitude() : -10000);
+                        gatewayMap.put("metros", ttnMapperDataItem.getDistance(gateway.getLatitude(), gateway.getLongitude()));
+                        map.put("gateway_"+index, gatewayMap);
+                        index++;
+                    }
                 }
                 map.put("cliente", ttnMapperDataItem.getDev_id() != null ? ttnMapperDataItem.getDev_id() : "Unknown Device");
                 map.put("sf", ttnMapperDataItem.getSpreading_factor() != null ? ttnMapperDataItem.getSpreading_factor() : -10000);
