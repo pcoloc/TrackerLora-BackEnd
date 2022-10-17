@@ -174,7 +174,8 @@ public class TtnMapperDataController {
                     map.put("sf", ttnMapperDataItem.getSpreading_factor() != null ? ttnMapperDataItem.getSpreading_factor() : -10000);
                     map.put("latitud", ttnMapperDataItem.getLatitude() != null ?  ttnMapperDataItem.getLatitude() : -10000);
                     map.put("longitud", ttnMapperDataItem.getLongitude() != null ? ttnMapperDataItem.getLongitude() : -10000);
-                    cleanedTtnMapperData.add(map);
+                    if (map.containsKey("gateway_1"))
+                        cleanedTtnMapperData.add(map);
                 }
 
             }
