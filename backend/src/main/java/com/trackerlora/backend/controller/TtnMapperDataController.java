@@ -126,7 +126,7 @@ public class TtnMapperDataController {
                 for(Gateways gateway : ttnMapperDataItem.getGateways()) {
                     Map<String, Object> gatewayMap = new HashMap<>();
                     gatewayMap.put("name" , gateway.getGtw_id() != null ? gateway.getGtw_id() : "Unknown Gateway");
-                    gatewayMap.put("rssi", (Double) gateway.getRssi() != null ? gateway.getRssi() : -10000 );
+                    gatewayMap.put("rssi", gateway.getRssi());
                     gatewayMap.put("snr", (Double) gateway.getSnr() != null ? gateway.getSnr() : -10000 );
                     gatewayMap.put("latitud", gateway.getLatitude() != null ? gateway.getLatitude() : -10000);
                     gatewayMap.put("longitud", gateway.getLongitude() != null ?gateway.getLongitude() : -10000);
@@ -156,8 +156,8 @@ public class TtnMapperDataController {
                     if(gateway.getGtw_id().equals(gw)){
                         Map<String, Object> gatewayMap = new HashMap<>();
                         gatewayMap.put("name" , gateway.getGtw_id() != null ? gateway.getGtw_id() : "Unknown Gateway");
-                        gatewayMap.put("rssi", (Double) gateway.getRssi() != null ? gateway.getRssi() : -10000 );
-                        gatewayMap.put("snr", (Double) gateway.getSnr() != null ? gateway.getSnr() : -10000 );
+                        gatewayMap.put("rssi", gateway.getRssi() );
+                        gatewayMap.put("snr", gateway.getSnr() );
                         gatewayMap.put("latitud", gateway.getLatitude() != null ? gateway.getLatitude() : -10000);
                         gatewayMap.put("longitud", gateway.getLongitude() != null ?gateway.getLongitude() : -10000);
                         gatewayMap.put("metros", ttnMapperDataItem.getDistance(gateway.getLatitude(), gateway.getLongitude()));

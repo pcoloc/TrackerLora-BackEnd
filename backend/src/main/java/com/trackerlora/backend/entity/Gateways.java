@@ -59,7 +59,7 @@ public class Gateways {
     private Integer channel;
 
     @Column(name = "rssi", nullable = true)
-    private Double rssi;
+    private Integer rssi;
 
     @Column(name = "snr", nullable = true)
     private Double snr;
@@ -146,11 +146,11 @@ public class Gateways {
         this.channel = channel;
     }
 
-    public Double getRssi() {
+    public Integer getRssi() {
         return rssi;
     }
 
-    public void setRssi(Double rssi) {
+    public void setRssi(Integer rssi) {
         this.rssi = rssi;
     }
 
@@ -247,7 +247,7 @@ public class Gateways {
                 '}';
     }
 
-    public Gateways(String network_id, String gtwId, String gtwEui, Integer antenna_index, Long time, Long timestamp, Integer channel, Double rssi, Double snr, Float latitude, Float longitude, Float altitude, Float location_accuracy, String location_source) {
+    public Gateways(String network_id, String gtwId, String gtwEui, Integer antenna_index, Long time, Long timestamp, Integer channel, Integer rssi, Double snr, Float latitude, Float longitude, Float altitude, Float location_accuracy, String location_source) {
         this.network_id = network_id;
         this.gtwId = gtwId;
         this.gtwEui = gtwEui;
@@ -267,7 +267,7 @@ public class Gateways {
     public Gateways() {
     }
 
-    public Gateways(String network_id, String gtwId, String gtwEui, Integer antenna_index, Long time, Long timestamp, Integer channel, Double rssi, Double snr, Float latitude, Float longitude, Float altitude, Float location_accuracy, String location_source, Integer id) {
+    public Gateways(String network_id, String gtwId, String gtwEui, Integer antenna_index, Long time, Long timestamp, Integer channel, Integer rssi, Double snr, Float latitude, Float longitude, Float altitude, Float location_accuracy, String location_source, Integer id) {
         this.network_id = network_id;
         this.gtwId = gtwId;
         this.gtwEui = gtwEui;
