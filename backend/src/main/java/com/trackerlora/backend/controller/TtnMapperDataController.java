@@ -123,7 +123,9 @@ public class TtnMapperDataController {
             for(TtnMapperData ttnMapperDataItem : ttnMapperData) {
                 Integer index = 1;
                 Map<String, Object> map =  new HashMap<>();
+                if (ttnMapperDataItem.getGateways().size() != 0) {
                 for(Gateways gateway : ttnMapperDataItem.getGateways()) {
+
                     Map<String, Object> gatewayMap = new HashMap<>();
                     gatewayMap.put("name" , gateway.getGtw_id() != null ? gateway.getGtw_id() : "Unknown Gateway");
                     gatewayMap.put("rssi", gateway.getRssi());
@@ -140,6 +142,7 @@ public class TtnMapperDataController {
                 map.put("longitud", ttnMapperDataItem.getLongitude() != null ? ttnMapperDataItem.getLongitude() : -10000);
                 cleanedTtnMapperData.add(map);
 
+                }
             }
             return cleanedTtnMapperData;
         }
@@ -149,7 +152,7 @@ public class TtnMapperDataController {
             List<Map<String, Object>> cleanedTtnMapperData = new ArrayList<Map<String,Object>>();
 
             for(TtnMapperData ttnMapperDataItem : ttnMapperData) {
-                if(ttnMapperDataItem.getSpreading_factor() == sf && ttnMapperDataItem.getPotencia() == pw) {
+                if(ttnMapperDataItem.getGateways().size() != 0 && ttnMapperDataItem.getSpreading_factor() == sf && ttnMapperDataItem.getPotencia() == pw) {
                 Integer index = 1;
                 Map<String, Object> map =  new HashMap<>();
                 for(Gateways gateway : ttnMapperDataItem.getGateways()) {
@@ -259,7 +262,7 @@ public class TtnMapperDataController {
                 csvPrinter.printRecord("id", "rssi", "snr", "spreading_factor", "potencia", "metros"  );
                 int counter = 1;
                 for (TtnMapperData ttnMapperItem : ttnMapperData) {
-                    if(ttnMapperItem.getSpreading_factor() == sf && ttnMapperItem.getPotencia() == pw) {
+                    if(ttnMapperItem.getGateways().size() != 0 && ttnMapperItem.getSpreading_factor() == sf && ttnMapperItem.getPotencia() == pw) {
                         for(Gateways gateway : ttnMapperItem.getGateways()) {
                             if(gateway.getGtw_id().equals(gw)){
                                 csvPrinter.printRecord(counter, gateway.getRssi(), gateway.getSnr(), ttnMapperItem.getSpreading_factor(), ttnMapperItem.getPotencia(), gateway.getDistance(ttnMapperItem.getLatitude(), ttnMapperItem.getLongitude()) );
