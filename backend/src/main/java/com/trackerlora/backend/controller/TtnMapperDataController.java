@@ -214,6 +214,31 @@ public class TtnMapperDataController {
                 log.error("Error While writing CSV ", e);
             }
         }
+        @GetMapping("csv/{sf}/{pw}/{gw}")
+        public void getAlTtnMapperData(HttpServletResponse servletResponse, @PathVariable("gw") String gw, @PathVariable("sf") Integer sf, @PathVariable("pw") Integer pw) throws IOException {
+            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+            //CsvExportService csvExportService = new CsvExportService(ttnMapperDataRepository);
+            String name = gw + "_sf" + sf + "_pw" + pw + ".csv";
+            servletResponse.setContentType("text/csv");
+            servletResponse.addHeader("Content-Disposition","attachment; filename="+ name);
+            Writer writer = servletResponse.getWriter();
+            //csvExportService.writeEmployeesToCsv(servletResponse.getWriter());
+            try (CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT)) {
+                csvPrinter.printRecord("id", "rssi", "snr", "spreading_factor", "potencia", "metros"  );
+                int counter = 1;
+                for (TtnMapperData ttnMapperItem : ttnMapperData) {
+                    for(Gateways gateway : ttnMapperItem.getGateways()) {
+                    //filtramos por el router de Dragino
+                        if(gateway.getGtw_id().equals("dragino-pac")){
+                            csvPrinter.printRecord(counter, gateway.getRssi(), gateway.getSnr(), ttnMapperItem.getSpreading_factor(), ttnMapperItem.getPotencia(), gateway.getDistance(ttnMapperItem.getLatitude(), ttnMapperItem.getLongitude()) );
+                            counter ++;
+                        }
+                    }
+                }
+            } catch (IOException e) {
+                log.error("Error While writing CSV ", e);
+            }
+        }
         //SELECT COUNT(*) FROM gateways
         @GetMapping("/total")
         public long getTotalRows(HttpEntity<String> httpEntity){
