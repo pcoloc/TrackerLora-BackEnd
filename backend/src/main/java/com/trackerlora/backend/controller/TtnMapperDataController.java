@@ -143,6 +143,36 @@ public class TtnMapperDataController {
             }
             return cleanedTtnMapperData;
         }
+        @GetMapping("/cleaned/{sf}/{pw}/{gw}")
+        public List<Map<String, Object>> getCleanedTtnMapperData(@PathVariable("gw") String gw, @PathVariable("sf") Integer sf, @PathVariable("pw") Integer pw) {
+            List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
+            List<Map<String, Object>> cleanedTtnMapperData = new ArrayList<Map<String,Object>>();
+
+            for(TtnMapperData ttnMapperDataItem : ttnMapperData) {
+                if(ttnMapperDataItem.getSpreading_factor() == sf && ttnMapperDataItem.getPotencia() == pw) {
+                Integer index = 1;
+                Map<String, Object> map =  new HashMap<>();
+                for(Gateways gateway : ttnMapperDataItem.getGateways()) {
+                    Map<String, Object> gatewayMap = new HashMap<>();
+                    gatewayMap.put("name" , gateway.getGtw_id() != null ? gateway.getGtw_id() : "Unknown Gateway");
+                    gatewayMap.put("rssi", (Double) gateway.getRssi() != null ? gateway.getRssi() : -10000 );
+                    gatewayMap.put("snr", (Double) gateway.getSnr() != null ? gateway.getSnr() : -10000 );
+                    gatewayMap.put("latitud", gateway.getLatitude() != null ? gateway.getLatitude() : -10000);
+                    gatewayMap.put("longitud", gateway.getLongitude() != null ?gateway.getLongitude() : -10000);
+                    gatewayMap.put("metros", ttnMapperDataItem.getDistance(gateway.getLatitude(), gateway.getLongitude()));
+                    map.put("gateway_"+index, gatewayMap);
+                    index++;
+                }
+                map.put("cliente", ttnMapperDataItem.getDev_id() != null ? ttnMapperDataItem.getDev_id() : "Unknown Device");
+                map.put("sf", ttnMapperDataItem.getSpreading_factor() != null ? ttnMapperDataItem.getSpreading_factor() : -10000);
+                map.put("latitud", ttnMapperDataItem.getLatitude() != null ?  ttnMapperDataItem.getLatitude() : -10000);
+                map.put("longitud", ttnMapperDataItem.getLongitude() != null ? ttnMapperDataItem.getLongitude() : -10000);
+                cleanedTtnMapperData.add(map);
+            }
+
+            }
+            return cleanedTtnMapperData;
+        }
         @GetMapping("/csv")
         public void getAlTtnMapperDataCsv(HttpServletResponse servletResponse) throws IOException {
             List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
