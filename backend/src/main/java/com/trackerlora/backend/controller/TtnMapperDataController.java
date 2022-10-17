@@ -169,6 +169,7 @@ public class TtnMapperDataController {
                             index++;
                         }
                     }
+                    map.put("id", ttnMapperDataItem.getId() != null ? ttnMapperDataItem.getId() : "Unknown Id");
                     map.put("cliente", ttnMapperDataItem.getDev_id() != null ? ttnMapperDataItem.getDev_id() : "Unknown Device");
                     map.put("sf", ttnMapperDataItem.getSpreading_factor() != null ? ttnMapperDataItem.getSpreading_factor() : -10000);
                     map.put("latitud", ttnMapperDataItem.getLatitude() != null ?  ttnMapperDataItem.getLatitude() : -10000);
