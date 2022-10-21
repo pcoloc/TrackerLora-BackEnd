@@ -149,14 +149,14 @@ public class TtnMapperDataController {
         }
 
 
-        @GetMapping("/cleaned/{sf}/{pw}/{gw}")
+        @GetMapping("/cleaned/{gw}/{sf}/{pw}")
         public List<Map<String, Object>> getCleanedTtnMapperData(@PathVariable("gw") String gw, @PathVariable("sf") Integer sf, @PathVariable("pw") Integer pw) {
             List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
             List<Map<String, Object>> cleanedTtnMapperData = new ArrayList<Map<String,Object>>();
 
             for(TtnMapperData ttnMapperDataItem : ttnMapperData) {
                 logger.warn("ttnRouter size", ttnMapperDataItem.getGateways().size());
-                if(ttnMapperDataItem.getGateways().isEmpty() && ttnMapperDataItem.getSpreading_factor() == sf && ttnMapperDataItem.getPotencia() == pw) {
+                if(!ttnMapperDataItem.getGateways().isEmpty() && ttnMapperDataItem.getSpreading_factor() == sf && ttnMapperDataItem.getPotencia() == pw) {
                     Integer index = 1;
                     Map<String, Object> map =  new HashMap<>();
                     for(Gateways gateway : ttnMapperDataItem.getGateways()) {
