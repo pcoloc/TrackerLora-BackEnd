@@ -69,10 +69,10 @@ public class TtnMapperDataController {
 
         @PostMapping("/add")
         public ResponseEntity<TtnMapperData> addTtnMapperData(@RequestBody TtnMapperData ttnMapperData) {
-            logger.warn("ttnMapperData: " + ttnMapperData);
-            System.out.println("------------- Adding data --------------");
-            System.out.println("data accuracy is: " + ttnMapperData.getAccuracy_meters());
-            System.out.println("-----------------------------------------");
+            logger.warn("ttnMapperData: ", ttnMapperData);
+            logger.warn("------------- Adding data --------------");
+            logger.warn("data accuracy is: ", ttnMapperData.getAccuracy_meters());
+            logger.warn("-----------------------------------------");
             // Send messages
             if(ttnMapperData.getAccuracy_meters() <= 50){
             Gateways router = ttnMapperData.getGateways().get(0);
@@ -85,10 +85,10 @@ public class TtnMapperDataController {
             ttnMapperData.setGateways(gateways);
             ttnMapperData.setMetros(ttnMapperData.getDistance(router.getLatitude(), router.getLongitude()));
             TtnMapperData newTtnMapperData = ttnMapperDataRepository.save(ttnMapperData);
-            System.out.println("--------- Added data ---------------");
+            logger.warn("--------- Added data ---------------");
             return new ResponseEntity<TtnMapperData>(newTtnMapperData, HttpStatus.OK);
             }
-            System.out.println("--------- Not Added data ---------------");
+            logger.warn("--------- Not Added data ---------------");
             String mensaje = "Malas noticias, ¡No se ha añadido nada porque la precisión era de" + ttnMapperData.getAccuracy_meters() + " metros!";
             bot.execute(new SendMessage(11051100, mensaje));
             return new ResponseEntity<TtnMapperData>(ttnMapperData, HttpStatus.OK);
@@ -140,6 +140,7 @@ public class TtnMapperDataController {
                 map.put("sf", ttnMapperDataItem.getSpreading_factor() != null ? ttnMapperDataItem.getSpreading_factor() : -10000);
                 map.put("latitud", ttnMapperDataItem.getLatitude() != null ?  ttnMapperDataItem.getLatitude() : -10000);
                 map.put("longitud", ttnMapperDataItem.getLongitude() != null ? ttnMapperDataItem.getLongitude() : -10000);
+                map.put("potencia", ttnMapperDataItem.getPotencia());
                 cleanedTtnMapperData.add(map);
 
                 }
@@ -152,7 +153,7 @@ public class TtnMapperDataController {
             List<Map<String, Object>> cleanedTtnMapperData = new ArrayList<Map<String,Object>>();
 
             for(TtnMapperData ttnMapperDataItem : ttnMapperData) {
-                System.out.println(ttnMapperDataItem.getGateways().size());
+                logger.warn("ttnRouter size", ttnMapperDataItem.getGateways().size());
                 if(ttnMapperDataItem.getGateways().size() != 0 && ttnMapperDataItem.getSpreading_factor() == sf && ttnMapperDataItem.getPotencia() == pw) {
                     Integer index = 1;
                     Map<String, Object> map =  new HashMap<>();
