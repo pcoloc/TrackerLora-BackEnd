@@ -76,7 +76,7 @@ public class TtnMapperDataController {
             // Send messages
             if(ttnMapperData.getAccuracy_meters() <= 50){
             Gateways router = ttnMapperData.getGateways().get(0);
-            ttnMapperData.setPotencia(1);
+            ttnMapperData.setPotencia(7);
             List<Gateways> gateways = new ArrayList<Gateways>();
             for(Gateways gateway : ttnMapperData.getGateways()) {
                 gateway.setMetros(ttnMapperData.getDistance(gateway.getLatitude(), gateway.getLongitude()));

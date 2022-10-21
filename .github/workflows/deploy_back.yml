@@ -21,7 +21,5 @@ jobs:
     steps:
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: a_back_vamos
-        run: ls
       - name: run_docker-compose
         run: docker-compose -f "docker-compose.yml" up -d --build
