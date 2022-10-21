@@ -147,6 +147,8 @@ public class TtnMapperDataController {
             }
             return cleanedTtnMapperData;
         }
+
+
         @GetMapping("/cleaned/{sf}/{pw}/{gw}")
         public List<Map<String, Object>> getCleanedTtnMapperData(@PathVariable("gw") String gw, @PathVariable("sf") Integer sf, @PathVariable("pw") Integer pw) {
             List<TtnMapperData> ttnMapperData = ttnMapperDataRepository.findAll();
@@ -154,7 +156,7 @@ public class TtnMapperDataController {
 
             for(TtnMapperData ttnMapperDataItem : ttnMapperData) {
                 logger.warn("ttnRouter size", ttnMapperDataItem.getGateways().size());
-                if(ttnMapperDataItem.getGateways().size() != 0 && ttnMapperDataItem.getSpreading_factor() == sf && ttnMapperDataItem.getPotencia() == pw) {
+                if(ttnMapperDataItem.getGateways().isEmpty() && ttnMapperDataItem.getSpreading_factor() == sf && ttnMapperDataItem.getPotencia() == pw) {
                     Integer index = 1;
                     Map<String, Object> map =  new HashMap<>();
                     for(Gateways gateway : ttnMapperDataItem.getGateways()) {
@@ -175,6 +177,7 @@ public class TtnMapperDataController {
                     map.put("sf", ttnMapperDataItem.getSpreading_factor() != null ? ttnMapperDataItem.getSpreading_factor() : -10000);
                     map.put("latitud", ttnMapperDataItem.getLatitude() != null ?  ttnMapperDataItem.getLatitude() : -10000);
                     map.put("longitud", ttnMapperDataItem.getLongitude() != null ? ttnMapperDataItem.getLongitude() : -10000);
+                    map.put("potencia", ttnMapperDataItem.getPotencia());
                     if (map.containsKey("gateway_1"))
                         cleanedTtnMapperData.add(map);
                 }
