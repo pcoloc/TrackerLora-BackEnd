@@ -1,0 +1,6 @@
+projectKey=trackerlora-back
+serverUrl=https://sonar.lopezcarrillo.com
+serverVersion=9.7.0.61563
+dashboardUrl=https://sonar.lopezcarrillo.com/dashboard?id=trackerlora-back
+ceTaskId=AYP8B8FPdKdaXVt7ritm
+ceTaskUrl=https://sonar.lopezcarrillo.com/api/ce/task?id=AYP8B8FPdKdaXVt7ritm
