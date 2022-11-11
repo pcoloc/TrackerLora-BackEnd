@@ -11,13 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.trackerlora.backend.entity.TtnMapper;
 import com.trackerlora.backend.repository.TtnMapperRepository;
+
+import io.swagger.v3.oas.annotations.Hidden;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.DeleteMapping;
-
+@Hidden
 @RestController
 @RequestMapping("/ttnMapper")
 @CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:80"})

@@ -6,6 +6,8 @@ import java.util.Map;
 import com.trackerlora.backend.entity.User;
 import com.trackerlora.backend.repository.UserRepository;
 
+import io.swagger.v3.oas.annotations.Hidden;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Hidden
 @RestController
 @RequestMapping("/user")
 @CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:80", "*"})

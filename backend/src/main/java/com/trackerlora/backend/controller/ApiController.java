@@ -3,6 +3,8 @@ package com.trackerlora.backend.controller;
 import com.trackerlora.backend.entity.Api;
 import com.trackerlora.backend.repository.ApiRepository;
 
+import io.swagger.v3.oas.annotations.Hidden;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Hidden
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:80"})

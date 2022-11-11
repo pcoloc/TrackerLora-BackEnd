@@ -3,6 +3,7 @@ package com.trackerlora.backend.controller;
 import com.trackerlora.backend.dto.LoraData;
 import com.trackerlora.backend.service.LoraDataService;
 
+import io.swagger.v3.oas.annotations.Hidden;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Hidden
 // (1) Anotación de controlador REST.
 @RestController
 // (2) Anotación de mapeo de petición en la URL /lora.

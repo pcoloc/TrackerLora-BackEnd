@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.trackerlora.backend.entity.Power;
 import com.trackerlora.backend.repository.PowerRepository;
 
+import io.swagger.v3.oas.annotations.Hidden;
+
 import org.slf4j.Logger;
 
+@Hidden
 @RestController
 @RequestMapping("/power")
 @CrossOrigin(origins = {"https://tracker.lopezcarrillo.com", "http://localhost:80"})

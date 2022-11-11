@@ -3,6 +3,9 @@ package com.trackerlora.backend.controller;
 import com.trackerlora.backend.entity.User;
 import com.trackerlora.backend.repository.UserRepository;
 import com.trackerlora.backend.service.JwtUserDetailsService;
+
+import io.swagger.v3.oas.annotations.Hidden;
+
 import com.trackerlora.backend.config.JwtTokenUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -23,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
+@Hidden
 @RestController
 @RequestMapping("/auth")
 public class JwtAuthenticationController {
