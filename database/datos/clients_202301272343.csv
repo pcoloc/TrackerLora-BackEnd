@@ -1,0 +1,3 @@
+"uuid","api_key","color","description","is_active","is_public","is_router","name","owner_uuid","added_at","ttn_id"
+"7d641d62-6fbf-463b-a0b7-ed04633965de",NNSXS.MCY4TE7X4OLPAUDTYRLJWDYHMNX67ZECEF5P7RY.YI6WVOULGBNFBZ3DI2HDYS3OXJSCEY5FMS2NCXAHIFQWR4PJJLWQ,#F2344,En casa,true,true,true,paco96routermikro,ff808081811c03b501811c03f8940000,,paco96routermikro
+dc8391d3-24ac-4c2a-9280-386242ccf10a,Bearer NNSXS.U3E3JTHSBIAPCIG4FTBNFTQCI6UVXH5NS5Q6VJQ.HO6ADLF4DG7AXSWLU5T46PG2ZTYNZZ5KXQXASCHS7PVHR5NJLZWQ,#F3DE2,Router situado en la universidad de Almería,true,true,true,Dragino LPS8,ff808081811c03b501811c03f8940000,,dragino-pac

@@ -1,0 +1,9 @@
+"uuid","email","first_name","last_name","password","role","username","user_name"
+"2c94a00c812552980181255cee8c0000",prueba4@prueba.com,Paco4,L,$2a$10$5oecsIpIBTBy5kPfRupg0.RiST98pNllCAj36PvFTE6Y.XhZWxF5.,USER,paco4,
+ff808081811c03b501811c03f8940000,prueba@prueba.com,Paco,L,$2a$10$JZmPhIlrf7ufljKOPUY0auyYpdXuA8GbVBx6iN1IBJperg0NbA6f.,USER,paco,paco
+ff8080818121a2ec018121a30e010000,prueba2@prueba.com,Paco2,L,$2a$10$EL.e1jvBAvH31DXFt3xBhOcolCUTFC.dl.AjPA9WmzZBNl7Ku8vUC,USER,paco2,paco2
+ff8080818121a495018121a4d9580000,prueba2@prueba.com,Paco2,L,$2a$10$YoW6Ai2gUz3RmXO81Ukij.Un0zJHEqNEJAELak/nRw.t0uDiCnk/W,USER,paco23,paco23
+"2c9380838126d0440181270885110000",,Paco,Lopez,$2a$10$r3.mtSWs7tXXpkOGB3j7lOm7Gpg0rxRRQ0zoL9XYvE/Dhu80AU8Hm,USER,pcoloc,
+"2c93808381295df401812a1495470001",,paco,paco,$2a$10$DQ/PvkcGYKmiJBiGxy5UP.u7kiZM/8Qyvh4c606U9Gjl3WIzuGx1K,USER,paco34,
+"2c9380838153a4cd018153a515220000",,Paco,Lo,$2a$10$u5THouSKCZp2JNk5z0RgK.V3kHDscH3nzIo9h5Mnv9N1OU3Rp/zRy,USER,karat,
+"2c9380838153a4cd018153a519270001",.com,Paco,Lo,$2a$10$ApEJ213TjGXkYpMr1m6rEOxtWzPMDTwHL7JGOewlM.s8v7KCcjXUO,USER,karat,
